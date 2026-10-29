@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.PaperView" x:DataType="vm:PaperViewModel">
+  <UserControl.DataTemplates><DataTemplate DataType="app:CardChoice" x:DataType="app:CardChoice"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></UserControl.DataTemplates>
+ <StackPanel Spacing="16">
+  <TextBlock Text="Jouw verzameling. Jouw volgende deck." Classes="heading" TextWrapping="Wrap" />
+  <TextBlock Name="PaperSummary" Text="{Binding Summary}" Foreground="#DFAE6D" TextWrapping="Wrap" />
+  <TextBlock IsVisible="{Binding IsDemoActive}" Text="Testcollectie actief: gesimuleerd bezit, geen echte scan. De getoonde aantallen zijn uitsluitend voor een proef. Eigen registratie gebruikt een aparte voorraad." Classes="muted" TextWrapping="Wrap" />
+
+  <Grid ColumnDefinitions="*,300">
+  <TabControl SelectedIndex="{Binding SelectedTab}" Margin="0,0,20,0">
+   <TabItem Header="Collectie"><StackPanel Spacing="12" Margin="0,16,0,0">
+    <TextBox Name="PaperSearch" Text="{Binding Search}" PlaceholderText="Kaartnaam of Scryfall-zoekopdracht, bijvoorbeeld set:con" />
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" Margin="0,4,0,4">
+     <StackPanel Spacing="6" Margin="0,0,10,10"><TextBlock Text="Kleur" Classes="muted" /><ComboBox Name="CollectionColorFilter" ItemsSource="{Binding ColorFilters}" SelectedItem="{Binding ColorFilter}" HorizontalAlignment="Stretch" /></StackPanel>
+     <StackPanel Grid.Column="1" Spacing="6" Margin="0,0,0,10"><TextBlock Text="Synergie / themarol" Classes="muted" /><ComboBox Name="CollectionThemeFilter" ItemsSource="{Binding ThemeFilters}" SelectedItem="{Binding ThemeFilter}" HorizontalAlignment="Stretch" /></StackPanel>
+     <StackPanel Grid.Row="1" Spacing="6" Margin="0,0,10,0"><TextBlock Text="Kaarttype" Classes="muted" /><ComboBox Name="CollectionTypeFilter" ItemsSource="{Binding TypeFilters}" SelectedItem="{Binding TypeFilter}" HorizontalAlignment="Stretch" /></StackPanel>
+     <StackPanel Grid.Row="1" Grid.Column="1" Spacing="6"><TextBlock Text="Serie / set" Classes="muted" /><ComboBox Name="CollectionSetFilter" ItemsSource="{Binding SetFilters}" SelectedItem="{Binding SetFilter}" HorizontalAlignment="Stretch" /></StackPanel>
+    </Grid>
+    <TextBlock Text="{Binding FilterSummary}" Foreground="#D8AE74" TextWrapping="Wrap" />
+    <Button Content="Filters wissen" Command="{Binding ClearFiltersCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="Filters gelden samen voor je collectie. Kleur betekent kaartkleur; de deckwizard gebruikt kleuridentiteit. Synergie filtert ondersteunde eigen rollen. Bij een geladen deck zie je relaties, ontbrekende voorwaarden en onbekende werking; geen bewezen combo." Classes="muted" TextWrapping="Wrap" />
+    <WrapPanel><Button Name="PaperRefresh" Content="Mijn collectie filteren" Command="{Binding ReloadCommand}" Margin="0,0,8,8" /><Button Name="PaperOnlineSearch" Content="Zoeken bij Scryfall (fysiek)" Command="{Binding SearchOnlineCommand}" Classes="primary" Margin="0,0,0,8" /></WrapPanel>
+    <TextBlock Text="Mijn actieve fysieke collectie" Classes="section" />
+    <ComboBox Name="PaperOwnedPicker" ItemsSource="{Binding Collection}" SelectedItem="{Binding SelectedOwned}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperOwned"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <TextBlock Text="{Binding SelectedOwned.Positions}" Classes="muted" TextWrapping="Wrap" />
+    <TextBlock Text="Online zoekresultaten (eerste 40); selecteer de juiste uitgave" Classes="muted" TextWrapping="Wrap" />
+    <ComboBox Name="PaperSearchPicker" ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedCard}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperCard"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <WrapPanel><NumericUpDown Name="PaperOwnedQuantity" Value="{Binding OwnedQuantity}" Minimum="0" Maximum="9999" Width="100" Margin="0,0,8,8" /><Button Name="PaperSetOwned" Content="Absoluut aantal in aparte map Handmatig opslaan" Command="{Binding SetOwnedCommand}" Margin="0,0,0,8" /></WrapPanel>
+    <TextBlock Text="Handmatig aantal is geen wijziging van een bestaande CSV-map. Gebruik CSV opnieuw voor die map. Bewaar geen dubbele registratie van dezelfde exemplaren in meerdere mappen." Classes="muted" TextWrapping="Wrap" />
+   </StackPanel></TabItem>
+   <TabItem Header="Scan-CSV"><StackPanel Spacing="12" Margin="0,16,0,0">
+    <TextBlock Text="ManaBox: exporteer een collectie/binder als CSV, stuur naar deze pc en kies het bestand. Proxy- en deck/list-rijen tellen niet als echt bezit. Finish, conditie, taal en map blijven behouden; dubbele regels binnen dezelfde identiteit worden zichtbaar samengevoegd tot een absoluut aantal." Classes="muted" TextWrapping="Wrap" />
+    <Button Name="PaperChooseCsv" Content="ManaBox / scan-CSV kiezen…" Click="ChooseCsvClicked" Classes="primary" HorizontalAlignment="Left" />
+    <TextBlock Name="PaperImportSummary" Text="{Binding ImportPreview.Summary}" TextWrapping="Wrap" />
+    <ListBox Name="PaperImportRows" ItemsSource="{Binding ImportRows}" SelectedItem="{Binding SelectedImportRow}" MaxHeight="240"><ListBox.ItemTemplate><DataTemplate x:DataType="app:PaperImportRow"><StackPanel Margin="0,4"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Status}" Foreground="#C9BFFF" TextWrapping="Wrap" /></StackPanel></DataTemplate></ListBox.ItemTemplate></ListBox>
+    <TextBlock Text="{Binding SelectedImportRow.Details}" Classes="muted" TextWrapping="Wrap" MaxHeight="160" />
+    <Button Content="Afbeelding van doelprinting bekijken" Command="{Binding PreviewRowCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="Onzekere regel? Zoek/selecteer op Collectie en Scryfall de exacte doelprinting en kom terug. Koppelen is een expliciete keuze; controleer de kaartafbeelding." Classes="muted" TextWrapping="Wrap" />
+    <WrapPanel><Button Name="PaperLinkRow" Content="Regel aan geselecteerde kaart koppelen" Command="{Binding LinkRowCommand}" Margin="0,0,8,8" /><Button Name="PaperSkipRow" Content="Regel expliciet overslaan" Command="{Binding SkipRowCommand}" Margin="0,0,0,8" /></WrapPanel>
+    <CheckBox Name="PaperConfirmImport" IsChecked="{Binding ConfirmImport}"><TextBlock Text="Ik heb alle regels, aantallen, uitvoeringen en mappen gecontroleerd." TextWrapping="Wrap" /></CheckBox>
+    <Button Name="PaperApplyImport" Content="Fysiek bezit toepassen" Command="{Binding ApplyImportCommand}" IsEnabled="{Binding CanApply}" HorizontalAlignment="Left" />
+    <ComboBox Name="PaperImportHistory" ItemsSource="{Binding History}" SelectedItem="{Binding SelectedHistory}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperImportHistory"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Button Content="Historisch voorbeeld openen" Command="{Binding LoadImportCommand}" HorizontalAlignment="Left" />
+    <CheckBox IsChecked="{Binding ConfirmUndo}"><TextBlock Text="Ik wil deze import herstellen; latere wijzigingen mogen niet worden overschreven." TextWrapping="Wrap" /></CheckBox>
+    <Button Name="PaperUndoImport" Content="Import herstellen" Command="{Binding UndoImportCommand}" HorizontalAlignment="Left" />
+   </StackPanel></TabItem>
+   <TabItem Header="Decks"><StackPanel Spacing="12" Margin="0,16,0,0">
+    <Button Name="OpenDeckWizard" Content="✦  Bouw een nieuw deck met de wizard" Click="OpenWizardClicked" Classes="primary" HorizontalAlignment="Left" />
+    <ComboBox Name="PaperDeckPicker" ItemsSource="{Binding Decks}" SelectedItem="{Binding SelectedDeck}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperDeckInfo"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Button Name="PaperLoadDeck" Content="Deck laden / controleren" Command="{Binding LoadDeckCommand}" HorizontalAlignment="Left" />
+    <Button Content="Alle deckkaarten / legaliteit online vernieuwen" Command="{Binding RefreshDeckSourcesCommand}" HorizontalAlignment="Left" />
+<TextBlock Name="PaperDeckSummary" Text="{Binding DeckSummary}" Classes="section" TextWrapping="Wrap" />
+    <ScrollViewer MaxHeight="180" HorizontalScrollBarVisibility="Disabled"><TextBlock Name="PaperDeckDetails" Text="{Binding DeckDetails}" TextWrapping="Wrap" /></ScrollViewer><TextBlock Name="PaperSynergySummary" Text="{Binding DeckSynergy.Summary}" Classes="section" TextWrapping="Wrap" />
+<TextBlock Text="{Binding DeckSynergy.ProfileSummary}" Classes="muted" TextWrapping="Wrap" />
+<Expander Name="PaperSynergyPanel" Header="Synergierelaties en voorwaarden" HorizontalAlignment="Stretch"><StackPanel Spacing="12">
+<TextBlock Name="PaperSynergyWarnings" Text="{Binding DeckSynergy.WarningsText}" Foreground="#E8B978" TextWrapping="Wrap" />
+<ListBox Name="PaperSynergyRelations" ItemsSource="{Binding DeckSynergy.Relations}" MaxHeight="300"><ListBox.ItemTemplate><DataTemplate x:DataType="app:SynergyRelation"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" Margin="4,8" /></DataTemplate></ListBox.ItemTemplate></ListBox>
+</StackPanel></Expander>
+    <TextBox Text="{Binding DeckName}" PlaceholderText="Naam voor een nieuw fysiek deck" /><Button Name="PaperCreateDeck" Content="Nieuw fysiek deck" Command="{Binding CreateDeckCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="Conflux-voorstel: vast Casual60-plan met 36 niet-landen en 24 basislanden. Bezitmodus is standaard. Geen Standard- of bewezen speelsterkteadvies." Classes="muted" TextWrapping="Wrap" />
+    <CheckBox Name="PaperPlanningProposal" IsChecked="{Binding PlanningProposal}"><TextBlock Text="Planning: laat tekorten toe (kaarten worden niet aan bezit toegevoegd)." TextWrapping="Wrap" /></CheckBox>
+    <Button Name="PaperPrepareProposal" Content="60-kaart Conflux-voorstel voorbereiden" Command="{Binding PrepareProposalCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="Commander · één commander + 62 singleton niet-landen + 37 basislanden" Classes="section" TextWrapping="Wrap" />
+    <ComboBox Name="PaperCommanderPicker" ItemsSource="{Binding Commanders}" SelectedItem="{Binding SelectedCommander}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperCard"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Button Command="{Binding UseCommanderCommand}" HorizontalAlignment="Left"><TextBlock Text="Geselecteerde collectie-/Scryfall-kaart als commander gebruiken" TextWrapping="Wrap" /></Button>
+    <TextBlock Text="Bezitmodus gebruikt alleen passende eigen kaarten. Planning vult gericht via Scryfall aan, met alle tekorten zichtbaar. Geen partner/background-paren, variabele kleurkeuze of bewezen speelsterkte." Classes="muted" TextWrapping="Wrap" />
+    <Button Name="PaperPrepareCommander" Content="100-kaart Commander-voorstel voorbereiden" Command="{Binding PrepareCommanderCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="{Binding DeckDraft.Report.Summary}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+    <ScrollViewer MaxHeight="260"><TextBlock Text="{Binding DeckDraft.Details}" TextWrapping="Wrap" /></ScrollViewer>
+    <CheckBox IsChecked="{Binding ConfirmDeckDraft}"><TextBlock Text="Ik heb de volledige voorgestelde lijst en tekorten gecontroleerd." TextWrapping="Wrap" /></CheckBox>
+    <Button Name="PaperSaveProposal" Content="Voorbeeld als nieuw fysiek deck opslaan" Command="{Binding SaveDeckDraftCommand}" HorizontalAlignment="Left" />
+    
+    <CheckBox Name="PaperStandardProfile" IsChecked="{Binding StandardProfile}"><TextBlock Text="Standard fysiek: 60+ kaarten, actuele papieren legaliteit. Sluit Commander uit." TextWrapping="Wrap" /></CheckBox>
+    <CheckBox Name="PaperCommanderProfile" IsChecked="{Binding CommanderProfile}"><TextBlock Text="Commander-profiel: exact 100, kleuridentiteit, singleton en legaliteit. Sluit Standard uit." TextWrapping="Wrap" /></CheckBox>
+    <Button Content="Profiel opslaan en controleren" Command="{Binding SaveProfileCommand}" HorizontalAlignment="Left" />
+    <ListBox Name="PaperDeckLines" ItemsSource="{Binding DeckLines}" SelectedItem="{Binding SelectedDeckLine}" MaxHeight="240"><ListBox.ItemTemplate><DataTemplate x:DataType="app:PaperDeckLine"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" Margin="0,4" /></DataTemplate></ListBox.ItemTemplate></ListBox>
+    <TextBlock Text="Selecteer een kaart uit collectie/online of een bestaande deckregel. Aantal nul verwijdert de geselecteerde printing/zone." Classes="muted" TextWrapping="Wrap" />
+    <WrapPanel><NumericUpDown Value="{Binding DeckQuantity}" Minimum="0" Maximum="9999" Width="90" Margin="0,0,8,8" /><ComboBox ItemsSource="{Binding Zones}" SelectedItem="{Binding Zone}" Margin="0,0,8,8" /><Button Name="PaperSaveDeckCard" Content="Geselecteerde kaart / zone opslaan" Command="{Binding SaveDeckCardCommand}" Margin="0,0,0,8" /></WrapPanel>
+    <Button Name="PaperAlternatives" Content="Lokale alternatieven voor geselecteerde deckregel" Command="{Binding FindAlternativesCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="{Binding AlternativeStatus}" Classes="muted" TextWrapping="Wrap" />
+    <ComboBox ItemsSource="{Binding Alternatives}" SelectedItem="{Binding SelectedAlternative}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:PaperAlternative"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Button Content="Vervanging als nieuw deck voorbereiden" Command="{Binding PrepareReplacementCommand}" HorizontalAlignment="Left" />
+    <Button Content="Geselecteerd deck als kopie voorbereiden" Command="{Binding PrepareDeckCopyCommand}" HorizontalAlignment="Left" />
+    <Button Name="PaperExportDeck" Content="Decktekst maken" Command="{Binding ExportDeckCommand}" HorizontalAlignment="Left" /><TextBox Text="{Binding ExportText}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="200" />
+    <TextBlock Text="Decktekst importeren · exacte uitgaven" Classes="section" />
+    <TextBlock Text="Gebruik aantal Kaartnaam (SET) nummer. De taal hieronder kiest expliciet de uitgave. Geen bezitimport; onvolledige decks mogen als planning worden opgeslagen." Classes="muted" TextWrapping="Wrap" />
+    <TextBox Text="{Binding DeckImportLanguage}" PlaceholderText="Taalcode, bijvoorbeeld en" MaxLength="12" />
+    <TextBox Text="{Binding DeckImportText}" AcceptsReturn="True" TextWrapping="Wrap" MaxHeight="180" MinHeight="85" />
+    <Button Content="Decktekst controleren en voorbereiden" Command="{Binding PrepareDeckTextCommand}" HorizontalAlignment="Left" />
+    <TextBlock Text="{Binding DeckDraft.Report.Summary}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+    <ScrollViewer MaxHeight="300"><TextBlock Text="{Binding DeckDraft.Details}" TextWrapping="Wrap" /></ScrollViewer>
+    <CheckBox IsChecked="{Binding ConfirmDeckDraft}"><TextBlock Text="Ik heb dit voorbeeld gecontroleerd en wil een nieuw deck opslaan." TextWrapping="Wrap" /></CheckBox>
+    <Button Content="Voorbeeld als nieuw deck opslaan" Command="{Binding SaveDeckDraftCommand}" HorizontalAlignment="Left" />
+    <CheckBox IsChecked="{Binding ConfirmDelete}"><TextBlock Text="Ik wil dit geselecteerde fysieke deck verwijderen; bezit blijft behouden." TextWrapping="Wrap" /></CheckBox><Button Content="Geselecteerd deck verwijderen" Command="{Binding DeleteDeckCommand}" HorizontalAlignment="Left" />
+   </StackPanel></TabItem>
+  </TabControl>
+  <Border Grid.Column="1" Classes="card" VerticalAlignment="Top"><StackPanel Spacing="10">
+   <TextBlock Name="PaperCardName" Text="{Binding SelectedCard.Label}" Classes="section" TextWrapping="Wrap" />
+   <Image Name="PaperCardImage" Source="{Binding CardImage}" Width="250" Height="350" Stretch="Uniform" />
+   <TextBlock Name="PaperImageStatus" Text="{Binding ImageStatus}" Classes="muted" TextWrapping="Wrap" />
+   <CheckBox Name="PaperBackFace" IsChecked="{Binding ShowBack}"><TextBlock Text="Achterzijde (indien beschikbaar)" TextWrapping="Wrap" /></CheckBox>
+   <Button Name="PaperRefreshCard" Content="Kaartgegevens vernieuwen" Command="{Binding RefreshCardCommand}" HorizontalAlignment="Left" />
+   <TextBlock Name="PaperCardDetails" Text="{Binding SelectedCard.Details}" TextWrapping="Wrap" />
+  </StackPanel></Border>
+  </Grid>
+ </StackPanel>
+</UserControl>
+
+

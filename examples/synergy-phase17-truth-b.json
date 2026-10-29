@@ -1,0 +1,470 @@
+[
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "e055bc6d-d395-4f85-8e15-3bce65b7fcca",
+    "Name": "Redcap Thief",
+    "Note": "Own Treasure on entry, not creature token."
+  },
+  {
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "OracleId": "7a6db509-7ef4-483c-b8a0-62a4f3e16ef9",
+    "Name": "Battle Mammoth",
+    "Note": "Own optional draw when enemy targets own permanent."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "34b44f16-f17d-47f5-aeaa-56bc7f13250e",
+    "Name": "Double Cross",
+    "Note": "Other player discard, not own draw/GY setup; silver-border unsupported."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death"
+    ],
+    "OracleId": "09fe624f-c66a-46e4-a9af-7e3c3ca1a4e3",
+    "Name": "Capricious Sorcerer",
+    "Note": "Conditional one damage can kill opposing creature; timing before attackers on own turn."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "f46c72b8-e2e8-42e6-a2e7-ffa5810a9bf3",
+    "Name": "Swarm Shambler",
+    "Note": "Own creature token if counters-bearing creature targeted by opponent."
+  },
+  {
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "OracleId": "b2faa8b6-e433-4171-9774-9170484530c4",
+    "Name": "Teferi's Response",
+    "Note": "Own draw, conditional counter/destruction is not generic creature destruction."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "a41297c4-5c2d-475d-b1f5-439df30fbad7",
+    "Name": "Rise to Glory",
+    "Note": "Own creature or Aura recursion; choose one or both, different card types."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "9ddc5a06-b4e1-459a-9e39-7cd1aa994fe1",
+    "Name": "Helix Pinnacle",
+    "Note": "Alternative counter win condition, outside eight families."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "5e1b400f-ec5c-4703-bf30-65bb16bd3ca6",
+    "Name": "Sleep of the Dead",
+    "Note": "Escape from own graveyard consumes other own cards."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "99c70f4e-de8a-426d-99aa-17b2f87625ba",
+    "Name": "Training Compound",
+    "Note": "Conditional mana production is not mana cost or Domain type."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "a2dadaf5-eaa1-4c43-9e21-bb2334ceb918",
+    "Name": "Ramunap Hydra",
+    "Note": "Specific Desert card in own graveyard payoff, not all graveyard cards."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "48060406-dd5a-4df5-84e9-3e797f0248cd",
+    "Name": "Moira, Urborg Haunt",
+    "Note": "Combat-gated creature recursion limited to cards put there from battlefield this turn."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "1b799c30-4a43-403d-b822-0555bd513913",
+    "Name": "Earth Kingdom Jailer",
+    "Note": "Temporary exile is not death."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "0f10f9d1-f9f9-4356-9208-0f21f44bfb97",
+    "Name": "Charging Binox",
+    "Note": "Assist/trample no family."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "d799a2c4-628a-45da-b9ca-0337c46e3e14",
+    "Name": "Lofty Denial",
+    "Note": "Counter with flying condition is not draw or creature death."
+  },
+  {
+    "ExpectedThemes": [
+      "sacrifice",
+      "draw"
+    ],
+    "OracleId": "e0e6938b-7abf-4f69-a3d6-82a58912bff4",
+    "Name": "Caldaia Strongarm",
+    "Note": "Optional blitz mode gives self-sacrifice and self-death draw; normal ETB counters separate."
+  },
+  {
+    "ExpectedThemes": [
+      "sacrifice",
+      "graveyard"
+    ],
+    "OracleId": "264cb7f6-6d36-4e58-87f4-83ccaa998a32",
+    "Name": "Epicenter",
+    "Note": "May choose oneself to sacrifice own land; own-GY threshold changes effect to each player."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "719aeb50-c8cf-4cd8-b74c-d2cef408b52e",
+    "Name": "Airlift Chaplain",
+    "Note": "Own mill and limited milled-card recovery, not draw."
+  },
+  {
+    "ExpectedThemes": [
+      "sacrifice",
+      "draw"
+    ],
+    "OracleId": "0b67c4e2-f88b-4e01-85a1-9d5f5b8db13b",
+    "Name": "Commander's Sphere",
+    "Note": "Only this artifact sacrifice draws; generic noncreature outlet not implied."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens",
+      "draw",
+      "opponent-death"
+    ],
+    "OracleId": "9651d197-a408-4665-a292-58d5471f4ffc",
+    "Name": "Ashling's Command",
+    "Note": "Choose two; may target oneself for draw/Treasures and opponent for creature damage. Not all modes simultaneous."
+  },
+  {
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "OracleId": "9c0255ff-6579-4ce4-810d-01df9922ab33",
+    "Name": "Sidequest: Play Blitzball // World Champion, Celestial Weapon",
+    "Note": "Transformed Equipment with timing/damage threshold; do not merge modes."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard",
+      "draw"
+    ],
+    "OracleId": "a5b0f351-5536-41ec-aa09-1e5344a0effb",
+    "Name": "Sudden Salvation",
+    "Note": "Restricted recently dead permanent-card returns under owners control; conditional own draw per enemy helped."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "afc59d95-d85c-4ab8-b6c5-c78b608b53b7",
+    "Name": "Spawnwrithe",
+    "Note": "Self-copy token after actual combat damage."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "e0523435-bf0b-4568-879c-cb5dce5e0bc1",
+    "Name": "Barren Glory",
+    "Note": "Empty-hand/empty-board alternate win outside families."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "d8560ee9-8cbb-440b-a132-e102a1eb3e89",
+    "Name": "Bloodlord of Vaasgoth",
+    "Note": "Vampire spell must be CAST to receive bloodthirst. Created Vampire tokens are not cast and do not receive this ability; tribal spell support is outside the token family. Manual truth corrected without parser change."
+  },
+  {
+    "ExpectedThemes": [
+      "draw",
+      "graveyard"
+    ],
+    "OracleId": "1e05e6ef-14af-451d-9d54-e75b1f8871ab",
+    "Name": "Thirst for Discovery",
+    "Note": "Draw then discard two or a basic; not both full spell and no cost."
+  },
+  {
+    "ExpectedThemes": [
+      "draw",
+      "graveyard"
+    ],
+    "OracleId": "9809d975-7ef8-4946-9041-607c4e954b13",
+    "Name": "Polluted Mire",
+    "Note": "Cycling self-discard draws one; land produces black but is not a basic Swamp type."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "ccb456a0-3abd-4bde-a453-20d2da210e05",
+    "Name": "Rusko, Clockmaker",
+    "Note": "Acorn physical playtest of conjure mechanics; permanent conjuring is not token creation or own draw."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "86529f12-6f0f-4b0d-96f1-785474f6763a",
+    "Name": "Broodmate Dragon",
+    "Note": "Own Dragon creature token on entry."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "eed742c3-006f-475c-aa62-41f971d328cb",
+    "Name": "Swirl the Mists",
+    "Note": "Global text layer changes outside supported families."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "cb15a8dd-57fe-466f-847e-66476b690a1f",
+    "Name": "Xenagos, God of Revels",
+    "Note": "Single creature combat buff and conditional creature type, not team/token or exalted."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "e717c42b-3177-42e1-83c1-11da11d62aa5",
+    "Name": "Gifts Given",
+    "Note": "Enemy library/graveyard and cards put into own hand is not draw or own GY use."
+  },
+  {
+    "ExpectedThemes": [
+      "draw",
+      "tokens"
+    ],
+    "OracleId": "04cc9177-1ffc-4ac8-a64d-7995b4f33d23",
+    "Name": "Spry and Mighty",
+    "Note": "Own X draw and exactly two chosen own creatures buff; power-difference and targets remain restrictions."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "2fff8441-1f5a-423b-ab98-93016266f5c5",
+    "Name": "Paradox Zone",
+    "Note": "End-step Fractal token needs counters to survive as more than 0/0."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "9e187d43-ae75-4589-81fc-476ae95ba5b9",
+    "Name": "Fang of Shigeki",
+    "Note": "Deathtouch creature itself no family."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "8ac23863-0aa7-41bc-b9b7-c5f0566172cf",
+    "Name": "Nightveil Sprite",
+    "Note": "Own surveil on attack, not draw."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "0f94d1a7-351f-4d37-8dab-1ebf2e8ee213",
+    "Name": "Paragon of Fierce Defiance",
+    "Note": "Only other red creatures get bonus; ordinary nonred tokens do not qualify."
+  },
+  {
+    "ExpectedThemes": [
+      "sacrifice",
+      "opponent-death"
+    ],
+    "OracleId": "4854a41e-db49-462f-ae57-0ba4005bae75",
+    "Name": "Cacophony Scamp",
+    "Note": "Optional self-sacrifice after combat; variable self-death damage may kill enemy creature."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "OracleId": "7ccd666a-0d56-4fe3-b16b-d035bf2ad420",
+    "Name": "Protect the Negotiators",
+    "Note": "Kicked own creature token; counter condition is not draw."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "ee3dfdb2-07ef-4ce2-9806-0a5b7f19aa67",
+    "Name": "Hercules, Olympian Hero",
+    "Note": "Self counters/protection, not whole team or eight-family role."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "7ea8426a-3b66-4fd0-9863-2b68d379671f",
+    "Name": "Soulbright Flamekin",
+    "Note": "Single creature trample and repeated-activation mana, not mana cost or direct family."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "cff3fba2-9c5d-4e98-9ff0-0cc0b3bc8dbe",
+    "Name": "Iceberg",
+    "Note": "Counter-based mana storage not family."
+  },
+  {
+    "ExpectedThemes": [
+      "draw",
+      "sacrifice"
+    ],
+    "OracleId": "8ce63f60-0211-46c7-8fb6-c5484ebfa029",
+    "Name": "Cut of the Profits",
+    "Note": "Own X draw/life loss; optional casualty needs creature power at least three."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "f21d0319-0509-4ac1-b6e3-10955a26fd7a",
+    "Name": "Fracture",
+    "Note": "Noncreature-target removal categories. Artifact/enchantment creatures can incidentally die, outside measured explicit creature-removal category."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "87a4806e-8d5e-473b-8d6d-665e45a5e042",
+    "Name": "Abstract Iguanart",
+    "Note": "Artist-name counters under unsupported silver-border rules, no family."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death",
+      "graveyard"
+    ],
+    "OracleId": "ea96fe35-88ed-432b-a495-08e787d23d0b",
+    "Name": "Piercing Exhale",
+    "Note": "Own creature deals power-based damage to opposing creature/PW; conditional Dragon-behold surveil."
+  },
+  {
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "OracleId": "48e8ae59-a234-498e-9dae-bac8d1424ea5",
+    "Name": "Runic Armasaur",
+    "Note": "Own optional draw on enemy nonmana creature/land activation."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "fd01229f-1c4c-4ad1-bc6f-4023f24d8c71",
+    "Name": "Cheerful Osteomancer // Raise Dead",
+    "Note": "Prepared copy of own creature-card recursion; sides not merged."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens",
+      "equipment",
+      "graveyard"
+    ],
+    "OracleId": "77322d69-330e-4b00-b984-62c6d45c9540",
+    "Name": "Vault 101: Birthday Party",
+    "Note": "Saga creature/Food, later Aura/Equipment from hand/GY and attach. Chapter timing separate."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "OracleId": "814f06aa-b48e-4c7f-b4cd-595d89176d0e",
+    "Name": "Rise // Fall",
+    "Note": "May return own creature card from graveyard, or choose oneself for random nonland discard; split."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "c95309e9-5c2f-4518-b2fd-825d3d0a4ae0",
+    "Name": "Sundering Eruption // Volcanic Fissure",
+    "Note": "Land destruction and blocking restriction, not creature death."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death"
+    ],
+    "OracleId": "7e97a242-0bac-4f18-9228-e98ecca36254",
+    "Name": "Scavenger Regent // Exude Toxin",
+    "Note": "Back conditional minus-toughness removal; ward discard is paid by opponent, not own GY source."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death"
+    ],
+    "OracleId": "7cb47a7e-fe60-45a2-9c07-bd5c6ddca82d",
+    "Name": "Arni Slays the Troll",
+    "Note": "Saga conditional creature fight may kill opposing creature; life/counters separate chapters."
+  },
+  {
+    "ExpectedThemes": [
+      "tokens",
+      "sacrifice",
+      "opponent-death"
+    ],
+    "OracleId": "432b37a5-d32a-4b78-91ab-860aa026b7cc",
+    "Name": "Archangel Avacyn // Avacyn, the Purifier",
+    "Note": "Front whole-team protection and own non-Angel death transform; back conditional damage sweeper. Separate faces."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "a64ecae7-0b09-48e1-8108-89442547ffda",
+    "Name": "Weaver of Blossoms // Blossom-Clad Werewolf",
+    "Note": "Day/night mana output outside eight families."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "9a378964-2c04-4d60-a905-c819d37ed4c3",
+    "Name": "Invert // Invent",
+    "Note": "P/T swap and library tutor, no draw/GY/token."
+  },
+  {
+    "ExpectedThemes": [
+      "graveyard",
+      "sacrifice",
+      "draw"
+    ],
+    "OracleId": "8fa7bd8f-f712-4dd1-9ffb-e30dfe744389",
+    "Name": "Egon, God of Death // Throne of Death",
+    "Note": "Own graveyard consumption/mill; conditional self sacrifice/draw and back draw cost; separate faces."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death"
+    ],
+    "OracleId": "82959ca2-cd96-4cca-9ce0-afb8db209860",
+    "Name": "Bushi Tenderfoot // Kenzo the Hardhearted",
+    "Note": "Specific damaged creature death flips source; back not merged."
+  },
+  {
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "OracleId": "10c0f814-e302-49ff-aded-1b8d8424fd60",
+    "Name": "Foulmire Knight // Profane Insight",
+    "Note": "Adventure own draw/life loss; creature side separate."
+  },
+  {
+    "ExpectedThemes": [
+      "opponent-death"
+    ],
+    "OracleId": "5b18d2fd-bc65-49a2-b812-c217f125571d",
+    "Name": "Initiate of Blood // Goka the Unjust",
+    "Note": "Damage to creature already damaged, then conditional flip; different levels of damage per face."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "8c77f436-81ab-4200-b76d-58b1f91fc3d0",
+    "Name": "Beastbreaker of Bala Ged",
+    "Note": "Level-specific trample/stats, no eight-family role."
+  },
+  {
+    "ExpectedThemes": [],
+    "OracleId": "fb98f6b7-5986-4c5d-98fc-e5c4106f48bf",
+    "Name": "Echo Mage",
+    "Note": "Level-specific spell copying, not intrinsically tokens or draw."
+  }
+]

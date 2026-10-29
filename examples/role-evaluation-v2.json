@@ -1,0 +1,508 @@
+{
+  "DatasetVersion": "role-evaluation-v2",
+  "Source": "Scryfall snapshot 2026-10-21T21:06:00.423Z",
+  "Selection": "10 lowest SHA256(phase9-eval-v1/OracleId) per ordered stratum Damage, Modal, Other; Damage takes priority; exclude phase7/8 references/evaluation and three prior real examples. Not representative.",
+  "SelectedUtc": "2026-10-22T13:07:55.1186204+02:00",
+  "LabeledUtc": "2026-10-22T11:13:55.238394+00:00",
+  "ParserFreeze": "artifacts/phase9-classifier-freeze.json",
+  "Labeling": "Same developer, after parser/comparison/ranking freeze and before viewing baseline or current per-card predictions. No independent reviewer. Stratified, not representative. Removal includes targeted bounce/exile and potential creature damage; ordinary land mana, impulse access, combat and reanimation excluded.",
+  "Cases": [
+    {
+      "Name": "Kotis, the Fangkeeper",
+      "TypeLine": "Legendary Creature — Zombie Warrior",
+      "OracleText": "Indestructible\nWhenever Kotis deals combat damage to a player, exile the top X cards of their library, where X is the amount of damage dealt. You may cast any number of spells with mana value X or less from among them without paying their mana costs.",
+      "ManaCost": "{1}{B}{G}{U}",
+      "Colors": "UBG",
+      "ManaValue": 4,
+      "OracleId": "2eb2f6a2-e31a-4d3e-93ce-100394899014",
+      "Stratum": "Damage",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Combat-triggered impulse/casting, niet werkelijk draw of gerichte removal."
+    },
+    {
+      "Name": "Felling Blow",
+      "TypeLine": "Sorcery",
+      "OracleText": "Put a +1/+1 counter on target creature you control. Then that creature deals damage equal to its power to target creature an opponent controls.",
+      "ManaCost": "{2}{G}",
+      "Colors": "G",
+      "ManaValue": 3,
+      "OracleId": "fbfa19ca-98bb-4c7d-a04e-920a8aafb031",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "equal to its power"
+      ],
+      "ReviewNote": "Gerichte variabele schade via eigen creature, afhankelijk van power."
+    },
+    {
+      "Name": "Squall, SeeD Mercenary",
+      "TypeLine": "Legendary Creature — Human Knight Mercenary",
+      "OracleText": "Rough Divide — Whenever a creature you control attacks alone, it gains double strike until end of turn.\nWhenever Squall deals combat damage to a player, return target permanent card with mana value 3 or less from your graveyard to the battlefield.",
+      "ManaCost": "{2}{W}{B}",
+      "Colors": "WB",
+      "ManaValue": 4,
+      "OracleId": "e2348e0e-eeca-47b5-9417-bf4470ec29bb",
+      "Stratum": "Damage",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Combat en reanimation, buiten de vier afgebakende families."
+    },
+    {
+      "Name": "Pumpkin Bombardment",
+      "TypeLine": "Sorcery",
+      "OracleText": "As an additional cost to cast this spell, discard a card or pay {2}.\nPumpkin Bombardment deals 3 damage to target creature.",
+      "ManaCost": "{B/R}",
+      "Colors": "BR",
+      "ManaValue": 1,
+      "OracleId": "37827e84-9f5f-49ed-b939-0cf80dac82e7",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "As an additional cost",
+        "discard a card or pay {2}"
+      ],
+      "ReviewNote": "Vaste gerichte schade met verplichte extra kosten."
+    },
+    {
+      "Name": "Lyra, Tolarian Archangel",
+      "TypeLine": "Legendary Creature — Angel Wizard",
+      "OracleText": "Flying\nAt the beginning of each end step, if you've drawn three or more cards this turn, create a 3/3 blue Angel creature token with flying.\n{3}{U}{U}: Until end of turn, whenever Lyra deals combat damage to a player, draw two cards.",
+      "ManaCost": "{1}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "d9060fff-0b65-4b3d-930d-6e36315b802c",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Until end of turn",
+        "combat damage to a player"
+      ],
+      "ReviewNote": "Geactiveerde tijdelijke combat-drawtrigger, geen losse trekspreuk."
+    },
+    {
+      "Name": "Terrific Team-Up",
+      "TypeLine": "Instant",
+      "OracleText": "This spell costs {2} less to cast if you control a permanent with mana value 4 or greater.\nOne or two target creatures you control each get +1/+0 until end of turn. They each deal damage equal to their power to target creature an opponent controls.",
+      "ManaCost": "{3}{G}",
+      "Colors": "G",
+      "ManaValue": 4,
+      "OracleId": "431c5b04-7387-4724-adfa-d1eb7874e79e",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "equal to their power"
+      ],
+      "ReviewNote": "Variabele schade via eigen creatures; geen vaste damage."
+    },
+    {
+      "Name": "Flick a Coin",
+      "TypeLine": "Instant",
+      "OracleText": "Flick a Coin deals 1 damage to any target. You create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nDraw a card.",
+      "ManaCost": "{2}{R}",
+      "Colors": "R",
+      "ManaValue": 3,
+      "OracleId": "990583ef-5bf4-4e14-a8f1-61d32c6a75df",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Removal",
+        "Draw",
+        "ManaAcceleration"
+      ],
+      "RequiredTerms": [
+        "1 damage to any target",
+        "You create a Treasure token",
+        "Draw a card."
+      ],
+      "ReviewNote": "Gerichte schade, Treasure en draw; bijkomende effecten niet laten verdwijnen."
+    },
+    {
+      "Name": "Playful Shove",
+      "TypeLine": "Sorcery",
+      "OracleText": "Playful Shove deals 1 damage to any target.\nDraw a card.",
+      "ManaCost": "{1}{R}",
+      "Colors": "R",
+      "ManaValue": 2,
+      "OracleId": "2094fb68-3859-401f-97f2-c8bae64a4822",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Removal",
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "1 damage to any target",
+        "Draw a card."
+      ],
+      "ReviewNote": "Vaste gerichte schade plus draw; dodelijkheid onbekend."
+    },
+    {
+      "Name": "Mondo Gecko",
+      "TypeLine": "Legendary Creature — Lizard Mutant",
+      "OracleText": "{1}, Discard a card: Until end of turn, Mondo Gecko becomes the color of your choice and gains hexproof from that color.\nWhenever Mondo Gecko deals combat damage to a player, draw a card for each color among permanents you control.",
+      "ManaCost": "{1}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "fa3ae120-756d-4c52-91f9-235767539d67",
+      "Stratum": "Damage",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "combat damage to a player",
+        "for each color"
+      ],
+      "ReviewNote": "Combat-afhankelijke variabele draw."
+    },
+    {
+      "Name": "Fynn, the Fangbearer",
+      "TypeLine": "Legendary Creature — Human Warrior",
+      "OracleText": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhenever a creature you control with deathtouch deals combat damage to a player, that player gets two poison counters. (A player with ten or more poison counters loses the game.)",
+      "ManaCost": "{1}{G}",
+      "Colors": "G",
+      "ManaValue": 2,
+      "OracleId": "c0b1fba1-4338-4671-934b-098689ad2085",
+      "Stratum": "Damage",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Deathtouch en poison via combat; geen gerichte spell-removal."
+    },
+    {
+      "Name": "Poison the Waters",
+      "TypeLine": "Sorcery",
+      "OracleText": "Choose one —\n• All creatures get -1/-1 until end of turn.\n• Target player reveals their hand. You choose an artifact or creature card from it. That player discards that card.",
+      "ManaCost": "{1}{B}",
+      "Colors": "B",
+      "ManaValue": 2,
+      "OracleId": "2c9bf40b-ddcb-4f46-a81e-56b91dfc784f",
+      "Stratum": "Modal",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Massale -1/-1 en discard; geen gerichte removal of andere familie."
+    },
+    {
+      "Name": "Secret Identity",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Conceal — Until end of turn, target creature you control becomes a Citizen with base power and toughness 1/1 and gains hexproof.\n• Reveal — Until end of turn, target creature you control becomes a Hero with base power and toughness 3/4 and gains flying and vigilance.",
+      "ManaCost": "{U}",
+      "Colors": "U",
+      "ManaValue": 1,
+      "OracleId": "e6637f9f-8293-43a5-a134-93799a016ecb",
+      "Stratum": "Modal",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Bescherming en wijziging van eigen creature, geen van de vier rollen."
+    },
+    {
+      "Name": "Sarkhan's Resolve",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Target creature gets +3/+3 until end of turn.\n• Destroy target creature with flying.",
+      "ManaCost": "{1}{G}",
+      "Colors": "G",
+      "ManaValue": 2,
+      "OracleId": "30f058f8-5777-4c25-b881-8f1d0ce17d3a",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "with flying"
+      ],
+      "ReviewNote": "Modale gerichte destroy met flying-beperking."
+    },
+    {
+      "Name": "Reverent Howl",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Target player draws two cards and loses 2 life.\n• Target creature gets +2/+2 and gains lifelink until end of turn.",
+      "ManaCost": "{2}{B}",
+      "Colors": "B",
+      "ManaValue": 3,
+      "OracleId": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "loses 2 life"
+      ],
+      "ReviewNote": "Modale draw met life loss tegenover combat-effect."
+    },
+    {
+      "Name": "Rally the Monastery",
+      "TypeLine": "Instant",
+      "OracleText": "This spell costs {2} less to cast if you've cast another spell this turn.\nChoose one —\n• Create two 1/1 white Monk creature tokens with prowess.\n• Up to two target creatures you control each get +2/+2 until end of turn.\n• Destroy target creature with power 4 or greater.",
+      "ManaCost": "{3}{W}",
+      "Colors": "W",
+      "ManaValue": 4,
+      "OracleId": "3f6101a5-3038-45b0-8302-b2e4127b9510",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "with power 4 or greater"
+      ],
+      "ReviewNote": "Kostenreductie en modale beperkte removal."
+    },
+    {
+      "Name": "Fatehold Charm",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Draw a card. Empower Jace 2.\n• Return target spell or creature to its owner's hand.\n• Creatures you control get +1/+2 until end of turn.",
+      "ManaCost": "{W}{U}",
+      "Colors": "WU",
+      "ManaValue": 2,
+      "OracleId": "313aee0e-4090-4589-b323-a4edbda21c68",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Draw",
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "Empower Jace 2",
+        "spell or creature"
+      ],
+      "ReviewNote": "Modale draw met extra effect en bounce-optie."
+    },
+    {
+      "Name": "Battle Menu",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Attack — Create a 2/2 white Knight creature token.\n• Ability — Target creature gets +0/+4 until end of turn.\n• Magic — Destroy target creature with power 4 or greater.\n• Item — You gain 4 life.",
+      "ManaCost": "{1}{W}",
+      "Colors": "W",
+      "ManaValue": 2,
+      "OracleId": "8af57b80-bbc6-47ce-83f6-34ae8e2f5bd5",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "Magic",
+        "with power 4 or greater"
+      ],
+      "ReviewNote": "Benoemde modale destroy-optie met powergrens."
+    },
+    {
+      "Name": "Seize Opportunity",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Exile the top two cards of your library. Until the end of your next turn, you may play those cards.\n• Up to two target creatures each get +2/+1 until end of turn.",
+      "ManaCost": "{2}{R}",
+      "Colors": "R",
+      "ManaValue": 3,
+      "OracleId": "d0458ffe-9a61-443f-8e80-3d2dde224a4d",
+      "Stratum": "Modal",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Impulse-toegang is geen werkelijke draw; andere optie is combat-buff."
+    },
+    {
+      "Name": "Early Winter",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Exile target creature.\n• Target opponent exiles an enchantment they control.",
+      "ManaCost": "{4}{B}",
+      "Colors": "B",
+      "ManaValue": 5,
+      "OracleId": "fbf2653e-9cc4-442f-bc73-6e2ba6e067cb",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "opponent exiles an enchantment"
+      ],
+      "ReviewNote": "Modale exile; tweede optie laat tegenstander kiezen."
+    },
+    {
+      "Name": "Thorin's Last Stand",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Creatures you control get +2/+1 until end of turn.\n• Destroy target artifact or enchantment. You gain 2 life.",
+      "ManaCost": "{2}{W}{W}",
+      "Colors": "W",
+      "ManaValue": 4,
+      "OracleId": "3c4da169-1e50-4790-abdc-214e7b8a2ad5",
+      "Stratum": "Modal",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "You gain 2 life"
+      ],
+      "ReviewNote": "Modale artifact/enchantment-removal plus life gain."
+    },
+    {
+      "Name": "Exosuit Savior",
+      "TypeLine": "Creature — Human Soldier",
+      "OracleText": "Flying\nWhen this creature enters, return up to one other target permanent you control to its owner's hand.",
+      "ManaCost": "{2}{W}",
+      "Colors": "W",
+      "ManaValue": 3,
+      "OracleId": "8b13ec4d-812a-48b0-8a64-6847a694a03a",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "permanent you control"
+      ],
+      "ReviewNote": "Eigen permanent terug naar hand: bouncefamilie met eigen-doelbeperking."
+    },
+    {
+      "Name": "Boggart Prankster",
+      "TypeLine": "Creature — Goblin Warrior",
+      "OracleText": "Whenever you attack, target attacking Goblin you control gets +1/+0 until end of turn.",
+      "ManaCost": "{1}{B}",
+      "Colors": "B",
+      "ManaValue": 2,
+      "OracleId": "1bcac664-835a-4474-8ca4-263801bde08e",
+      "Stratum": "Other",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Alleen combat-buff."
+    },
+    {
+      "Name": "Strixhaven Skycoach",
+      "TypeLine": "Artifact — Vehicle",
+      "OracleText": "Flying\nWhen this Vehicle enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "ManaCost": "{3}",
+      "Colors": "",
+      "ManaValue": 3,
+      "OracleId": "e286a191-39d4-4073-b844-11d2aba911b4",
+      "Stratum": "Other",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Basic land naar hand is geen versnelling naar battlefield."
+    },
+    {
+      "Name": "Does Machines",
+      "TypeLine": "Enchantment — Class",
+      "OracleText": "(Gain the next level as a sorcery to add its ability.)\nWhen this Class enters, mill two cards, draw two cards, then discard two cards.\n{1}{U}: Level 2\nWhen this Class becomes level 2, return up to two target artifact cards from your graveyard to your hand.\n{4}{U}: Level 3\nAt the beginning of combat on your turn, put three +1/+1 counters on target artifact you control. If it isn't a creature, it becomes a 0/0 Robot creature in addition to its other types.",
+      "ManaCost": "{1}{U}",
+      "Colors": "U",
+      "ManaValue": 2,
+      "OracleId": "df54b79d-f31d-4582-86c0-1d34ec77be0f",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "mill two cards",
+        "discard two cards"
+      ],
+      "ReviewNote": "Draw met mill/discard via Class-trigger; overige niveaus niet verliezen."
+    },
+    {
+      "Name": "Bake into a Pie",
+      "TypeLine": "Instant",
+      "OracleText": "Destroy target creature. Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "ManaCost": "{2}{B}{B}",
+      "Colors": "B",
+      "ManaValue": 4,
+      "OracleId": "1b9ec782-0ba1-41f1-bc39-d3302494ecb3",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Create a Food token"
+      ],
+      "ReviewNote": "Gerichte destroy met Food-bijkomend effect."
+    },
+    {
+      "Name": "Adventurer's Airship",
+      "TypeLine": "Artifact — Vehicle",
+      "OracleText": "Flying\nWhenever this Vehicle attacks, draw a card, then discard a card.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "ManaCost": "{3}",
+      "Colors": "",
+      "ManaValue": 3,
+      "OracleId": "e3016295-00f7-4daf-91b0-57653733b103",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Whenever this Vehicle attacks",
+        "discard a card"
+      ],
+      "ReviewNote": "Aanvalsafhankelijke loot-trigger."
+    },
+    {
+      "Name": "Hidden Lair",
+      "TypeLine": "Land",
+      "OracleText": "{T}: Add {C}.\n{T}: Add {U} or {B}. Activate only if this land entered this turn or if you control a basic land.",
+      "ManaCost": "",
+      "Colors": "UB",
+      "ManaValue": 0,
+      "OracleId": "7069d241-4e66-40bf-afd1-551a4a5457f0",
+      "Stratum": "Other",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Gewone landmana is buiten de afgebakende versnelling."
+    },
+    {
+      "Name": "Koya, Death from Above",
+      "TypeLine": "Legendary Creature — Mutant Ninja Bird",
+      "OracleText": "Flying\nWhen Koya enters, exile up to one other target creature. At the beginning of the next end step, you may pay {3}{B}. If you don't, return that card to the battlefield under its owner's control.",
+      "ManaCost": "{2}{W}",
+      "Colors": "WB",
+      "ManaValue": 3,
+      "OracleId": "e7cd87d4-028c-49d9-9416-69f57e7dfec5",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "next end step",
+        "pay {3}{B}"
+      ],
+      "ReviewNote": "Tijdelijke exile met latere betaalvoorwaarde."
+    },
+    {
+      "Name": "Hero in Training",
+      "TypeLine": "Creature — Human Hero",
+      "OracleText": "When this creature enters, draw a card. If you control another Hero, you gain 2 life.",
+      "ManaCost": "{2}{W}",
+      "Colors": "W",
+      "ManaValue": 3,
+      "OracleId": "87f1a840-021c-4699-a2c4-f2926daf98eb",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "If you control another Hero"
+      ],
+      "ReviewNote": "Enters-draw met voorwaardelijke life gain."
+    },
+    {
+      "Name": "Demonic Junker",
+      "TypeLine": "Artifact — Vehicle",
+      "OracleText": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\nWhen this Vehicle enters, for each player, destroy up to one target creature that player controls. If a creature you controlled was destroyed this way, put two +1/+1 counters on this Vehicle.\nCrew 2",
+      "ManaCost": "{6}{B}",
+      "Colors": "B",
+      "ManaValue": 7,
+      "OracleId": "88075828-a76e-412d-b738-182f50e3a133",
+      "Stratum": "Other",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "for each player",
+        "up to one target creature"
+      ],
+      "ReviewNote": "Removal via enters-trigger; multiplayerdoelen en bijkomende effecten."
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:test="using:MTGDeckbuilder.Application.Tests" xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:views="using:MTGDeckbuilder.Desktop.Views"
+        x:Class="MTGDeckbuilder.Application.Tests.LegacyWindow" x:DataType="test:LegacyShell"
+        Title="MTG Smart Deckbuilder — Fysieke kaarten" Width="1280" Height="850" MinWidth="1050" MinHeight="740">
+  <Window.DataTemplates>
+    <DataTemplate DataType="vm:PaperViewModel"><views:PaperView /></DataTemplate>
+    <DataTemplate DataType="vm:DashboardViewModel"><views:DashboardView /></DataTemplate>
+    <DataTemplate DataType="vm:CollectionViewModel"><views:CollectionView /></DataTemplate>
+    <DataTemplate DataType="vm:DecksViewModel"><views:DecksView /></DataTemplate>
+    <DataTemplate DataType="vm:SettingsViewModel"><views:SettingsView /></DataTemplate>
+    <DataTemplate DataType="vm:CatalogViewModel"><views:CatalogView /></DataTemplate>
+    <DataTemplate DataType="vm:ArchetypePoolViewModel"><views:ArchetypePoolView /></DataTemplate>
+    <DataTemplate DataType="vm:DeckGenerationViewModel"><views:DeckGenerationView /></DataTemplate>
+    <DataTemplate DataType="vm:CollectionTransferViewModel"><views:CollectionTransferView /></DataTemplate>
+    <DataTemplate DataType="vm:DeckTransferViewModel"><views:DeckTransferView /></DataTemplate>
+  </Window.DataTemplates>
+  <Grid ColumnDefinitions="235,*" RowDefinitions="*,40">
+    <Border Grid.RowSpan="2" Background="#151C29" BorderBrush="#283145" BorderThickness="0,0,1,0" Padding="20,30">
+      <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Spacing="7" Margin="8,0,0,36">
+          <TextBlock Text="◈  MTG FYSIEK" FontSize="20" FontWeight="Bold" Foreground="#B8A9FF" />
+          <TextBlock Text="SMART DECKBUILDER" FontSize="11" Classes="muted" />
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Spacing="6" Margin="8,20,0,0">
+          <TextBlock Text="JOUW COLLECTIE. JOUW PLAN." FontSize="10" Classes="muted" />
+          <TextBlock Text="Lokaal opgeslagen" FontSize="12" Foreground="#79C9AF" />
+        </StackPanel>
+        <StackPanel IsEnabled="{Binding IsReady}">
+          <StackPanel IsEnabled="{Binding !Operations.IsBusy}">
+            <Button Name="PaperNavigation" Classes="nav" Classes.active="{Binding IsPaper}" Content="▦   Mijn fysieke kaarten" Command="{Binding NavigateCommand}" CommandParameter="paper" />
+            <Button Name="PaperImportNavigation" Classes="nav" Content="⇄   Scan-CSV importeren" Command="{Binding NavigateCommand}" CommandParameter="paper-import" />
+            <Button Name="PaperDeckNavigation" Classes="nav" Content="▤   Fysieke decks" Command="{Binding NavigateCommand}" CommandParameter="paper-decks" />
+            <Button Name="SettingsNavigation" Classes="nav" Classes.active="{Binding IsSettings}" Content="⚙   Instellingen" Command="{Binding NavigateCommand}" CommandParameter="settings" />
+            <Button Classes="nav" Command="{Binding ToggleArchiveCommand}"><TextBlock Text="Archief Arena tonen / sluiten" TextWrapping="Wrap" /></Button>
+            <StackPanel IsVisible="{Binding ArchiveExpanded}">
+            <TextBlock Text="ARENA-ARCHIEF · APART BEZIT" FontSize="10" Classes="muted" Margin="8,12,0,6" />
+            <Button Name="DashboardNavigation" Classes="nav" Classes.active="{Binding IsDashboard}" Content="◫   Dashboard" Command="{Binding NavigateCommand}" CommandParameter="dashboard" />
+            <Button Name="CollectionNavigation" Classes="nav" Classes.active="{Binding IsCollection}" Content="▦   Mijn collectie" Command="{Binding NavigateCommand}" CommandParameter="collection" />
+            <Button Name="CatalogNavigation" Classes="nav" Classes.active="{Binding IsCatalog}" Content="⌕   Catalogus" Command="{Binding NavigateCommand}" CommandParameter="catalog" />
+            <Button Name="TransferNavigation" Classes="nav" Classes.active="{Binding IsTransfer}" Content="⇄   Collectie-import" Command="{Binding NavigateCommand}" CommandParameter="transfer" />
+            <Button Name="DecksNavigation" Classes="nav" Classes.active="{Binding IsDecks}" Content="▤   Mijn decks" Command="{Binding NavigateCommand}" CommandParameter="decks" />
+            <Button Name="PoolNavigation" Classes="nav" Classes.active="{Binding IsPool}" Content="◈   Mono-rode kaartpool" Command="{Binding NavigateCommand}" CommandParameter="pool" />
+            <Button Name="GenerationNavigation" Classes="nav" Classes.active="{Binding IsGeneration}" Content="✦   Deckvoorstel" Command="{Binding NavigateCommand}" CommandParameter="generation" />
+            <Button Name="DeckTransferNavigation" Classes="nav" Classes.active="{Binding IsDeckTransfer}" Content="⇢   Deck importeren" Command="{Binding NavigateCommand}" CommandParameter="deck-transfer" />
+            </StackPanel>
+          </StackPanel>
+        </StackPanel>
+      </DockPanel>
+    </Border>
+    <Grid Grid.Column="1" RowDefinitions="Auto,*" Margin="32,24,32,24">
+      <StackPanel Spacing="10" Margin="0,0,0,12">
+        <Border IsVisible="{Binding Operations.HasError}" Background="#412733" CornerRadius="8" Padding="14">
+          <TextBlock Text="{Binding Operations.ErrorMessage}" Foreground="#FFC9D4" TextWrapping="Wrap" />
+        </Border>
+        <StackPanel IsVisible="{Binding !IsReady}" Spacing="10">
+          <TextBlock Text="Lokale opslag initialiseren. Bij een fout kun je opnieuw proberen." TextWrapping="Wrap" />
+          <Button Content="Opnieuw proberen" Command="{Binding InitializeCommand}" IsEnabled="{Binding !Operations.IsBusy}" />
+          <Button Name="CancelStartupRestore" Content="Gepland herstel annuleren en opnieuw proberen" Command="{Binding CancelStartupRestoreCommand}" IsEnabled="{Binding !Operations.IsBusy}" />
+        </StackPanel>
+      </StackPanel>
+      <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsEnabled="{Binding IsReady}" IsVisible="{Binding IsReady}">
+        <ContentControl Content="{Binding CurrentPage}" IsEnabled="{Binding !Operations.IsBusy}" />
+      </ScrollViewer>
+    </Grid>
+    <Border Grid.Column="1" Grid.Row="1" Background="#141B27" BorderBrush="#283145" BorderThickness="0,1,0,0" Padding="24,0">
+      <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <TextBlock Text="●" Foreground="#79C9AF" /><TextBlock Text="{Binding Operations.Status}" FontSize="12" Classes="muted" />
+        </StackPanel>
+        <TextBlock Grid.Column="1" Text="{Binding Version}" FontSize="12" Classes="muted" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>

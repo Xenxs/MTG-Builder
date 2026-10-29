@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application" x:Class="MTGDeckbuilder.Desktop.Views.SettingsView" x:DataType="vm:SettingsViewModel">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="8"><TextBlock Text="Instellingen" Classes="heading" /><TextBlock Text="Persoonlijke voorkeuren en lokale opslag." Classes="muted" /></StackPanel>
+    <Border Classes="card"><StackPanel Spacing="12"><TextBlock Text="Je profiel" Classes="section" /><TextBlock Text="Spelersnaam" /><TextBox Text="{Binding PlayerName}" MaxLength="80" /><Button Content="Instellingen opslaan" Command="{Binding SaveCommand}" Classes="primary" /></StackPanel></Border>
+    <Border Classes="card"><StackPanel Spacing="12">
+      <TextBlock Text="Database legen" Classes="section" />
+      <TextBlock Text="Begin opnieuw met een lege collectie en lege decks. Alle kaart-, import-, profiel- en oudere gegevens worden gewist. De app maakt eerst verplicht een volledige reservekopie. Voorbeelden blijven na herstart uitgeschakeld." Classes="muted" TextWrapping="Wrap" />
+      <Button Name="ReviewDatabaseReset" Content="Bekijk wat wordt verwijderd" Command="{Binding ReviewResetCommand}" HorizontalAlignment="Left" />
+      <TextBlock Name="DatabaseResetSummary" Text="{Binding ResetReview.Summary}" TextWrapping="Wrap" />
+      <TextBlock Text="Typ WISSEN om de beschreven actie te bevestigen." />
+      <TextBox Name="DatabaseResetPhrase" Text="{Binding ResetPhrase}" MaxLength="20" PlaceholderText="WISSEN" />
+      <Button Name="ClearDatabase" Content="Reservekopie maken en database legen" Command="{Binding ClearDatabaseCommand}" IsEnabled="{Binding CanReset}" HorizontalAlignment="Left" />
+      <SelectableTextBlock Name="DatabaseResetResult" Text="{Binding ResetResult}" TextWrapping="Wrap" Foreground="#E4B674" />
+    </StackPanel></Border>
+    <Border Classes="card"><StackPanel Spacing="12">
+      <TextBlock Text="Back-up en herstel" Classes="section" />
+      <TextBlock Text="Een back-up bevat de volledige database: fysiek bezit en oudere gegevens, beide soorten decks, instellingen en historie. Downloadcache en logs vallen erbuiten. Bewaar zelf een extra kopie buiten deze map; er is geen periodieke of cloudback-up." Classes="muted" TextWrapping="Wrap" />
+      <WrapPanel><Button Name="CreateBackup" Content="Nu een back-up maken" Command="{Binding CreateBackupCommand}" Classes="primary" Margin="0,0,10,8" /><Button Name="ReloadBackups" Content="Lijst vernieuwen" Command="{Binding ReloadBackupsCommand}" Margin="0,0,0,8" /></WrapPanel>
+      <ComboBox Name="BackupPicker" ItemsSource="{Binding Backups}" SelectedItem="{Binding SelectedBackup}" HorizontalAlignment="Stretch" PlaceholderText="Nog geen back-ups"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:BackupFile"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+      <SelectableTextBlock Name="BackupPath" Text="{Binding SelectedBackup.Path}" Classes="muted" TextWrapping="Wrap" />
+      <WrapPanel><Button Name="InspectBackup" Content="Gekozen back-up controleren" Command="{Binding InspectBackupCommand}" Margin="0,0,10,8" /><Button Name="ChooseBackupFile" Content="Ander back-upbestand kiezen…" Click="ChooseBackupClicked" Margin="0,0,0,8" /></WrapPanel>
+      <TextBlock Name="RecoveryStatus" Text="{Binding RecoveryStatus.Message}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+      <Button Name="CancelRestore" Content="Gepland herstel annuleren" Command="{Binding CancelRestoreCommand}" IsVisible="{Binding RecoveryStatus.Scheduled}" HorizontalAlignment="Left" />
+      <StackPanel IsVisible="{Binding HasRestoreReview}" Spacing="10">
+        <TextBlock Name="RestoreSummary" Text="{Binding RestoreReview.Summary}" TextWrapping="Wrap" />
+        <TextBlock Text="Er is nog niets teruggezet. Bij de volgende start wordt eerst een veiligheidskopie gemaakt. Sluit andere programma's die deze database gebruiken." Foreground="#FFCCAA" TextWrapping="Wrap" />
+        <CheckBox Name="ConfirmRestore" Content="Ik wil de volledige database terugzetten naar deze gecontroleerde back-up." IsChecked="{Binding ConfirmRestore}" />
+        <Button Name="ScheduleRestore" Content="Herstel plannen voor volgende appstart" Command="{Binding ScheduleRestoreCommand}" IsEnabled="{Binding CanScheduleRestore}" HorizontalAlignment="Left" />
+      </StackPanel>
+    </StackPanel></Border>
+    <Border Classes="card">
+      <StackPanel Spacing="12">
+        <TextBlock Text="Opslag en diagnostiek" Classes="section" />
+        <TextBlock Text="Database" Classes="muted" /><SelectableTextBlock Text="{Binding DatabasePath}" TextWrapping="Wrap" />
+        <TextBlock Text="Logbestanden · maximaal 14 dagbestanden" Classes="muted" /><SelectableTextBlock Text="{Binding LogDirectory}" TextWrapping="Wrap" />
+        <TextBlock Text="Back-ups staan in de submap backups. De knop hierboven maakt een consistente kopie terwijl de app draait. Kopieer de actieve database niet los terwijl de app openstaat." Classes="muted" TextWrapping="Wrap" />
+      </StackPanel>
+    </Border>
+    <Border Classes="card"><StackPanel Spacing="10"><TextBlock Text="Catalogus, collectie en deckplanning" Classes="section" /><TextBlock Text="Fysieke Magic-kaarten, scan-CSV en Scryfall-afbeeldingen. Filter je collectie op kleur, thema, type en serie. De deckwizard helpt bij formaat, kleuridentiteit, thema, speelstijl en bezit/planning. Kaartgegevens, collectie en decks blijven lokaal; geen automatische telefoonsynchronisatie of bewezen speelsterkte." Classes="muted" TextWrapping="Wrap" /><TextBlock Text="Vóór een database-upgrade wordt automatisch een SQLite-reservekopie in de submap backups gemaakt." Classes="muted" TextWrapping="Wrap" /></StackPanel></Border>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,174 @@
+[
+  {
+    "OracleId": "00606d5e-a134-4363-9ee6-05e03d58f234",
+    "Name": "Strength of Unity",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "Note": "Domain-buff; requires actual own land types."
+  },
+  {
+    "OracleId": "079b1f07-6910-491b-83ba-5ec41260f32d",
+    "Name": "Worldly Counsel",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "Note": "Card selection to hand is not a draw action."
+  },
+  {
+    "OracleId": "0d6d5509-41e5-4099-98a0-18ae7531df7d",
+    "Name": "Radha's Firebrand",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "Note": "Domain discounts an activated ability; once per turn."
+  },
+  {
+    "OracleId": "01ed9139-293d-4477-a145-3c6fe59266c7",
+    "Name": "Airship Engine Room",
+    "ExpectedThemes": [
+      "sacrifice",
+      "draw"
+    ],
+    "Note": "One-shot self land sacrifice with draw after costs."
+  },
+  {
+    "OracleId": "05501e88-d4c3-4474-92a9-c02ab15b107b",
+    "Name": "Afterlife Insurance",
+    "ExpectedThemes": [
+      "tokens",
+      "draw"
+    ],
+    "Note": "Grants afterlife to own creatures and independently draws; token requires death."
+  },
+  {
+    "OracleId": "08b13e1f-27ca-40a8-b5ed-88ac933d24bf",
+    "Name": "Archivist of Oghma",
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "Note": "Opponent search is the condition; you draw, not the opponent."
+  },
+  {
+    "OracleId": "00573e77-8ff6-4acb-8683-8827d965288f",
+    "Name": "Behemoth Sledge",
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "Note": "Equipment with equip cost and buff."
+  },
+  {
+    "OracleId": "01ab7724-1967-4da6-aebd-3729983d6a0e",
+    "Name": "Bloodthorn Flail",
+    "ExpectedThemes": [
+      "equipment",
+      "graveyard"
+    ],
+    "Note": "Equip can alternatively discard own card; not forced draw or unlimited cards."
+  },
+  {
+    "OracleId": "035e33ab-adfe-4831-bdbc-52f4ddc7ffe8",
+    "Name": "Beamtown Beatstick",
+    "ExpectedThemes": [
+      "equipment",
+      "tokens"
+    ],
+    "Note": "Own Treasure only after combat damage by equipped creature."
+  },
+  {
+    "OracleId": "046add85-952f-46ac-974a-463d2a7d3fd4",
+    "Name": "The Book of Exalted Deeds",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Exalted in its name is not the exalted keyword; own Angel needs life gained."
+  },
+  {
+    "OracleId": "05678253-a40f-4c11-8ac4-335b3a02532e",
+    "Name": "Finest Hour",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "Note": "Real exalted keyword and conditional additional combat."
+  },
+  {
+    "OracleId": "0632f0f9-8d4f-4e94-8b53-1275b7f21a57",
+    "Name": "Nefarox, Overlord of Grixis",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "Note": "Defending player sacrifices; not an own sacrifice outlet."
+  },
+  {
+    "OracleId": "0679dcef-e1c3-4739-a769-18a4ffdcfde7",
+    "Name": "Akawalli, the Seething Tower",
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "Note": "Own permanent-card thresholds; not any noncreature card."
+  },
+  {
+    "OracleId": "06d2a96c-4f4d-4a4a-ac48-6f0fbc9d0afd",
+    "Name": "Ashiok's Forerunner",
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "Note": "A specifically named card from own graveyard/library; not generic creature recursion."
+  },
+  {
+    "OracleId": "085bc7be-bd44-40af-8e8f-a1a8006fe22c",
+    "Name": "Assert Authority",
+    "ExpectedThemes": [],
+    "Note": "Exiles opponent spell from stack instead of that owners graveyard; no own graveyard payoff."
+  },
+  {
+    "OracleId": "056a98aa-f3f7-4ac9-9755-3e8a60a59abb",
+    "Name": "Afiya Grove",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "Note": "Self enchantment sacrifice when counters gone; not an artifact/creature outlet."
+  },
+  {
+    "OracleId": "05b020fd-21be-495d-ae45-7de3b1224e6d",
+    "Name": "Angelic Shield",
+    "ExpectedThemes": [
+      "tokens",
+      "sacrifice"
+    ],
+    "Note": "Own team toughness buff and self enchantment sacrifice, not graveyard recursion."
+  },
+  {
+    "OracleId": "0607b289-74a6-4f3a-b15c-a639244873b6",
+    "Name": "Awaken the Sky Tyrant",
+    "ExpectedThemes": [
+      "tokens",
+      "sacrifice"
+    ],
+    "Note": "Opponent-source damage condition, then self enchantment sacrifice and own Dragon."
+  },
+  {
+    "OracleId": "020963ef-24c0-48cc-8776-bc257df684bc",
+    "Name": "April O'Neil, Human Element",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Own Mutagen artifact token on specified spell types cast by a player; no creature token."
+  },
+  {
+    "OracleId": "03c141ca-11e4-4927-a6bd-980ee1203c73",
+    "Name": "Appa, Steadfast Guardian",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Own Ally token only after spell cast from exile; needs exile/cast support."
+  },
+  {
+    "OracleId": "05551d91-50c6-46d1-86a4-cd3d177d0923",
+    "Name": "Anim Pakal, Thousandth Moon",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Own artifact creature tokens, X counters, non-Gnome attackers, tapped and attacking."
+  }
+]

@@ -1,0 +1,268 @@
+{
+  "Version": "mono-red-advice-reference-v1",
+  "CreatedUtc": "2026-10-23T07:30:57.8502254+00:00",
+  "PoolVersion": "mono-red-bo1-v1/2026-10-23",
+  "Review": "Vaste ontwikkelreferenties door dezelfde ontwikkelaar vóór implementatie van de poolrangschikking; geen onafhankelijke of ongeziene benchmark. Bezit en legaliteit gesimuleerd voor de vergelijking; actuele poolstatus apart controleren.",
+  "Cases": [
+    {
+      "Id": "spell-payoff-1",
+      "From": "Slickshot Show-Off",
+      "Candidates": [
+        "Firebrand Archer",
+        "Fugitive Codebreaker",
+        "Coruscation Mage"
+      ],
+      "AcceptableTop": [
+        "Fugitive Codebreaker"
+      ],
+      "Reason": "Spell-attacker behoudt de aanvallende spell-payoff; losse opponent-pings niet."
+    },
+    {
+      "Id": "spell-payoff-2",
+      "From": "Emberheart Challenger",
+      "Candidates": [
+        "Coruscation Mage",
+        "Slickshot Show-Off",
+        "Firebrand Archer"
+      ],
+      "AcceptableTop": [
+        "Slickshot Show-Off"
+      ],
+      "Reason": "Aanvallende payoff verschilt van opponent-ping."
+    },
+    {
+      "Id": "spell-payoff-3",
+      "From": "Fugitive Codebreaker",
+      "Candidates": [
+        "Firebrand Archer",
+        "Charming Scoundrel",
+        "Emberheart Challenger"
+      ],
+      "AcceptableTop": [
+        "Emberheart Challenger"
+      ],
+      "Reason": "Prowess/haste-plan vóór algemene haste of ping."
+    },
+    {
+      "Id": "spell-ping-1",
+      "From": "Firebrand Archer",
+      "Candidates": [
+        "Emberheart Challenger",
+        "Coruscation Mage",
+        "Slickshot Show-Off"
+      ],
+      "AcceptableTop": [
+        "Coruscation Mage"
+      ],
+      "Reason": "Noncreature-spell-ping behouden, geen aanvalbonus verwarren."
+    },
+    {
+      "Id": "spell-ping-2",
+      "From": "Coruscation Mage",
+      "Candidates": [
+        "Fugitive Codebreaker",
+        "Firebrand Archer",
+        "Charming Scoundrel"
+      ],
+      "AcceptableTop": [
+        "Firebrand Archer"
+      ],
+      "Reason": "Dezelfde beperkte noncreature-spell-pingfunctie; offspringverschil zichtbaar."
+    },
+    {
+      "Id": "early-1",
+      "From": "Clockwork Percussionist",
+      "Candidates": [
+        "Hired Claw",
+        "Fanatical Firebrand",
+        "Frenzied Goblin"
+      ],
+      "AcceptableTop": [
+        "Fanatical Firebrand"
+      ],
+      "Reason": "Eenvoudige vroege haste-aanvaller vóór voorwaardelijke opties."
+    },
+    {
+      "Id": "early-2",
+      "From": "Fanatical Firebrand",
+      "Candidates": [
+        "Ghitu Lavarunner",
+        "Clockwork Percussionist",
+        "Hired Claw"
+      ],
+      "AcceptableTop": [
+        "Clockwork Percussionist"
+      ],
+      "Reason": "Vroege haste-aanvaller; geen gratis graveyard/tribalvoorwaarde."
+    },
+    {
+      "Id": "early-3",
+      "From": "Hired Claw",
+      "Candidates": [
+        "Firebrand Archer",
+        "Clockwork Percussionist",
+        "Ghitu Lavarunner"
+      ],
+      "AcceptableTop": [
+        "Clockwork Percussionist"
+      ],
+      "Reason": "Vroege body behouden vóór een ander spellplan."
+    },
+    {
+      "Id": "early-4",
+      "From": "Ghitu Lavarunner",
+      "Candidates": [
+        "Frenzied Goblin",
+        "Fanatical Firebrand",
+        "Viashino Pyromancer"
+      ],
+      "AcceptableTop": [
+        "Fanatical Firebrand"
+      ],
+      "Reason": "Vroege druk; enters-burn van twee mana is een andere functie."
+    },
+    {
+      "Id": "early-5",
+      "From": "Charming Scoundrel",
+      "Candidates": [
+        "Emberheart Challenger",
+        "Fanatical Firebrand",
+        "Hired Claw"
+      ],
+      "AcceptableTop": [
+        "Fanatical Firebrand"
+      ],
+      "Reason": "Haste-body als eenvoudige vroege druk; modaliteiten blijven verschillen."
+    },
+    {
+      "Id": "burn-1",
+      "From": "Shock",
+      "Candidates": [
+        "Abrade",
+        "Burst Lightning",
+        "Scorching Shot"
+      ],
+      "AcceptableTop": [
+        "Burst Lightning"
+      ],
+      "Reason": "Any-target reach behouden; creature-only interactie niet gelijkstellen."
+    },
+    {
+      "Id": "burn-2",
+      "From": "Lightning Strike",
+      "Candidates": [
+        "Abrade",
+        "Shock",
+        "Torch the Tower"
+      ],
+      "AcceptableTop": [
+        "Shock"
+      ],
+      "Reason": "Any-target functie boven creature-interactie; lagere schade expliciet."
+    },
+    {
+      "Id": "burn-3",
+      "From": "Burst Lightning",
+      "Candidates": [
+        "Abrade",
+        "Lightning Strike",
+        "Boltwave"
+      ],
+      "AcceptableTop": [
+        "Lightning Strike"
+      ],
+      "Reason": "Instant any-target vóór sorcery opponent-only; kickerverlies zichtbaar."
+    },
+    {
+      "Id": "burn-4",
+      "From": "Boltwave",
+      "Candidates": [
+        "Abrade",
+        "Lightning Strike",
+        "Scorching Shot"
+      ],
+      "AcceptableTop": [
+        "Lightning Strike"
+      ],
+      "Reason": "Reach naar opponent behouden; creature-only helpt die functie niet."
+    },
+    {
+      "Id": "interaction-1",
+      "From": "Torch the Tower",
+      "Candidates": [
+        "Shock",
+        "Abrade",
+        "Scorching Shot"
+      ],
+      "AcceptableTop": [
+        "Abrade"
+      ],
+      "Reason": "Creature-interactieslot behouden met modale waarschuwing."
+    },
+    {
+      "Id": "interaction-2",
+      "From": "Abrade",
+      "Candidates": [
+        "Lightning Strike",
+        "Torch the Tower",
+        "Scorching Shot"
+      ],
+      "AcceptableTop": [
+        "Torch the Tower"
+      ],
+      "Reason": "Beoordeelde creature-interactie vóór burn-reach; artifactoptie gaat verloren."
+    },
+    {
+      "Id": "interaction-3",
+      "From": "Scorching Shot",
+      "Candidates": [
+        "Burst Lightning",
+        "Torch the Tower",
+        "Boltwave"
+      ],
+      "AcceptableTop": [
+        "Torch the Tower"
+      ],
+      "Reason": "Creature-interactie; lagere schade/bargain blijven zichtbaar."
+    },
+    {
+      "Id": "support-1",
+      "From": "Turn Inside Out",
+      "Candidates": [
+        "Burst Lightning",
+        "Might of the Meek",
+        "Blazing Crescendo"
+      ],
+      "AcceptableTop": [
+        "Might of the Meek"
+      ],
+      "Reason": "Creature-ondersteuning vóór burn, met verlies van death-trigger gemeld."
+    },
+    {
+      "Id": "support-2",
+      "From": "Ancestral Anger",
+      "Candidates": [
+        "Crash Through",
+        "Might of the Meek",
+        "Shock"
+      ],
+      "AcceptableTop": [
+        "Might of the Meek"
+      ],
+      "Reason": "Ondersteuning met cantrip vóór burn; Mousevoorwaarde blijft."
+    },
+    {
+      "Id": "flow-1",
+      "From": "Thrill of Possibility",
+      "Candidates": [
+        "Lightning Strike",
+        "Grab the Prize",
+        "Abrade"
+      ],
+      "AcceptableTop": [
+        "Grab the Prize"
+      ],
+      "Reason": "Hand verversen vóór schade; sorcery-timing en discardvoorwaarde zichtbaar."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+             x:Class="MTGDeckbuilder.Desktop.Views.CollectionView" x:DataType="vm:CollectionViewModel">
+  <StackPanel Spacing="20">
+    <StackPanel Spacing="8"><TextBlock Text="Mijn collectie" Classes="heading" /><TextBlock Text="Voer een printing handmatig in. Opslaan vervangt het aantal voor die printing." Classes="muted" TextWrapping="Wrap" /></StackPanel>
+    <Border Classes="card">
+      <StackPanel Spacing="12">
+        <TextBlock Text="Kaart toevoegen of bijwerken" Classes="section" />
+        <Grid ColumnDefinitions="3*,12,*,12,*,12,Auto" RowDefinitions="Auto,Auto">
+          <TextBlock Text="Kaartnaam" /><TextBlock Grid.Column="2" Text="Setcode" /><TextBlock Grid.Column="4" Text="Collector #" /><TextBlock Grid.Column="6" Text="Aantal" />
+          <TextBox Grid.Row="1" Name="CardNameInput" Text="{Binding CardName}" PlaceholderText="Bijv. Llanowar Elves" Margin="0,6,0,0" MaxLength="200" />
+          <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding SetCode}" PlaceholderText="FDN" Margin="0,6,0,0" MaxLength="12" />
+          <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding CollectorNumber}" PlaceholderText="227" Margin="0,6,0,0" MaxLength="20" />
+          <NumericUpDown Grid.Row="1" Grid.Column="6" Value="{Binding Quantity}" Minimum="0" Maximum="9999" Increment="1" FormatString="0" AllowSpin="True" Margin="0,6,0,0" />
+        </Grid>
+        <Button Content="Opslaan in collectie" Command="{Binding SaveCommand}" Classes="primary" />
+      </StackPanel>
+    </Border>
+    <Border Classes="card">
+      <StackPanel Spacing="12">
+        <TextBlock Text="Opgeslagen printings" Classes="section" />
+        <TextBlock Text="Nog geen kaarten? Gebruik het formulier hierboven. Aantal 0 bewaart de printing zonder bezit." Classes="muted" TextWrapping="Wrap" FontSize="12" />
+        <ListBox Name="CollectionList" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Height="240">
+          <ListBox.ItemTemplate><DataTemplate x:DataType="app:CollectionItem"><TextBlock Text="{Binding Label}" Margin="6,8" /></DataTemplate></ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <NumericUpDown Value="{Binding SelectedQuantity}" Minimum="0" Maximum="9999" Increment="1" FormatString="0" />
+          <Button Content="Aantal geselecteerde kaart opslaan" Command="{Binding UpdateQuantityCommand}" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>

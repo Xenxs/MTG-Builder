@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" x:Class="MTGDeckbuilder.Desktop.Views.DashboardView" x:DataType="vm:DashboardViewModel">
+  <StackPanel Spacing="24">
+    <StackPanel Spacing="8">
+      <TextBlock Text="OVERZICHT" FontSize="11" Foreground="#A99BFF" />
+      <TextBlock Text="Dashboard" Classes="heading" />
+      <TextBlock Text="Je collectie en decks op één plek. Ontdek kaarten in Catalogus of voer ze handmatig in." Classes="muted" TextWrapping="Wrap" />
+    </StackPanel>
+    <Border Classes="card" Background="#27253F">
+      <StackPanel Spacing="9">
+        <TextBlock Text="Welkom terug," Classes="muted" />
+        <TextBlock Text="{Binding PlayerName}" FontSize="27" FontWeight="SemiBold" />
+        <TextBlock Text="Bouw aan je volgende deck. Alle wijzigingen worden lokaal bewaard." Classes="muted" TextWrapping="Wrap" />
+      </StackPanel>
+    </Border>
+    <Grid ColumnDefinitions="*,16,*,16,*">
+      <Border Classes="card"><StackPanel Spacing="10"><TextBlock Text="KAARTEN IN BEZIT" Classes="muted" FontSize="11" /><TextBlock Text="{Binding TotalCards}" FontSize="38" FontWeight="Bold" /></StackPanel></Border>
+      <Border Classes="card" Grid.Column="2"><StackPanel Spacing="10"><TextBlock Text="UNIEKE PRINTINGS" Classes="muted" FontSize="11" /><TextBlock Text="{Binding UniquePrintings}" FontSize="38" FontWeight="Bold" /></StackPanel></Border>
+      <Border Classes="card" Grid.Column="4"><StackPanel Spacing="10"><TextBlock Text="MIJN DECKS" Classes="muted" FontSize="11" /><TextBlock Text="{Binding Decks}" FontSize="38" FontWeight="Bold" /></StackPanel></Border>
+    </Grid>
+    <Border Classes="card">
+      <StackPanel Spacing="14">
+        <TextBlock Text="Een stevige basis" Classes="section" />
+        <TextBlock Text="01   Importeer de Arena-catalogus en zoek de juiste printing." TextWrapping="Wrap" />
+        <TextBlock Text="02   Importeer bezitaantallen via Collectie-import of voer ze handmatig in." TextWrapping="Wrap" />
+        <TextBlock Text="03   Importeer of bouw een deck; bekijk tekorten, statistieken en export." TextWrapping="Wrap" />
+        <TextBlock Text="Mijn decks controleert Arena Standard BO1/BO3 en helpt ontbrekende kaarten uit je collectie te vervangen. Vergelijk herkende rollen, beperkingen en kaartteksten en bewaar je keuzes als nieuw deck." Classes="muted" TextWrapping="Wrap" />
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>

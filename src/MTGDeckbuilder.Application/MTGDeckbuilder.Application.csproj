@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup><ProjectReference Include="../MTGDeckbuilder.Domain/MTGDeckbuilder.Domain.csproj" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/mono-red-aggro-v1.json" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/conflux-paper-v1.json" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/final-fantasy-starter-v1.json" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/paper-synergy-v1.json" /></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="Resources/creature-types-2026-10-28.json" /></ItemGroup>
+</Project>

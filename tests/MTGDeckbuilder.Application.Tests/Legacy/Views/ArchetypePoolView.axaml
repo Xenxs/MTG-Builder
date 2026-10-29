@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.ArchetypePoolView" x:DataType="vm:ArchetypePoolViewModel">
+ <StackPanel Spacing="18">
+  <StackPanel Spacing="8"><TextBlock Text="Mono-rode kaartpool" Classes="heading" /><TextBlock Text="Arena Standard BO1 · vroege druk, aanvallende spell-payoffs en burn. Eén beoordeeld deckplan met expliciete voorwaarden." Classes="muted" TextWrapping="Wrap" /></StackPanel>
+  <Border Classes="card"><StackPanel Spacing="12">
+   <TextBlock Name="PoolSummary" Text="{Binding Report.Summary}" Classes="section" TextWrapping="Wrap" />
+   <TextBlock Text="Dit is een beperkte, expliciet beoordeelde kaartpool. De pool bewijst geen winkans of algemene kaartkennis. Ga naar Deckvoorstel voor een complete lijst volgens het vaste mono-rode plan." Classes="muted" TextWrapping="Wrap" />
+   <Button Name="ReloadPool" Content="Bronstatus en bezit vernieuwen" Command="{Binding ReloadCommand}" Classes="primary" HorizontalAlignment="Left" />
+   <Expander Name="PoolSourceExpander" Header="Poolversie en broncontrole" HorizontalAlignment="Stretch"><TextBlock Name="PoolProvenance" Text="{Binding Report.Provenance}" TextWrapping="Wrap" Margin="0,10,0,0" /></Expander>
+   <TextBlock Text="Een ontbrekende of oude catalogus blokkeert advies. Werk de bron online bij via Catalogus; een app-upgrade vernieuwt de bron niet." Classes="muted" TextWrapping="Wrap" />
+  </StackPanel></Border>
+  <Border Classes="card"><StackPanel Spacing="12">
+   <TextBlock Text="Bekijk een beoordeelde kaart" Classes="section" />
+   <TextBox Name="PoolSearch" Text="{Binding Search}" PlaceholderText="Filter op kaartnaam" />
+   <StackPanel Orientation="Horizontal" Spacing="24"><CheckBox Name="PoolOnlyOwned" Content="Alleen geregistreerd bezit" IsChecked="{Binding OnlyOwned}" /><CheckBox Name="PoolShowExcluded" Content="Toon bewuste uitsluitingen" IsChecked="{Binding ShowExcluded}" /></StackPanel>
+   <ComboBox Name="PoolCardPicker" ItemsSource="{Binding Cards}" SelectedItem="{Binding SelectedCard}" HorizontalAlignment="Stretch" PlaceholderText="Geen kaart in dit filter"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:ArchetypePoolCard"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+   <StackPanel IsVisible="{Binding HasSelection}" Spacing="10">
+    <TextBlock Text="{Binding SelectedCard.Entry.Purpose}" TextWrapping="Wrap" />
+    <TextBlock Name="PoolCardStatus" Text="{Binding SelectedCard.Status}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+    <TextBlock Name="PoolCautions" Text="{Binding SelectedCard.Entry.Cautions}" TextWrapping="Wrap" />
+    <Expander Header="Volledige kaarttekst en beoordeelde gegevens" HorizontalAlignment="Stretch"><TextBlock Text="{Binding SelectedCard.Details}" TextWrapping="Wrap" Margin="0,10,0,0" /></Expander>
+    <Button Name="FindPoolAlternatives" Content="Opties met dezelfde deckfunctie zoeken" Command="{Binding FindAlternativesCommand}" HorizontalAlignment="Left" />
+   </StackPanel>
+  </StackPanel></Border>
+  <Border Classes="card"><StackPanel Spacing="12">
+   <TextBlock Text="Beoordeelde opties uit je collectie" Classes="section" />
+   <TextBlock Name="PoolAlternativeStatus" Text="{Binding AlternativeStatus}" Classes="muted" TextWrapping="Wrap" />
+   <ComboBox Name="PoolAlternativePicker" ItemsSource="{Binding Alternatives}" SelectedItem="{Binding SelectedAlternative}" HorizontalAlignment="Stretch" PlaceholderText="Nog geen beoordeelde opties"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:ArchetypePoolAlternative"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+   <TextBlock Name="PoolAlternativeExplanation" Text="{Binding SelectedAlternative.Explanation}" TextWrapping="Wrap" />
+   <Expander Name="PoolAlternativeDetailsExpander" Header="Origineel, alternatief en alle voorwaarden" HorizontalAlignment="Stretch"><TextBlock Name="PoolAlternativeDetails" Text="{Binding SelectedAlternative.Details}" TextWrapping="Wrap" Margin="0,10,0,0" /></Expander>
+   <TextBlock Text="De getoonde aantallen zijn totale geregistreerde voorraad. Ze zijn niet voor een deck gereserveerd en houden geen rekening met andere keuzes. Deze werkbank verandert je collectie of decks niet." Classes="muted" TextWrapping="Wrap" />
+  </StackPanel></Border>
+ </StackPanel>
+</UserControl>

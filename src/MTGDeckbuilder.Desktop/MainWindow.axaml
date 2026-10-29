@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:views="using:MTGDeckbuilder.Desktop.Views"
+ x:Class="MTGDeckbuilder.Desktop.MainWindow" x:DataType="vm:ShellViewModel"
+ Title="Magic · Smart Deckbuilder" Icon="avares://MTGDeckbuilder.Desktop/Assets/magic.ico" Width="1280" Height="880" MinWidth="1050" MinHeight="740">
+ <Window.DataTemplates>
+  <DataTemplate DataType="vm:PaperViewModel"><views:PaperView /></DataTemplate>
+  <DataTemplate DataType="vm:DeckWizardViewModel"><views:DeckWizardView /></DataTemplate>
+  <DataTemplate DataType="vm:SettingsViewModel"><views:SettingsView /></DataTemplate>
+ </Window.DataTemplates>
+ <Grid ColumnDefinitions="225,*" RowDefinitions="*,40">
+  <Border Grid.RowSpan="2" BorderBrush="#6B4729" BorderThickness="0,0,1,0" Padding="18,30">
+   <Border.Background><LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%"><GradientStop Color="#281710" Offset="0" /><GradientStop Color="#131113" Offset="1" /></LinearGradientBrush></Border.Background>
+   <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Spacing="12" Margin="0,0,0,30">
+     <Image Name="MagicBrandLogo" Source="avares://MTGDeckbuilder.Desktop/Assets/magic-logo.png" Width="185" Height="70" Stretch="Uniform" />
+     <TextBlock Text="SMART DECKBUILDER" HorizontalAlignment="Center" FontSize="11" Foreground="#D8B77E" LetterSpacing="2" />
+     <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Center" Margin="0,8,0,0">
+      <Ellipse Width="12" Height="12" Fill="#E8DFBA" /><Ellipse Width="12" Height="12" Fill="#579FC7" /><Ellipse Width="12" Height="12" Fill="#74657B" /><Ellipse Width="12" Height="12" Fill="#CC6243" /><Ellipse Width="12" Height="12" Fill="#65A879" />
+     </StackPanel>
+    </StackPanel>
+    <StackPanel DockPanel.Dock="Bottom" Spacing="6" Margin="10,20,0,0"><TextBlock Text="JOUW KAARTEN. JOUW VERHAAL." FontSize="10" Foreground="#C7AD86" /><TextBlock Text="Fysiek Magic · lokaal bewaard" FontSize="11" Classes="muted" /></StackPanel>
+    <StackPanel IsEnabled="{Binding IsReady}"><StackPanel IsEnabled="{Binding !Operations.IsBusy}">
+     <Button Name="PaperNavigation" Classes="nav" Classes.active="{Binding IsCollection}" Content="▦   Mijn collectie" Command="{Binding NavigateCommand}" CommandParameter="paper" />
+     <Button Name="PaperImportNavigation" Classes="nav" Classes.active="{Binding IsImport}" Content="⇄   Kaarten importeren" Command="{Binding NavigateCommand}" CommandParameter="paper-import" />
+     <Button Name="PaperDeckNavigation" Classes="nav" Classes.active="{Binding IsDecks}" Content="▤   Mijn decks" Command="{Binding NavigateCommand}" CommandParameter="paper-decks" />
+     <Button Name="WizardNavigation" Classes="nav" Classes.active="{Binding IsWizard}" Content="✦   Deckwizard" Command="{Binding NavigateCommand}" CommandParameter="wizard" />
+     <Button Name="SettingsNavigation" Classes="nav" Classes.active="{Binding IsSettings}" Content="⚙   Instellingen" Command="{Binding NavigateCommand}" CommandParameter="settings" />
+    </StackPanel></StackPanel>
+   </DockPanel>
+  </Border>
+  <Grid Grid.Column="1" RowDefinitions="Auto,*" Margin="28,24,28,24">
+   <StackPanel Spacing="10" Margin="0,0,0,12">
+    <Border IsVisible="{Binding Operations.HasError}" Background="#442321" BorderBrush="#B96A49" BorderThickness="1" CornerRadius="8" Padding="14"><TextBlock Text="{Binding Operations.ErrorMessage}" Foreground="#FFD3BC" TextWrapping="Wrap" /></Border>
+    <StackPanel IsVisible="{Binding !IsReady}" Spacing="10"><TextBlock Text="Je verzameling wordt geopend. Bij een fout kun je opnieuw proberen." TextWrapping="Wrap" /><Button Content="Opnieuw proberen" Command="{Binding InitializeCommand}" IsEnabled="{Binding !Operations.IsBusy}" /><Button Name="CancelStartupRestore" Content="Gepland herstel annuleren" Command="{Binding CancelStartupRestoreCommand}" IsEnabled="{Binding !Operations.IsBusy}" /></StackPanel>
+   </StackPanel>
+   <ScrollViewer Name="WorkspaceScroll" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" IsEnabled="{Binding IsReady}" IsVisible="{Binding IsReady}"><ContentControl Content="{Binding CurrentPage}" IsEnabled="{Binding !Operations.IsBusy}" /></ScrollViewer>
+  </Grid>
+  <Border Grid.Column="1" Grid.Row="1" Background="#181316" BorderBrush="#5B4028" BorderThickness="0,1,0,0" Padding="24,0"><Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center"><StackPanel Orientation="Horizontal" Spacing="10"><TextBlock Text="◆" Foreground="#D29650" /><TextBlock Text="{Binding Operations.Status}" FontSize="12" Classes="muted" /></StackPanel><TextBlock Grid.Column="1" Text="{Binding Version}" FontSize="12" Classes="muted" /></Grid></Border>
+ </Grid>
+</Window>

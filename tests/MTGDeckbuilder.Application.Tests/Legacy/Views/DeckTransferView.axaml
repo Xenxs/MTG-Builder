@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.DeckTransferView" x:DataType="vm:DeckTransferViewModel">
+ <StackPanel Spacing="16">
+  <TextBlock Text="Deck importeren" Classes="heading" />
+  <TextBlock Text="Van Arena-decktekst naar een nieuw lokaal deck. Je collectie en bestaande decks blijven behouden." Classes="muted" TextWrapping="Wrap" />
+  <Border Classes="card">
+   <StackPanel Spacing="12">
+    <StackPanel Spacing="10" IsEnabled="{Binding CanInteract}">
+     <Grid ColumnDefinitions="*,12,170"><TextBox Name="ImportDeckName" Text="{Binding DeckName}" PlaceholderText="Decknaam (leeg: naam uit bron)" MaxLength="120" /><ComboBox Grid.Column="2" ItemsSource="{Binding Formats}" SelectedItem="{Binding Format}" HorizontalAlignment="Stretch" /></Grid>
+     <TextBox Name="DeckSourceText" Text="{Binding SourceText}" AcceptsReturn="True" TextWrapping="NoWrap" Height="180" PlaceholderText="Deck&#10;4 Llanowar Elves (FDN) 227&#10;&#10;Sideboard&#10;2 Negate" />
+     <TextBlock Text="Ondersteund: aantallen met naam, optioneel (SET) nummer; Deck, Sideboard en Commander. Companion en Maybeboard worden geweigerd. Formaat kies je zelf; legaliteit wordt niet gecontroleerd." Classes="muted" TextWrapping="Wrap" />
+     <StackPanel Orientation="Horizontal" Spacing="10"><Button Content="Tekstbestand kiezen" Click="ReadFileClicked" /><Button Name="PrepareDeckImport" Content="Voorbereiden" Command="{Binding PrepareCommand}" Classes="primary" /></StackPanel>
+    </StackPanel>
+    <TextBlock Text="{Binding Status}" TextWrapping="Wrap" />
+    <TextBlock Text="Invoer gewijzigd: kies opnieuw Voorbereiden voordat je het nieuwe deck opslaat." IsVisible="{Binding SourceChanged}" Foreground="#F2C879" TextWrapping="Wrap" />
+    <ProgressBar IsVisible="{Binding IsWorking}" IsIndeterminate="True" Height="4" />
+    <Button Content="Annuleren" Command="{Binding CancelCommand}" IsVisible="{Binding IsWorking}" HorizontalAlignment="Left" />
+    <Border IsVisible="{Binding HasError}" Background="#412733" CornerRadius="6" Padding="12"><TextBlock Text="{Binding Error}" Foreground="#FFC9D4" TextWrapping="Wrap" /></Border>
+   </StackPanel>
+  </Border>
+  <Border Classes="card" IsVisible="{Binding HasPreview}" IsEnabled="{Binding CanInteract}">
+   <StackPanel Spacing="12">
+    <TextBlock Text="Kaartkoppelingen controleren" Classes="section" /><TextBlock Text="{Binding Summary}" TextWrapping="Wrap" /><TextBlock Text="{Binding PageLabel}" Classes="muted" />
+    <ListBox Name="DeckPreviewRows" ItemsSource="{Binding Rows}" SelectedItem="{Binding SelectedRow}" Height="200">
+     <ListBox.ItemTemplate><DataTemplate x:DataType="app:DeckImportPreviewRow"><StackPanel Margin="5,6" Spacing="3"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Details}" Classes="muted" FontSize="12" TextWrapping="Wrap" /></StackPanel></DataTemplate></ListBox.ItemTemplate>
+    </ListBox>
+    <StackPanel Orientation="Horizontal" Spacing="10"><Button Content="Vorige regels" Command="{Binding PreviousPageCommand}" /><Button Content="Volgende regels" Command="{Binding NextPageCommand}" /></StackPanel>
+    <Expander Header="Geselecteerde regel expliciet koppelen" IsVisible="{Binding IsPrepared}" HorizontalAlignment="Stretch">
+     <StackPanel Spacing="10" Margin="0,12,0,0">
+      <Button Content="Mogelijke printings tonen" Command="{Binding CandidatesCommand}" HorizontalAlignment="Left" />
+      <Grid ColumnDefinitions="*,Auto"><TextBox Name="DeckTargetSearch" Text="{Binding TargetSearch}" PlaceholderText="Of zoek op naam, set of collectornummer" /><Button Grid.Column="1" Content="Zoeken" Command="{Binding SearchTargetsCommand}" Margin="10,0,0,0" /></Grid>
+      <ComboBox Name="DeckTargetPicker" ItemsSource="{Binding Targets}" SelectedItem="{Binding SelectedTarget}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:CollectionTarget"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+      <Button Name="LinkDeckRow" Content="Deze printing koppelen" Command="{Binding LinkCommand}" HorizontalAlignment="Left" />
+     </StackPanel>
+    </Expander>
+    <StackPanel Spacing="10" IsVisible="{Binding IsPrepared}">
+     <TextBlock Text="Alle regels moeten gekoppeld zijn. Herhaalde regels voor dezelfde printing en zone worden opgeteld. Je maakt altijd een nieuw deck; bezit wordt niet aangepast." Classes="muted" TextWrapping="Wrap" />
+     <CheckBox Name="ReviewDeckImport" Content="Ik heb alle kaartkoppelingen en aantallen gecontroleerd" IsChecked="{Binding Reviewed}" />
+     <StackPanel Orientation="Horizontal" Spacing="10"><Button Name="ApplyDeckImport" Content="Nieuw deck opslaan" Command="{Binding ApplyCommand}" Classes="primary" /><Button Content="Voorbereiding verwerpen" Command="{Binding DiscardCommand}" /></StackPanel>
+    </StackPanel>
+   </StackPanel>
+  </Border>
+  <Border Classes="card" IsEnabled="{Binding CanInteract}"><StackPanel Spacing="12">
+   <TextBlock Text="Eerdere deckimports" Classes="section" /><TextBlock Text="Voorbereidingen blijven na herstart beschikbaar. Een toegepaste voorbereiding kan geen tweede deck aanmaken." Classes="muted" TextWrapping="Wrap" />
+   <ListBox ItemsSource="{Binding History}" SelectedItem="{Binding SelectedHistory}" Height="140"><ListBox.ItemTemplate><DataTemplate x:DataType="app:DeckImportHistory"><TextBlock Text="{Binding Label}" Margin="5,7" TextWrapping="Wrap" /></DataTemplate></ListBox.ItemTemplate></ListBox>
+   <StackPanel Orientation="Horizontal" Spacing="10"><Button Content="Vorige imports" Command="{Binding PreviousHistoryCommand}" /><TextBlock Text="{Binding HistoryPage}" VerticalAlignment="Center" /><Button Content="Volgende imports" Command="{Binding NextHistoryCommand}" /><Button Content="Details openen" Command="{Binding OpenHistoryCommand}" /></StackPanel>
+  </StackPanel></Border>
+ </StackPanel>
+</UserControl>

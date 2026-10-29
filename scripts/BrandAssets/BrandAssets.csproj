@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType></PropertyGroup><ItemGroup><ProjectReference Include="../../src/MTGDeckbuilder.Desktop/MTGDeckbuilder.Desktop.csproj" /></ItemGroup></Project>

@@ -1,0 +1,108 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.DecksView" x:DataType="vm:DecksViewModel">
+ <StackPanel Spacing="18">
+  <StackPanel Spacing="8"><TextBlock Text="Mijn decks" Classes="heading" /><TextBlock Text="Plan met je collectie én de catalogus. Bekijk tekorten en statistieken, of exporteer een decklijst." Classes="muted" TextWrapping="Wrap" /></StackPanel>
+  <Border Classes="card">
+   <Expander Header="Nieuw deck aanmaken" HorizontalAlignment="Stretch"><StackPanel Margin="0,12,0,0" Spacing="10">
+    <Grid ColumnDefinitions="*,12,170,12,Auto"><TextBox Text="{Binding DeckName}" PlaceholderText="Naam van je deck" MaxLength="120" /><ComboBox Grid.Column="2" ItemsSource="{Binding Formats}" SelectedItem="{Binding Format}" HorizontalAlignment="Stretch" /><Button Grid.Column="4" Content="Deck aanmaken" Command="{Binding CreateCommand}" Classes="primary" /></Grid>
+    <TextBlock Text="Een bestaande Arena-lijst invoeren? Gebruik Deck importeren in het navigatiemenu." Classes="muted" TextWrapping="Wrap" />
+   </StackPanel></Expander>
+  </Border>
+  <Border Classes="card"><StackPanel Spacing="12">
+   <Grid ColumnDefinitions="*,12,Auto">
+    <ComboBox Name="DeckSelector" ItemsSource="{Binding Decks}" SelectedItem="{Binding SelectedDeck}" HorizontalAlignment="Stretch" PlaceholderText="Kies een deck" SelectionChanged="DeckSelectionChanged"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:DeckItem"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Button Grid.Column="2" Content="Deck verwijderen…" Command="{Binding RequestDeleteCommand}" />
+   </Grid>
+   <Border IsVisible="{Binding DeleteConfirmation}" Background="#412733" CornerRadius="8" Padding="12"><StackPanel Spacing="10"><TextBlock Text="Dit deck en alle deckregels definitief verwijderen? Je collectie blijft bewaard." TextWrapping="Wrap" /><StackPanel Orientation="Horizontal" Spacing="10"><Button Content="Ja, verwijder deck" Command="{Binding DeleteCommand}" /><Button Content="Annuleren" Command="{Binding CancelDeleteCommand}" /></StackPanel></StackPanel></Border>
+   <TabControl Name="DeckWorkspaceTabs">
+    <TabItem Header="Kaarten"><StackPanel Spacing="12" Margin="0,12,0,0">
+     <StackPanel Orientation="Horizontal" Spacing="12"><TextBlock Text="Zone" VerticalAlignment="Center" /><ComboBox ItemsSource="{Binding Zones}" SelectedItem="{Binding Zone}" Width="150" /><TextBlock Text="Aantal" VerticalAlignment="Center" /><NumericUpDown Value="{Binding Quantity}" Minimum="1" Maximum="9999" Increment="1" FormatString="0" /></StackPanel>
+     <TextBlock Text="Printing uit je collectie" Classes="section" />
+     <ComboBox ItemsSource="{Binding Collection}" SelectedItem="{Binding SelectedPrinting}" HorizontalAlignment="Stretch" PlaceholderText="Nog geen bezit geregistreerd"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:CollectionItem"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+     <Button Content="Collectieprinting in deck opslaan" Command="{Binding SaveCardCommand}" Classes="primary" HorizontalAlignment="Left" />
+     <Expander Header="Plannen met een cataloguskaart, ook zonder bezit" HorizontalAlignment="Stretch"><StackPanel Spacing="10" Margin="0,10,0,0">
+      <Grid ColumnDefinitions="*,Auto"><TextBox Name="DeckCatalogSearch" Text="{Binding CatalogSearch}" PlaceholderText="Zoek een kaartnaam" /><Button Grid.Column="1" Content="Zoeken" Command="{Binding SearchCatalogCommand}" Margin="10,0,0,0" /></Grid>
+      <TextBlock Text="{Binding CatalogResultsInfo}" Classes="muted" TextWrapping="Wrap" />
+      <ComboBox Name="DeckCatalogPicker" ItemsSource="{Binding CatalogResults}" SelectedItem="{Binding SelectedCatalogItem}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:CatalogItem"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+      <Button Name="AddUnownedDeckCard" Content="Catalogusprinting in deck opslaan" Command="{Binding AddCatalogCardCommand}" HorizontalAlignment="Left" />
+     </StackPanel></Expander>
+     <TextBlock Text="Deckinhoud" Classes="section" />
+     <ListBox Name="DeckCardList" ItemsSource="{Binding Cards}" SelectedItem="{Binding SelectedCard}" Height="230"><ListBox.ItemTemplate><DataTemplate x:DataType="app:DeckCardItem"><TextBlock Text="{Binding Label}" Margin="6,7" TextWrapping="Wrap" /></DataTemplate></ListBox.ItemTemplate></ListBox>
+     <Button Content="Geselecteerde kaart uit deck halen" Command="{Binding RemoveCardCommand}" HorizontalAlignment="Left" />
+    </StackPanel></TabItem>
+    <TabItem Header="Analyse"><StackPanel Spacing="14" Margin="0,12,0,0">
+     <Button Content="Analyse en bezit vernieuwen" Command="{Binding AnalyzeCommand}" HorizontalAlignment="Left" />
+     <StackPanel IsVisible="{Binding HasAnalysis}" Spacing="14">
+      <TextBlock Name="DeckAnalysisSummary" Text="{Binding Analysis.Summary}" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap" />
+      <TextBlock Text="{Binding Analysis.ManaSummary}" Classes="muted" TextWrapping="Wrap" />
+      <TextBlock Text="Tekorten volgens je lokale bezitregistratie" Classes="section" />
+      <TextBlock Text="Mainboard, sideboard en commander delen één voorraad. Andere uitgaven tellen alleen mee bij dezelfde Oracle-identiteit; handmatige kaarten blijven per printing apart. Dit is geen legaliteits- of wildcardcontrole. Onbeperkte beschikbaarheid van basislanden in Arena wordt niet gemodelleerd." Classes="muted" TextWrapping="Wrap" />
+      <TextBlock IsVisible="{Binding HasNoCards}" Text="Dit deck bevat nog geen kaarten." Classes="muted" />
+      <TextBlock IsVisible="{Binding HasNoShortages}" Text="Alle gevraagde exemplaren zijn volgens je lokale registratie aanwezig, ook voor de gekozen printings." Foreground="#79C9AF" TextWrapping="Wrap" />
+      <ListBox Name="DeckMissingCards" ItemsSource="{Binding MissingCards}" Height="180" IsVisible="{Binding HasShortages}"><ListBox.ItemTemplate><DataTemplate x:DataType="app:DeckNeed"><StackPanel Margin="5,6" Spacing="3"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Details}" Classes="muted" FontSize="12" TextWrapping="Wrap" /></StackPanel></DataTemplate></ListBox.ItemTemplate></ListBox>
+      <Grid ColumnDefinitions="*,16,*">
+       <StackPanel Spacing="10"><TextBlock Text="Mana · niet-landen in mainboard" Classes="section" TextWrapping="Wrap" />
+        <ItemsControl ItemsSource="{Binding Analysis.ManaCurve}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:DeckMetric"><Grid ColumnDefinitions="55,*,36" Margin="0,4"><TextBlock Text="{Binding Label}" VerticalAlignment="Center" /><Border Grid.Column="1" Background="#7766E8" CornerRadius="3" Width="{Binding BarWidth}" Height="16" HorizontalAlignment="Left" /><TextBlock Grid.Column="2" Text="{Binding Count}" HorizontalAlignment="Right" /></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+       </StackPanel>
+       <StackPanel Grid.Column="2" Spacing="10"><TextBlock Text="Kaarttypen · mainboard" Classes="section" /><ItemsControl ItemsSource="{Binding Analysis.Types}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:DeckMetric"><Grid ColumnDefinitions="*,40" Margin="0,3"><TextBlock Text="{Binding Label}" /><TextBlock Grid.Column="1" Text="{Binding Count}" HorizontalAlignment="Right" /></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+        <TextBlock Text="Kleuridentiteit · mainboard" Classes="section" Margin="0,8,0,0" /><ItemsControl ItemsSource="{Binding Analysis.Colors}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:DeckMetric"><Grid ColumnDefinitions="*,40" Margin="0,3"><TextBlock Text="{Binding Label}" /><TextBlock Grid.Column="1" Text="{Binding Count}" HorizontalAlignment="Right" /></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+       </StackPanel>
+      </Grid>
+      <TextBlock Text="Beschrijvende analyse uit catalogusmetadata. Handmatige kaarten zonder metadata tellen als onbekend. Meervoudige kaarten: type van de voorzijde en de catalogus-manawaarde. Kaarten met meerdere typen/kleuren tellen bij ieder passend type/kleur mee." Classes="muted" TextWrapping="Wrap" />
+     </StackPanel>
+    </StackPanel></TabItem>
+    <TabItem Header="Export"><StackPanel Spacing="12" Margin="0,12,0,0">
+     <TextBlock Text="Arena-decktekst" Classes="section" /><TextBlock Text="Maak de tekst, selecteer alles en kopieer met Ctrl+C voor import in Arena, of sla een tekstbestand op. Bezit en formaatlegaliteit worden hierbij niet gecontroleerd. Taal en artvariant hebben geen afzonderlijk veld in deze tekstnotatie." Classes="muted" TextWrapping="Wrap" />
+     <StackPanel Orientation="Horizontal" Spacing="10"><Button Name="GenerateDeckExport" Content="Decktekst maken" Command="{Binding GenerateExportCommand}" Classes="primary" /><Button Content="Tekstbestand opslaan" Click="ExportDeckClicked" /></StackPanel>
+     <TextBox Name="DeckExportText" Text="{Binding ExportText, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="NoWrap" Height="350" />
+    </StackPanel></TabItem>
+    <TabItem Header="Formaatcontrole"><StackPanel Spacing="14" Margin="0,12,0,0">
+     <TextBlock Text="Controleer Arena Standard" Classes="section" />
+     <TextBlock Text="Kies expliciet BO1 of BO3. Het bestaande formaatlabel wordt behouden. Beide varianten staan sinds februari 2026 maximaal 15 sideboardkaarten toe; BO1 heeft aanvullende bans." Classes="muted" TextWrapping="Wrap" />
+     <ComboBox Name="ValidationProfilePicker" ItemsSource="{Binding ValidationProfiles}" SelectedItem="{Binding SelectedValidationProfile}" HorizontalAlignment="Stretch"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:RuleProfileOption"><TextBlock Text="{Binding Label}" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+     <Button Name="ValidateDeck" Content="Profiel bewaren en controleren" Command="{Binding ValidateDeckCommand}" Classes="primary" HorizontalAlignment="Left" />
+     <StackPanel IsVisible="{Binding HasValidation}" Spacing="12">
+      <TextBlock Name="DeckValidationSummary" Text="{Binding Validation.Summary}" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap" />
+      <TextBlock Text="{Binding Validation.Counts}" Classes="muted" TextWrapping="Wrap" />
+      <ListBox Name="DeckValidationIssues" ItemsSource="{Binding Validation.Issues}" MaxHeight="380"><ListBox.ItemTemplate><DataTemplate x:DataType="app:DeckValidationIssue"><StackPanel Margin="6,8" Spacing="4"><TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextWrapping="Wrap" /><TextBlock Text="{Binding Message}" TextWrapping="Wrap" /><TextBlock Text="{Binding Action}" Classes="muted" TextWrapping="Wrap" /></StackPanel></DataTemplate></ListBox.ItemTemplate></ListBox>
+      <TextBlock Text="{Binding Validation.Sources}" Classes="muted" FontSize="12" TextWrapping="Wrap" />
+     </StackPanel>
+     <TextBlock Text="Een controle geldt voor het getoonde moment en opgeslagen brondata. Ververs de catalogus bij brondata ouder dan 24 uur. Controleer opnieuw na wijzigingen. Bezit en winkans staan los van legaliteit. Andere formaten en de keuze van een companion worden niet ondersteund." Classes="muted" TextWrapping="Wrap" />
+    </StackPanel></TabItem>
+    <TabItem Header="Alternatieven"><StackPanel Spacing="12" Margin="0,12,0,0">
+     <TextBlock Text="Ontbrekende kaarten vervangen uit eigen collectie" Classes="section" TextWrapping="Wrap" />
+     <TextBlock Text="Eerst dezelfde kaart, daarna passende herkende rollen. Volledig herkende tekst, onvolledige aanwijzingen en onbekende tekst blijven apart zichtbaar. Alleen mainboard-niet-landen met gedeeld type en zonder nieuwe kleuren. Gerichte schade bewijst geen dodelijkheid; modale opties zijn afzonderlijke keuzes. Vergelijk de niet beoordeelde tekst; geen voorspelling van winkans." Classes="muted" TextWrapping="Wrap" />
+     <Button Name="CalculateAdvice" Content="Advies opnieuw berekenen" Command="{Binding CalculateAdviceCommand}" Classes="primary" HorizontalAlignment="Left" />
+     <TextBlock Text="Gebruikt het opgeslagen profiel uit Formaatcontrole. Alle zones delen één voorraad; exacte sideboardexemplaren krijgen voorrang. Basislanden zijn alleen beschikbaar voor zover lokaal geregistreerd." Classes="muted" TextWrapping="Wrap" />
+     <StackPanel IsVisible="{Binding HasAdvice}" Spacing="12">
+      <TextBlock Name="AdviceSummary" Text="{Binding Advice.Summary}" FontSize="18" FontWeight="SemiBold" TextWrapping="Wrap" />
+      <ItemsControl ItemsSource="{Binding Advice.Baseline.Issues}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:DeckValidationIssue"><StackPanel Margin="0,4"><TextBlock Text="{Binding Message}" TextWrapping="Wrap" /><TextBlock Text="{Binding Action}" Classes="muted" TextWrapping="Wrap" /></StackPanel></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+      <StackPanel IsVisible="{Binding HasAdviceNeeds}" Spacing="12"><ComboBox Name="AdviceNeedPicker" ItemsSource="{Binding AdviceNeeds}" SelectedItem="{Binding SelectedAdviceNeed}" HorizontalAlignment="Stretch" PlaceholderText="Geen resterende tekorten"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:AdviceNeed"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+      <Button Name="FindAdviceCandidates" Content="Alternatieven voor dit tekort zoeken" Command="{Binding FindAdviceCandidatesCommand}" HorizontalAlignment="Left" />
+      <TextBlock Text="{Binding CandidateStatus}" Classes="muted" TextWrapping="Wrap" />
+      <ComboBox Name="AdviceCandidatePicker" ItemsSource="{Binding AdviceCandidates}" SelectedItem="{Binding SelectedAdviceCandidate}" HorizontalAlignment="Stretch" PlaceholderText="Zoek beschikbare alternatieven"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:AdviceCandidate"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+      <StackPanel IsVisible="{Binding HasAdviceCandidate}" Spacing="10"><TextBlock Name="AdviceReason" Text="{Binding SelectedAdviceCandidate.Reason}" TextWrapping="Wrap" />
+      <ScrollViewer MaxHeight="220"><TextBlock Name="AdviceRoleDetails" Text="{Binding SelectedAdviceCandidate.Role.Details}" TextWrapping="Wrap" /></ScrollViewer>
+      <ScrollViewer MaxHeight="150"><TextBlock Text="{Binding SelectedAdviceCandidate.RulesText}" Classes="muted" TextWrapping="Wrap" /></ScrollViewer>
+      <StackPanel Orientation="Horizontal" Spacing="12"><NumericUpDown Name="AdviceQuantity" Value="{Binding AdviceQuantity}" Minimum="1" Maximum="9999" Increment="1" FormatString="0" /><Button Name="AddAdviceChoice" Content="Vervanging kiezen" Command="{Binding AddAdviceChoiceCommand}" /></StackPanel></StackPanel></StackPanel>
+      <ListBox IsVisible="{Binding HasAdviceChanges}" Name="AdviceChoices" ItemsSource="{Binding AdviceChanges}" SelectedItem="{Binding SelectedAdviceChange}" MaxHeight="160"><ListBox.ItemTemplate><DataTemplate x:DataType="app:AdviceChange"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" Margin="6" /></DataTemplate></ListBox.ItemTemplate></ListBox>
+      <Button IsVisible="{Binding HasAdviceChanges}" Content="Geselecteerde keuze verwijderen" Command="{Binding RemoveAdviceChoiceCommand}" HorizontalAlignment="Left" />
+      <StackPanel IsVisible="{Binding HasSupportedAdvice}" Spacing="12"><TextBlock Text="Naam van het nieuwe deck" Classes="muted" /><TextBox Name="AdviceDeckName" Text="{Binding AdviceName}" MaxLength="120" PlaceholderText="Naam van het nieuwe deck" />
+      <Button Name="PreviewAdvice" Content="Gezamenlijk voorbeeld controleren" Command="{Binding PreviewAdviceCommand}" IsEnabled="{Binding CanReviewAdvice}" HorizontalAlignment="Left" />
+      <Border IsVisible="{Binding HasAdvicePreview}" Background="#203D37" CornerRadius="8" Padding="14"><StackPanel Spacing="10">
+       <TextBlock Text="{Binding AdvicePreview.Name}" FontSize="18" FontWeight="SemiBold" TextWrapping="Wrap" />
+       <TextBlock Text="{Binding AdvicePreview.Advice.Summary}" TextWrapping="Wrap" />
+       <TextBlock Text="{Binding AdvicePreview.Advice.Result.Summary}" TextWrapping="Wrap" />
+       <TextBlock Text="{Binding AdvicePreview.Advice.Result.Counts}" TextWrapping="Wrap" />
+       <ItemsControl ItemsSource="{Binding AdvicePreview.Advice.Changes}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:AdviceChange"><StackPanel Spacing="6" Margin="0,4"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Role.Label}" TextWrapping="Wrap" /><Expander Header="Rol, verschillen en herkenningsversie"><TextBlock Text="{Binding Details}" TextWrapping="Wrap" /></Expander></StackPanel></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><ItemsControl ItemsSource="{Binding AdvicePreview.Advice.Needs}"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:AdviceNeed"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" Margin="0,4" /></DataTemplate></ItemsControl.ItemTemplate></ItemsControl><TextBlock Text="Deze vervangingen worden samen opgeslagen. Resterende tekorten blijven in het nieuwe deck staan. Je oorspronkelijke deck en collectie blijven behouden." TextWrapping="Wrap" />
+       <Button Name="ApplyAdvice" Content="Als nieuw deck opslaan" Command="{Binding ApplyAdviceCommand}" Classes="primary" HorizontalAlignment="Left" />
+      </StackPanel></Border>
+      <TextBlock Text="{Binding Advice.Result.Sources}" Classes="muted" FontSize="12" TextWrapping="Wrap" />
+     </StackPanel></StackPanel>
+    </StackPanel></TabItem>
+   </TabControl>
+  </StackPanel></Border>
+ </StackPanel>
+</UserControl>
+

@@ -1,0 +1,495 @@
+{
+  "DatasetVersion": "role-evaluation-v1",
+  "Source": "Scryfall snapshot 2026-10-21T21:06:00.423Z",
+  "Selection": "Six lowest SHA256(phase8-eval-v1/OracleId) per keyword stratum; exclude phase7 reference names; not representative and no independent reviewer.",
+  "SelectedUtc": "2026-10-22T12:31:20.1465827+02:00",
+  "ParserFreeze": "artifacts/phase8-classifier-freeze.json",
+  "Labeling": "Same developer, after parser freeze, before viewing per-card predictions; no independent reviewer. Role meaning is bounded as documented, not full semantic equivalence.",
+  "Cases": [
+    {
+      "Name": "Sound the Trumpets",
+      "TypeLine": "Instant",
+      "OracleText": "Counter target spell. If that spell's mana value was 2 or less, recruit. (Draw a card, then discard a card. If you discarded a nonland card, create a 1/1 white Human Soldier creature token.)",
+      "ManaCost": "{1}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "dbcf2a79-b455-43ac-9cf0-9e63708800f4",
+      "AllowedRoles": [
+        "Counterspell"
+      ],
+      "RequiredTerms": [
+        "mana value was 2 or less",
+        "recruit"
+      ],
+      "ReviewNote": "Counter met voorwaardelijk extra recruit-effect; voorwaarden behouden.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "Spellgyre",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Counter target spell.\n• Surveil 2, then draw two cards. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "ManaCost": "{2}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 4,
+      "OracleId": "7db31623-5dea-4165-8593-fbac568bf5b4",
+      "AllowedRoles": [
+        "Counterspell",
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "Surveil 2"
+      ],
+      "ReviewNote": "Modale keuze; geen onvoorwaardelijke combinatie van counter en draw.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "Three Steps Ahead",
+      "TypeLine": "Instant",
+      "OracleText": "Spree (Choose one or more additional costs.)\n+ {1}{U} — Counter target spell.\n+ {3} — Create a token that's a copy of target artifact or creature you control.\n+ {2} — Draw two cards, then discard a card.",
+      "ManaCost": "{U}",
+      "Colors": "U",
+      "ManaValue": 1,
+      "OracleId": "282dfeaa-6243-4f92-838a-5cb54fa85184",
+      "AllowedRoles": [
+        "Counterspell",
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Spree",
+        "additional costs"
+      ],
+      "ReviewNote": "Modale extra kosten per gekozen effect.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "Spectral Interference",
+      "TypeLine": "Instant",
+      "OracleText": "Counter target artifact or creature spell unless its controller pays {4}.",
+      "ManaCost": "{1}{U}",
+      "Colors": "U",
+      "ManaValue": 2,
+      "OracleId": "cb5ed146-5079-46ef-a3e0-e584fa4467f6",
+      "AllowedRoles": [
+        "Counterspell"
+      ],
+      "RequiredTerms": [
+        "artifact or creature",
+        "pays {4}"
+      ],
+      "ReviewNote": "Beperkte doelgroepen en betaaluitweg.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "Confusticate and Bebother",
+      "TypeLine": "Instant",
+      "OracleText": "Choose one —\n• Counter target spell unless its controller pays {4}.\n• Draw two cards, then discard a card.",
+      "ManaCost": "{2}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "7a7d9887-3cc4-4fb9-9109-1315903ace45",
+      "AllowedRoles": [
+        "Counterspell",
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "pays {4}",
+        "discard"
+      ],
+      "ReviewNote": "Modaal, betaaluitweg of draw/discard.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "An Offer You Can't Refuse",
+      "TypeLine": "Instant",
+      "OracleText": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "ManaCost": "{U}",
+      "Colors": "U",
+      "ManaValue": 1,
+      "OracleId": "234a734b-ba28-4f1b-9d01-3c3e7d516590",
+      "AllowedRoles": [
+        "Counterspell"
+      ],
+      "RequiredTerms": [
+        "Its controller creates two Treasure"
+      ],
+      "ReviewNote": "Tegenstander ontvangt resources als bijkomend effect.",
+      "Stratum": "Counter"
+    },
+    {
+      "Name": "Airbender's Reversal",
+      "TypeLine": "Instant — Lesson",
+      "OracleText": "Choose one —\n• Destroy target attacking creature.\n• Airbend target creature you control. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+      "ManaCost": "{1}{W}",
+      "Colors": "W",
+      "ManaValue": 2,
+      "OracleId": "64e3791b-de99-4eed-af49-cbec218c28aa",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one",
+        "attacking"
+      ],
+      "ReviewNote": "Modaal met doelbeperking en airbend andere modus.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Repel Calamity",
+      "TypeLine": "Instant",
+      "OracleText": "Destroy target creature with power or toughness 4 or greater.",
+      "ManaCost": "{1}{W}",
+      "Colors": "W",
+      "ManaValue": 2,
+      "OracleId": "ba58f508-8036-496c-8a2f-c1e410165e93",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "power or toughness 4 or greater"
+      ],
+      "ReviewNote": "Removal alleen bij genoemde power/toughnessgrens.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Cruel Alliance",
+      "TypeLine": "Sorcery",
+      "OracleText": "Teamwork 2 (As an additional cost to cast this spell, you may tap any number of creatures you control with total power 2 or more.)\nExile target creature with mana value 3 or less. If this spell was cast using teamwork, instead exile target creature and you gain 3 life.",
+      "ManaCost": "{2}{B}",
+      "Colors": "B",
+      "ManaValue": 3,
+      "OracleId": "6897f9e0-f654-4c0a-9fda-2ad4e264bf9a",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Teamwork 2",
+        "instead"
+      ],
+      "ReviewNote": "Extra-kostenmechaniek verandert doelgrens/effect.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Emerge from the Cocoon",
+      "TypeLine": "Sorcery",
+      "OracleText": "Return target creature card from your graveyard to the battlefield. You gain 3 life.",
+      "ManaCost": "{4}{W}",
+      "Colors": "W",
+      "ManaValue": 5,
+      "OracleId": "fed2127c-7174-4863-ad6a-1847c96bbd3f",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Reanimatie vanuit eigen graveyard; geen gerichte removal.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Roadside Blowout",
+      "TypeLine": "Sorcery",
+      "OracleText": "This spell costs {2} less to cast if it targets a permanent with mana value 1.\nReturn target creature or Vehicle an opponent controls to its owner's hand.\nDraw a card.",
+      "ManaCost": "{2}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "03008c7d-c738-473d-a968-1922b2899d1a",
+      "AllowedRoles": [
+        "Removal",
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "costs {2} less",
+        "an opponent controls"
+      ],
+      "ReviewNote": "Bounce met kostenvoorwaarde, tegenstanderbeperking en extra kaart.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Agate Assault",
+      "TypeLine": "Sorcery",
+      "OracleText": "Choose one —\n• Agate Assault deals 4 damage to target creature. If that creature would die this turn, exile it instead.\n• Exile target artifact.",
+      "ManaCost": "{2}{R}",
+      "Colors": "R",
+      "ManaValue": 3,
+      "OracleId": "7b89b7d2-c724-4d5d-9f0b-7d3302ad1168",
+      "AllowedRoles": [
+        "Removal"
+      ],
+      "RequiredTerms": [
+        "Choose one"
+      ],
+      "ReviewNote": "Modale removal via schade of artifact exile; geen onbeperkte exile.",
+      "Stratum": "Removal"
+    },
+    {
+      "Name": "Splatter Technique",
+      "TypeLine": "Sorcery",
+      "OracleText": "Choose one —\n• Draw four cards.\n• Splatter Technique deals 4 damage to each creature and planeswalker.",
+      "ManaCost": "{1}{U}{U}{R}{R}",
+      "Colors": "UR",
+      "ManaValue": 5,
+      "OracleId": "2620dcfe-8738-4f81-b23d-0c1c60cf9047",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Choose one"
+      ],
+      "ReviewNote": "Modale draw of massaschade; massaschade buiten gerichte-removalrol.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "Pensive Professor",
+      "TypeLine": "Creature — Human Wizard",
+      "OracleText": "Increment (Whenever you cast a spell, if the amount of mana you spent is greater than this creature's power or toughness, put a +1/+1 counter on this creature.)\nWhenever one or more +1/+1 counters are put on this creature, draw a card.",
+      "ManaCost": "{1}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 3,
+      "OracleId": "4b8736e2-fc41-4a25-bb6c-7351afc40981",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Whenever one or more +1/+1 counters"
+      ],
+      "ReviewNote": "Draw via voorwaardelijke counter-trigger.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "Locke Cole",
+      "TypeLine": "Legendary Creature — Human Rogue",
+      "OracleText": "Deathtouch, lifelink\nWhenever Locke Cole deals combat damage to a player, draw a card, then discard a card.",
+      "ManaCost": "{1}{U}{B}",
+      "Colors": "UB",
+      "ManaValue": 3,
+      "OracleId": "bdcb7aed-3595-4c7e-b9da-543e92de919a",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "combat damage",
+        "discard"
+      ],
+      "ReviewNote": "Combat-trigger draw/discard, geen losse trekspreuk.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "The Vision",
+      "TypeLine": "Legendary Artifact Creature — Robot Hero",
+      "OracleText": "Flying, vigilance\nWhenever you cast a noncreature spell, choose one that hasn't been chosen this turn —\n• Solar Beam — The Vision gains double strike until end of turn.\n• Density Control — The Vision gains indestructible until end of turn.\n• Technopathy — Draw a card.",
+      "ManaCost": "{4}",
+      "Colors": "",
+      "ManaValue": 4,
+      "OracleId": "32aee76a-e738-4898-985a-801d1cce15ea",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "noncreature spell",
+        "chosen this turn"
+      ],
+      "ReviewNote": "Modale getriggerde ability met keuzegrens.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "Seismic Monstrosaur",
+      "TypeLine": "Creature — Dinosaur",
+      "OracleText": "Trample\n{2}{R}, Sacrifice a land: Draw a card.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+      "ManaCost": "{4}{R}{R}",
+      "Colors": "R",
+      "ManaValue": 6,
+      "OracleId": "3b66d2c2-be7a-4296-9888-f0cfb2975e89",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "Sacrifice a land"
+      ],
+      "ReviewNote": "Draw-ability heeft mana- en land-sacrificekosten.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "Canyon Crab",
+      "TypeLine": "Creature — Crab",
+      "OracleText": "{1}{U}: This creature gets +2/-2 until end of turn.\nAt the beginning of your end step, if you haven't cast a spell from your hand this turn, draw a card, then discard a card.",
+      "ManaCost": "{1}{U}",
+      "Colors": "U",
+      "ManaValue": 2,
+      "OracleId": "4681facf-21ca-4118-a827-0e3d4233d8e6",
+      "AllowedRoles": [
+        "Draw"
+      ],
+      "RequiredTerms": [
+        "haven't cast a spell",
+        "discard"
+      ],
+      "ReviewNote": "Voorwaardelijke end-step draw/discard.",
+      "Stratum": "Draw"
+    },
+    {
+      "Name": "Carnivorous Cultivator // Enroot",
+      "TypeLine": "Creature — Elf Warlock // Sorcery",
+      "OracleText": "Deathtouch\nThis creature enters prepared.\nWhenever this creature deals combat damage to a player, return target land card from your graveyard to your hand. // Search your library for a land card, put it into your graveyard, then shuffle.",
+      "ManaCost": "{1}{G} // {G}",
+      "Colors": "G",
+      "ManaValue": 2,
+      "OracleId": "db655c5a-06f6-42bc-8180-d9ca1c1d939a",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Land naar hand of graveyard; geen extra manabron op battlefield; meervoudige kaart.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Edge Rover",
+      "TypeLine": "Artifact Creature — Robot Scout",
+      "OracleText": "Reach\nWhen this creature dies, each player creates a Lander token. (It's an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+      "ManaCost": "{G}",
+      "Colors": "G",
+      "ManaValue": 1,
+      "OracleId": "b907d375-b715-446b-8966-79959feb9f58",
+      "AllowedRoles": [
+        "ManaAcceleration"
+      ],
+      "RequiredTerms": [
+        "dies",
+        "each player",
+        "Sacrifice this token"
+      ],
+      "ReviewNote": "Indirecte mana-versnelling via death-trigger en betaalde Lander-tokenability.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Evolving Wilds",
+      "TypeLine": "Land",
+      "OracleText": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+      "ManaCost": "",
+      "Colors": "",
+      "ManaValue": 0,
+      "OracleId": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Landruil na sacrifice van zichzelf; geen extra manabron netto.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Bramble Familiar // Fetch Quest",
+      "TypeLine": "Creature — Elemental Raccoon // Sorcery — Adventure",
+      "OracleText": "{T}: Add {G}.\n{1}{G}, {T}, Discard a card: Return this creature to its owner's hand. // Mill seven cards. Then put a creature, enchantment, or land card from among the milled cards onto the battlefield.",
+      "ManaCost": "{1}{G} // {5}{G}{G}",
+      "Colors": "G",
+      "ManaValue": 2,
+      "OracleId": "68f36dfa-bbd2-4860-b09b-37e35136be72",
+      "AllowedRoles": [
+        "ManaAcceleration"
+      ],
+      "RequiredTerms": [
+        "//",
+        "Discard a card"
+      ],
+      "ReviewNote": "Mana-creature met Adventure en verdere ability; niet volledig beoordeeld.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Foot Headquarters",
+      "TypeLine": "Land",
+      "OracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {B}.",
+      "ManaCost": "",
+      "Colors": "WB",
+      "ManaValue": 0,
+      "OracleId": "063dd25b-d4b4-4e09-acae-8c52dcb40803",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Gewone landmanabron is geen extra mana-versnelling volgens deze rolafbakening.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Restless Cottage",
+      "TypeLine": "Land",
+      "OracleText": "This land enters tapped.\n{T}: Add {B} or {G}.\n{2}{B}{G}: This land becomes a 4/4 black and green Horror creature until end of turn. It's still a land.\nWhenever this land attacks, create a Food token and exile up to one target card from a graveyard.",
+      "ManaCost": "",
+      "Colors": "BG",
+      "ManaValue": 0,
+      "OracleId": "7e16595f-bdeb-422e-b99a-bfc0ed52e9f8",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Manland met food/graveyard-effecten; geen extra mana-versnelling of gerichte permanentremoval.",
+      "Stratum": "Mana"
+    },
+    {
+      "Name": "Web of Life and Destiny",
+      "TypeLine": "Enchantment",
+      "OracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nAt the beginning of combat on your turn, look at the top five cards of your library. You may put a creature card from among them onto the battlefield. Put the rest on the bottom of your library in a random order.",
+      "ManaCost": "{6}{G}{G}",
+      "Colors": "G",
+      "ManaValue": 8,
+      "OracleId": "33d556c5-1bb4-49bb-88c2-627311eb8c9b",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Creature-cheat/convoke valt buiten de vier afgebakende rollen.",
+      "Stratum": "Other"
+    },
+    {
+      "Name": "The Darkness Crystal",
+      "TypeLine": "Legendary Artifact",
+      "OracleText": "Black spells you cast cost {1} less to cast.\nIf a nontoken creature an opponent controls would die, instead exile it and you gain 2 life.\n{4}{B}{B}, {T}: Put target creature card exiled with The Darkness Crystal onto the battlefield tapped under your control with two additional +1/+1 counters on it.",
+      "ManaCost": "{2}{B}{B}",
+      "Colors": "B",
+      "ManaValue": 4,
+      "OracleId": "660f370a-b25b-4ea5-b765-7abf96899c1c",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Kostenreductie, replacement en reanimatie buiten afgebakende vier rollen.",
+      "Stratum": "Other"
+    },
+    {
+      "Name": "Shopkeeper's Bane",
+      "TypeLine": "Creature — Badger Pest",
+      "OracleText": "Trample\nWhenever this creature attacks, you gain 2 life.",
+      "ManaCost": "{2}{G}",
+      "Colors": "G",
+      "ManaValue": 3,
+      "OracleId": "e7572317-6bec-4fb0-81ac-76aec04f14ad",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Combat en life gain; geen van de vier rollen.",
+      "Stratum": "Other"
+    },
+    {
+      "Name": "Spider-Girl, Legacy Hero",
+      "TypeLine": "Legendary Creature — Spider Human Hero",
+      "OracleText": "During your turn, Spider-Girl has flying.\nWhen Spider-Girl leaves the battlefield, create a 1/1 green and white Human Citizen creature token.",
+      "ManaCost": "{G}{W}",
+      "Colors": "WG",
+      "ManaValue": 2,
+      "OracleId": "d459b3f5-a18c-4c17-a855-dc147f7c2161",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Combat en creaturetoken; geen van de vier rollen.",
+      "Stratum": "Other"
+    },
+    {
+      "Name": "Fleeting Effigy",
+      "TypeLine": "Creature — Elemental",
+      "OracleText": "Haste\nAt the beginning of your end step, return this creature to its owner's hand. (Return it only if it's on the battlefield.)\n{2}{R}: This creature gets +2/+0 until end of turn.",
+      "ManaCost": "{R}",
+      "Colors": "R",
+      "ManaValue": 1,
+      "OracleId": "d6d9b5d2-0ab6-4637-a468-5149b7c7d0cf",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Eigen bounce/boost zonder gerichte permanentremoval; geen van de vier rollen.",
+      "Stratum": "Other"
+    },
+    {
+      "Name": "Secret of Bloodbending",
+      "TypeLine": "Sorcery — Lesson",
+      "OracleText": "As an additional cost to cast this spell, you may waterbend {10}.\nYou control target opponent during their next combat phase. If this spell's additional cost was paid, you control that player during their next turn instead. (You see all cards that player could see and make all decisions for them.)\nExile Secret of Bloodbending.",
+      "ManaCost": "{U}{U}{U}{U}",
+      "Colors": "U",
+      "ManaValue": 4,
+      "OracleId": "743fa824-18cb-4225-ba7b-5b0bbc3c8d41",
+      "AllowedRoles": [],
+      "RequiredTerms": [],
+      "ReviewNote": "Opponent-control met extra kosten; geen van de vier rollen.",
+      "Stratum": "Other"
+    }
+  ]
+}

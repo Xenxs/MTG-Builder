@@ -1,0 +1,222 @@
+{
+  "Classifier": "Oracle roles v2 (2026-10-22)",
+  "CapturedBeforeImplementation": true,
+  "Cases": [
+    {
+      "Name": "Kotis, the Fangkeeper",
+      "OracleId": "2eb2f6a2-e31a-4d3e-93ce-100394899014",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Felling Blow",
+      "OracleId": "fbfa19ca-98bb-4c7d-a04e-920a8aafb031",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Squall, SeeD Mercenary",
+      "OracleId": "e2348e0e-eeca-47b5-9417-bf4470ec29bb",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Pumpkin Bombardment",
+      "OracleId": "37827e84-9f5f-49ed-b939-0cf80dac82e7",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Lyra, Tolarian Archangel",
+      "OracleId": "d9060fff-0b65-4b3d-930d-6e36315b802c",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Terrific Team-Up",
+      "OracleId": "431c5b04-7387-4724-adfa-d1eb7874e79e",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Flick a Coin",
+      "OracleId": "990583ef-5bf4-4e14-a8f1-61d32c6a75df",
+      "FullyRecognized": false,
+      "Known": true,
+      "Roles": [
+        "Draw"
+      ]
+    },
+    {
+      "Name": "Playful Shove",
+      "OracleId": "2094fb68-3859-401f-97f2-c8bae64a4822",
+      "FullyRecognized": false,
+      "Known": true,
+      "Roles": [
+        "Draw"
+      ]
+    },
+    {
+      "Name": "Mondo Gecko",
+      "OracleId": "fa3ae120-756d-4c52-91f9-235767539d67",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Fynn, the Fangbearer",
+      "OracleId": "c0b1fba1-4338-4671-934b-098689ad2085",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Poison the Waters",
+      "OracleId": "2c9bf40b-ddcb-4f46-a81e-56b91dfc784f",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Secret Identity",
+      "OracleId": "e6637f9f-8293-43a5-a134-93799a016ecb",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Sarkhan's Resolve",
+      "OracleId": "30f058f8-5777-4c25-b881-8f1d0ce17d3a",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Reverent Howl",
+      "OracleId": "86214b4c-a3ad-4372-b5fe-8f742a7a3d4c",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Rally the Monastery",
+      "OracleId": "3f6101a5-3038-45b0-8302-b2e4127b9510",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Fatehold Charm",
+      "OracleId": "313aee0e-4090-4589-b323-a4edbda21c68",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Battle Menu",
+      "OracleId": "8af57b80-bbc6-47ce-83f6-34ae8e2f5bd5",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Seize Opportunity",
+      "OracleId": "d0458ffe-9a61-443f-8e80-3d2dde224a4d",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Early Winter",
+      "OracleId": "fbf2653e-9cc4-442f-bc73-6e2ba6e067cb",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Thorin's Last Stand",
+      "OracleId": "3c4da169-1e50-4790-abdc-214e7b8a2ad5",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Exosuit Savior",
+      "OracleId": "8b13ec4d-812a-48b0-8a64-6847a694a03a",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Boggart Prankster",
+      "OracleId": "1bcac664-835a-4474-8ca4-263801bde08e",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Strixhaven Skycoach",
+      "OracleId": "e286a191-39d4-4073-b844-11d2aba911b4",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Does Machines",
+      "OracleId": "df54b79d-f31d-4582-86c0-1d34ec77be0f",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Bake into a Pie",
+      "OracleId": "1b9ec782-0ba1-41f1-bc39-d3302494ecb3",
+      "FullyRecognized": false,
+      "Known": true,
+      "Roles": [
+        "Removal"
+      ]
+    },
+    {
+      "Name": "Adventurer's Airship",
+      "OracleId": "e3016295-00f7-4daf-91b0-57653733b103",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Hidden Lair",
+      "OracleId": "7069d241-4e66-40bf-afd1-551a4a5457f0",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Koya, Death from Above",
+      "OracleId": "e7cd87d4-028c-49d9-9416-69f57e7dfec5",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Hero in Training",
+      "OracleId": "87f1a840-021c-4699-a2c4-f2926daf98eb",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    },
+    {
+      "Name": "Demonic Junker",
+      "OracleId": "88075828-a76e-412d-b738-182f50e3a133",
+      "FullyRecognized": false,
+      "Known": false,
+      "Roles": []
+    }
+  ]
+}

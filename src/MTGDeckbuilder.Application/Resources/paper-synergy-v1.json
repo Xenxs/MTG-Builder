@@ -1,0 +1,803 @@
+{
+  "Version": "Physical synergy v4 \u00B7 2026-10-28",
+  "ReviewedUtc": "2026-10-28",
+  "Source": "Manual supported-interaction review of unchanged Conflux and Final Fantasy Scryfall product snapshots; no general completeness claim",
+  "Cards": [
+    {
+      "OracleId": "657a4500-4b47-4c78-945b-a7791af7d10e",
+      "Name": "Adelbert Steiner",
+      "Fingerprint": "DE957568FBC7E8F1C5F937FC21BE552B352010D6C56503EBA5930508DBCCE0BF",
+      "Features": [
+        "EquipmentCountPayoff"
+      ],
+      "Notes": "\u002B1/\u002B1 per eigen Equipment; telt Equipment, niet hoeveel creatures uitgerust zijn. Lifelink is geen draw- of sacrifice-effect."
+    },
+    {
+      "OracleId": "12134f7d-433a-416a-b668-c1a21984c94b",
+      "Name": "Aerie Mystics",
+      "Fingerprint": "DFF295A9E63460F19C21E57EE131DA271624B923906F590AAA2FA2DB18E1121A",
+      "Features": [
+        "Evasion",
+        "TeamShroud"
+      ],
+      "Notes": "Flying. Geactiveerde bescherming geeft eigen creatures tijdelijk shroud; dat verhindert ook eigen equip-, Aura- en andere doelwitacties zolang shroud geldt. Kost {1}{G}{U}."
+    },
+    {
+      "OracleId": "43f81514-e812-4e17-9b1a-704c136d8ffd",
+      "Name": "Al Bhed Salvagers",
+      "Fingerprint": "3D2D812409A0BF0C4D22964FA68111912A966721F4B97A8B868BACE8CF7F5C63",
+      "Features": [
+        "OwnDeathPayoff"
+      ],
+      "Notes": "Trigger bij dood van zichzelf of een andere eigen creature/artifact, inclusief tokens. Geen eigen sacrifice-outlet en geen trigger op alleen sterven van vijanden."
+    },
+    {
+      "OracleId": "97e7ada6-dee1-4bb3-a42d-38a61d946bd4",
+      "Name": "Asha\u0027s Favor",
+      "Fingerprint": "70D8A950809377206F902F62345C91DCB9F4BD3585DCDB59063D7F6313D9C092",
+      "Features": [
+        "UnblockableSupport"
+      ],
+      "Notes": "Aura geeft flying, first strike en vigilance aan enchanted creature; eerst een legaal doelwit en blijvende Aura nodig. Shroud verhindert aanhechten via een doelwit."
+    },
+    {
+      "OracleId": "01518a87-6b16-4b7b-805d-b652404c6356",
+      "Name": "Aven Squire",
+      "Fingerprint": "2C5AEF369CF8402A3EA6BFAC642EB6840CF2F23F337F571E5B2466C387C4C052",
+      "Features": [
+        "Evasion",
+        "Exalted"
+      ],
+      "Notes": "Flying en exalted. Exalted triggert alleen als precies \u00E9\u00E9n eigen creature als aanvaller wordt verklaard, niet bij een aanval met meerdere creatures."
+    },
+    {
+      "OracleId": "518115c9-0f0f-4249-81ff-e79b27dda1be",
+      "Name": "Aven Trailblazer",
+      "Fingerprint": "B1AE5C80CE2EAC6E988C7D327FA0A6018B4D320247CB85ABD213F174D77540A4",
+      "Features": [
+        "Evasion",
+        "DomainPayoff"
+      ],
+      "Notes": "Flying; alleen toughness schaalt met het aantal verschillende basislandtypen onder eigen landen op het slagveld. Geen powerbonus uit Domain."
+    },
+    {
+      "OracleId": "913672bc-cc88-4964-a331-7dbce40f2bda",
+      "Name": "Barret Wallace",
+      "Fingerprint": "0C9645D8861B9C5FBDDD7C3ED04BF5E310F37576223EA3EA9DFD8E4CD5A0B5F8",
+      "Features": [
+        "EquippedCreaturePayoff"
+      ],
+      "Notes": "Bij Barrets aanval schade per uitgeruste eigen creature. Vijf Equipment op \u00E9\u00E9n creature tellen als \u00E9\u00E9n uitgeruste creature. Barret moet zelf aanvallen."
+    },
+    {
+      "OracleId": "25571850-d5c6-460f-b212-9fc9aa705277",
+      "Name": "Beacon Behemoth",
+      "Fingerprint": "D7ED707012B3E27812095AF52DE9B2DE6A214E13B36BB5367181A6A950C1D21B",
+      "Features": [
+        "PowerFivePayoff"
+      ],
+      "Notes": "Voor {1} vigilance aan target creature met power minstens vijf. Geen algemene bonus voor iedere creature; een legaal doelwit en voldoende daadwerkelijke power nodig."
+    },
+    {
+      "OracleId": "2f24637d-8d8e-49de-b229-4cdb97595ed7",
+      "Name": "Beatrix, Loyal General",
+      "Fingerprint": "674686507B986F50356961A9CE12438E4F7E45A36BA3336663C23433B44B8573",
+      "Features": [
+        "AttachEquipment"
+      ],
+      "Notes": "Aan het begin van combat in eigen beurt mag eigen Equipment aan \u00E9\u00E9n target eigen creature worden gehecht. De creature wordt getarget; shroud blokkeert. Geen onbeperkte equip-acties buiten dit moment."
+    },
+    {
+      "OracleId": "8512bd08-ecba-4e0e-b65c-8209764a65e5",
+      "Name": "Cloud, Planet\u0027s Champion",
+      "Fingerprint": "49148FF2A7B126A2F92EBA743783F1D45127FCD684AE84CAC46607FFB014DC62",
+      "Features": [
+        "EquippedCreaturePayoff",
+        "EquipmentDiscount"
+      ],
+      "Notes": "Alleen tijdens eigen beurt en als Cloud uitgerust is: double strike en indestructible. Equip-acties die Cloud targeten kosten {2} minder; geen generieke verlaging van Equipment-spellkosten of gekleurde mana. Een legaal target blijft nodig."
+    },
+    {
+      "OracleId": "f718b520-d79d-4b91-9d85-de1f1c90c176",
+      "Name": "Cloudbound Moogle",
+      "Fingerprint": "A48D62AA77D3AA11535E288C521876E5534DF90A78CA674C26FF9BFDD425E611",
+      "Features": [
+        "Evasion",
+        "PlainsSearch",
+        "SelfCycling"
+      ],
+      "Notes": "Flying; ETB legt \u00E9\u00E9n \u002B1/\u002B1-counter op target creature. Plainscycling discards deze kaart en zoekt een Plains-kaart naar de hand, niet een willekeurig ander basislandtype of direct naar het slagveld."
+    },
+    {
+      "OracleId": "00d1596a-c3e2-4109-86da-388934a0c652",
+      "Name": "Coeurl",
+      "Fingerprint": "C2A133A294950285DA922F1058E52B079F3D9829BCB4ECF65D7B3B48DCA67BB0",
+      "Features": [],
+      "Notes": "Kan voor {1}{W} en tappen een target nonenchantment creature tappen. Geen herkende positieve synergie in de ondersteunde families."
+    },
+    {
+      "OracleId": "32ad99a9-b5ed-41a1-8060-22265f7c5da1",
+      "Name": "Deadly Embrace",
+      "Fingerprint": "A55CA2957E49DC6C5161DF947648FC220CFB6A3AB469164344B2A1017CCC8CC3",
+      "Features": [
+        "DestroyRemoval",
+        "DeathDraw",
+        "OwnDraw"
+      ],
+      "Notes": "Vernietigt target vijandelijke creature; daarna eigen draw per creature die deze beurt is gestorven, ook eerder en ook eigen creatures. Geen eigen sacrifice-outlet; doelwit/destruction en triggeromstandigheden blijven relevant."
+    },
+    {
+      "OracleId": "2b6aaa8b-b90d-459f-95d4-9e00ee134f8e",
+      "Name": "Deft Duelist",
+      "Fingerprint": "93596F65A06E0EA024AA21D741B602771EA2E1B0425B16206498AA030B44D4DC",
+      "Features": [
+        "Shroud"
+      ],
+      "Notes": "Shroud verhindert ook eigen equip-, Beatrix- en Aura-targets. Exalted target niet en kan deze creature wel versterken wanneer zij alleen aanvalt. First strike is geen evasion."
+    },
+    {
+      "OracleId": "30e397e9-a705-4484-8387-04fb84010b2d",
+      "Name": "Drag Down",
+      "Fingerprint": "A3669081269D0D2EB1FB59DFD3BF6E020358E5BE5D049510444ED3F815708302",
+      "Features": [
+        "DomainPayoff",
+        "ConditionalToughnessRemoval"
+      ],
+      "Notes": "Tijdelijke -X/-X met X gelijk aan verschillende eigen basislandtypen op het slagveld. Alleen dodelijk bij voldoende werkelijke toughnessverlaging; vernietigt niet automatisch iedere vijand."
+    },
+    {
+      "OracleId": "a66c35fc-d5db-4cfd-9b85-d70b001d83d3",
+      "Name": "Dragoon\u0027s Lance",
+      "Fingerprint": "410F33343BADC4361244DE6EBDC7AFDC821CE3F9D57085BD1D67A5C4C86E313D",
+      "Features": [
+        "JobSelect",
+        "OwnCreatureTokens",
+        "UnblockableSupport"
+      ],
+      "Notes": "Job select maakt bij binnenkomst een eigen 1/1-creatuurtoken en hecht dit Equipment eraan. Geeft tijdens eigen beurt flying. Later verplaatsen via equip kost {4}; niet gratis en niet automatisch op Cloud."
+    },
+    {
+      "OracleId": "e060bf7a-f266-40b4-9772-e243dcbf965b",
+      "Name": "Dreams of Laguna",
+      "Fingerprint": "F7A8583284A6AC833C6F2BD7B26E0211638803044C3F698B1A16A9D41DBF1192",
+      "Features": [
+        "Surveil",
+        "OwnDraw",
+        "Flashback"
+      ],
+      "Notes": "Surveil 1 kan eigen graveyard vullen; daarna \u00E9\u00E9n eigen draw. Flashback {3}{U} vereist de kaart in graveyard en verbant haar na het casten; geen oneindige hergebruiklus."
+    },
+    {
+      "OracleId": "b51e0ae3-126b-4b7e-9dd1-818a5b8e512a",
+      "Name": "Dwarven Castle Guard",
+      "Fingerprint": "C29890F5ACF7FF8C7722C81D3EB812B91C37F4D88502FE65655F11C2F7C01F79",
+      "Features": [
+        "OwnCreatureTokens"
+      ],
+      "Notes": "Pas wanneer deze creature sterft ontstaat een eigen 1/1 Hero-token. Dat lichaam is niet al bij het casten beschikbaar; geen sacrifice-outlet."
+    },
+    {
+      "OracleId": "c92221f7-76e8-483a-9d68-b19ff4d0baaf",
+      "Name": "Ember Weaver",
+      "Fingerprint": "54CABF1C4A9E635E5D518D64C62880F02F4A30860CDE7EAADEB87ABF26B8F520",
+      "Features": [
+        "RedPermanentCondition"
+      ],
+      "Notes": "Reach is geen flying/evasion. \u002B1/\u002B0 en first strike vereisen een eigen rode permanent. Een Mountain die rode mana maakt is normaal kleurloos en voldoet niet."
+    },
+    {
+      "OracleId": "264f944b-386b-4378-9764-4a8bde246809",
+      "Name": "Evil Reawakened",
+      "Fingerprint": "7E8569713A9D63621F20B41F7CA033D957D3ECACD8E82C255E653C6A5FA6E5E9",
+      "Features": [
+        "CreatureRecursion"
+      ],
+      "Notes": "Target creaturekaart uit eigen graveyard naar slagveld met twee extra counters. Een gestorven token is geen herbruikbare creaturekaart; eerst een geschikte kaart in graveyard nodig."
+    },
+    {
+      "OracleId": "0ffeec93-89d7-42c2-8abf-802e9f6dc992",
+      "Name": "Fate of the Sun-Cryst",
+      "Fingerprint": "AB451E329B86153377E12CFACD5D3856D71C8793AF8C2B9DB5B1BC3BB7FF14E0",
+      "Features": [
+        "DestroyRemoval"
+      ],
+      "Notes": "Vernietigt target nonland permanent; korting alleen bij target dat getapt is. Kan vijandelijke creature sterven laten triggeren, maar beschermings-/destruction-uitzonderingen blijven gelden."
+    },
+    {
+      "OracleId": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+      "Name": "Forest",
+      "Fingerprint": "77B43E757146EB0BECB10E13C4B9543734B3B40460197A3086F8E0A3DDFD466C",
+      "Features": [],
+      "Notes": "Basislandtype Forest. Een Forest is normaal een kleurloze permanent, ook al maakt het groene mana. Meer kopie\u00EBn voegen geen nieuw type toe."
+    },
+    {
+      "OracleId": "7e3085d8-9d46-41e0-ad9d-54c44d9ef267",
+      "Name": "Freya Crescent",
+      "Fingerprint": "94CCEDDBF00AFAAE2E966FAC4AEA4A9E34A5F5716D15335970CB606A340B30C9",
+      "Features": [
+        "Evasion",
+        "EquipmentMana"
+      ],
+      "Notes": "Flying alleen tijdens eigen beurt. Tap voor rode mana die uitsluitend een Equipment-spell of equip-actie mag betalen; geen onbeperkte algemene ramp."
+    },
+    {
+      "OracleId": "b0f6130c-58f7-4693-894c-598cd9a38ce7",
+      "Name": "Frontline Sage",
+      "Fingerprint": "C187DFFD70BB094F0A0759B723248B57657ECC91EF1A0E98646A93877DC4CC03",
+      "Features": [
+        "Exalted",
+        "OwnDraw",
+        "Loot"
+      ],
+      "Notes": "Exalted vereist \u00E9\u00E9n aanvaller. {U} en tap: \u00E9\u00E9n kaart trekken, dan \u00E9\u00E9n discarden; filtert kaarten en kan graveyard vullen, maar geeft geen netto kaartvoordeel."
+    },
+    {
+      "OracleId": "0c4603be-d71a-4d33-b62c-04ead1987dbe",
+      "Name": "G\u0027raha Tia",
+      "Fingerprint": "9A2F00979CB3A680735D416470CB652FD5702DAEE1861D128637A3521E212502",
+      "Features": [
+        "OtherOwnDeathPayoff",
+        "OwnDraw"
+      ],
+      "Notes": "Een of meer andere eigen creatures/artifacts sterven: \u00E9\u00E9n draw, maximaal \u00E9\u00E9n trigger per beurt. Eigen dood van G\u0027raha zelf telt niet. Geen sacrifice-outlet."
+    },
+    {
+      "OracleId": "e29350cd-c6ff-454d-a1fc-0c1bb60047b1",
+      "Name": "Giltspire Avenger",
+      "Fingerprint": "DE8DD27E64299953251F558548EC4825DD9280B8C7B40D9FBFC80D9908AC4782",
+      "Features": [
+        "Exalted"
+      ],
+      "Notes": "Exalted vereist alleen aanvallen. Tap om target creature te vernietigen die deze beurt jou schade heeft gedaan; geen onbeperkte vooraf beschikbare removal voor iedere creature."
+    },
+    {
+      "OracleId": "c4c0a391-4549-4041-bc6d-09f8b756868e",
+      "Name": "Gleam of Resistance",
+      "Fingerprint": "977EF3553B29E323544F4C18D5FAF1E3785FE15C47C8A004D0D71A2814B4F2D3",
+      "Features": [
+        "TeamBuff",
+        "BasicLandSearch",
+        "SelfCycling"
+      ],
+      "Notes": "Tijdelijke \u002B1/\u002B2 en untap aan eigen creatures. Alternatieve basic landcycling discards deze kaart en zoekt \u00E9\u00E9n basisland naar hand; beide modi niet tegelijk gebruiken."
+    },
+    {
+      "OracleId": "7ba31f45-c178-4bac-ab7b-5ba4d050133c",
+      "Name": "Gwafa Hazid, Profiteer",
+      "Fingerprint": "E06767FDD143AA8E9BCB881D791FFF4460BEF794B18904A9A444C61DB2D9E493",
+      "Features": [
+        "OpponentDraw"
+      ],
+      "Notes": "Bribery op een creature die je niet controleert; diens controller trekt. Dit is geen eigen draw-source. De creature kan daarna niet aanvallen/blokken zolang de betreffende beperking geldt."
+    },
+    {
+      "OracleId": "c2c47e13-b581-41a8-a4af-542557a6249a",
+      "Name": "Il Mheg Pixie",
+      "Fingerprint": "DAB58007DD69F188B6E15D17196C6AE51E372A2D1FB26652C70FEB62978C3964",
+      "Features": [
+        "Evasion",
+        "Surveil"
+      ],
+      "Notes": "Flying; alleen wanneer deze creature aanvalt surveil 1. Kan eigen graveyard vullen, maar aanvalsvoorwaarde en keuze blijven gelden."
+    },
+    {
+      "OracleId": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "Name": "Island",
+      "Fingerprint": "C3687DCD6731F847A2E48DBF50F2601F892E8EEF20540FC360CA5F632B5C957C",
+      "Features": [],
+      "Notes": "Basislandtype Island; kleurloze permanent. Alleen blauwe mana kunnen maken is geen extra landtype of blauwe kaartkleur."
+    },
+    {
+      "OracleId": "7532f0ea-9d13-43ca-9b7d-2d22f2a66017",
+      "Name": "Item Shopkeep",
+      "Fingerprint": "F69E2C91502552DF63A5F7AB991D8CC3C51B3CB4A60CF8FB6CD8797BCC6810E3",
+      "Features": [
+        "EquippedCreaturePayoff",
+        "UnblockableSupport"
+      ],
+      "Notes": "Bij een eigen aanval target een aanvallende uitgeruste creature voor tijdelijke menace. Eerst een uitgeruste aanvaller en legaal doelwit nodig; is zelf geen Equipment of tokenmaker."
+    },
+    {
+      "OracleId": "2be283da-6d5a-442b-bd07-d06c16cb1214",
+      "Name": "Jhessian Balmgiver",
+      "Fingerprint": "0295EDC83BF474BF8E0666A2E8A87A761521BC5E08D54F45D5D0D5F08C80517D",
+      "Features": [
+        "UnblockableSupport"
+      ],
+      "Notes": "Tap kan een target creature deze beurt unblockable maken; kan \u00E9\u00E9n exalted-aanvaller ondersteunen. Shroud verhindert het targeten; tap/summoning sickness blijven voorwaarden."
+    },
+    {
+      "OracleId": "aad9f9f2-4c6b-48d0-80bd-77b73a9ea5f1",
+      "Name": "Judgment Bolt",
+      "Fingerprint": "9131F8A6A3DB720CFA50E7836F04246074A91032B1212A2BA2800D99F71E74DD",
+      "Features": [
+        "EquipmentCountPayoff",
+        "ConditionalToughnessRemoval"
+      ],
+      "Notes": "Vijf schade aan target creature en extra schade aan diens controller per eigen Equipment. Schade is niet automatisch sterven, bijvoorbeeld bij indestructible of hoge toughness."
+    },
+    {
+      "OracleId": "498ec48f-cb28-48d4-96f4-9d60bb4bb45c",
+      "Name": "Kaleidostone",
+      "Fingerprint": "656F8AC54B9842FB65543E566EC5C9857AA86241ED59465B3F68083BD1084A41",
+      "Features": [
+        "OwnDraw",
+        "SelfArtifactSacrifice"
+      ],
+      "Notes": "Eigen draw bij binnenkomst. Voor {5}, tap en zichzelf opofferen: vijf kleuren mana. Kan eigen artifact-deathtrigger voeden, maar kan geen andere artifacts opofferen en maakt geen basislandtypen."
+    },
+    {
+      "OracleId": "c66342bb-bbc1-4aaf-8d99-0af68292081e",
+      "Name": "Kranioceros",
+      "Fingerprint": "3DD5C0735333B1149E457322124B4E3369627BC4FC97028BEB408A7CFFB8BABC",
+      "Features": [],
+      "Notes": "Voor {1}{W} alleen tijdelijke eigen toughnessverhoging. Geen ondersteunde thematische relatie toegevoegd."
+    },
+    {
+      "OracleId": "e1626880-0fa3-441a-9978-b293fc87c418",
+      "Name": "Lightning, Security Sergeant",
+      "Fingerprint": "A41F0C531A7F6726C165D17F7F95B83A2DD98FDECEDD34BEB587EA99899065F4",
+      "Features": [
+        "Evasion",
+        "ExileCardAccess"
+      ],
+      "Notes": "Menace; kaarttoegang via exile pas na eigen combat damage aan speler en zolang Lightning gecontroleerd wordt. Geen draw-trigger, geen direct graveyard-effect."
+    },
+    {
+      "OracleId": "0d5bbde7-6f33-4708-b3ab-34d4528af649",
+      "Name": "Magitek Scythe",
+      "Fingerprint": "ADE8DA6C0717D8F704471BA81E3E0E69BFD5628B4E36486C6E66886893BC9F3C",
+      "Features": [],
+      "Notes": "Equipment kan bij binnenkomst aan target eigen creature worden gehecht; eigen-targetbeperkingen gelden. Verplichte block geldt die beurt alleen indien deze ETB-optie wordt gebruikt. Later equip {2}."
+    },
+    {
+      "OracleId": "7e92be29-ccd1-4556-bb2a-ac7902bc77c2",
+      "Name": "Manaforce Mace",
+      "Fingerprint": "3471E9568340E1BD013287728B265632A07943CC1AA5C17005550EAE84E9AC54",
+      "Features": [
+        "DomainPayoff"
+      ],
+      "Notes": "Equipment geeft \u002B1/\u002B1 per verschillend eigen basislandtype op slagveld. Kleurmana op artifacts telt niet. Equip {3}; een legaal dragerdoelwit nodig."
+    },
+    {
+      "OracleId": "b46294cb-9971-415e-90d1-a02c44cd1391",
+      "Name": "Matca Rioters",
+      "Fingerprint": "E32D602F78D4514594931DAAC8AC02A0CD0D194F8C4E29DC4034CAD535BAB047",
+      "Features": [
+        "DomainPayoff"
+      ],
+      "Notes": "Power \u00E9n toughness volgen het aantal verschillende eigen basislandtypen op slagveld. Power vijf is alleen mogelijk bij alle vijf typen en niet bij vijf Forests of vijf mana-kleuren."
+    },
+    {
+      "OracleId": "92e287b1-7cb1-4536-8942-d1ad059bf9bc",
+      "Name": "Meglonoth",
+      "Fingerprint": "63DCC5428B025B8F596A0D66D02EBAFB76C8678CA46DAD7FDBB3A949A62A6AE5",
+      "Features": [
+        "Evasion"
+      ],
+      "Notes": "Trample en vigilance; damage-trigger alleen wanneer deze creature blokt. De vaste power kan power-vijfvoorwaarden ondersteunen, maar is geen algemene draw- of tokenengine."
+    },
+    {
+      "OracleId": "44570849-b2b0-47a8-9d77-f7c738896a0a",
+      "Name": "Might of Alara",
+      "Fingerprint": "BA22DA40269E9C46D89520E152152E218D7F575439DE7B6A1506FD5EBAEDA7BC",
+      "Features": [
+        "DomainPayoff"
+      ],
+      "Notes": "Tijdelijke \u002BX/\u002BX aan target creature met X verschillende eigen basislandtypen op slagveld. Geen landtypes toevoegen; shroud verhindert target."
+    },
+    {
+      "OracleId": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+      "Name": "Mountain",
+      "Fingerprint": "2744423D38CBF24AE05BA3CCF83FAC729F85C092E6FD6726486DF96379BC3C42",
+      "Features": [],
+      "Notes": "Basislandtype Mountain; normaal kleurloze permanent. Rode mana maakt het geen rode permanent."
+    },
+    {
+      "OracleId": "ccfe72b2-8a9a-4ad6-ab1d-676bb376b0ac",
+      "Name": "Outrider of Jhess",
+      "Fingerprint": "1FB7592920610C62E650D7E1DCF618CB55C26C56BAFFE90728D4002AA48AAAFB",
+      "Features": [
+        "Exalted"
+      ],
+      "Notes": "Exalted triggert alleen bij precies \u00E9\u00E9n eigen aanvaller; versterkt niet automatisch een hele aanvalslinie."
+    },
+    {
+      "OracleId": "571cb4b6-b4e5-40a2-a970-42c1ab65c8a9",
+      "Name": "Overkill",
+      "Fingerprint": "8B618FE9E0482348FD80F66A024B57DA8E64BF293348CC30F0259C34FAF995E7",
+      "Features": [
+        "ConditionalToughnessRemoval"
+      ],
+      "Notes": "Target creature -0/-9999 tijdelijk. Sterven door toughness nul of minder is anders dan damage/destruction; uitzonderingen en de werkelijke toestand blijven relevant."
+    },
+    {
+      "OracleId": "5f5e0b10-c8cf-450c-bfd3-bcb0528ec330",
+      "Name": "Pacifism",
+      "Fingerprint": "A315B11936249E489DAE3AC7EC8400B544F7C0CC3A01F905E899EB8D6C783785",
+      "Features": [],
+      "Notes": "Aura voorkomt aanvallen/blokken van enchanted creature; veroorzaakt geen sterven en is geen positieve buff voor eigen dragers."
+    },
+    {
+      "OracleId": "627de3d8-ad5e-4f9b-b83c-476cc98fea9b",
+      "Name": "Paleoloth",
+      "Fingerprint": "A72852D06B4A57F04D33C8E302B050A1E20C3C4C50548C8749E2EA08F090CF89",
+      "Features": [
+        "CreatureRecursion",
+        "PowerFivePayoff"
+      ],
+      "Notes": "Alleen wanneer een andere eigen creature met daadwerkelijke power minstens vijf binnenkomt: optioneel target creaturekaart uit eigen graveyard naar hand. Geen tokenrecursion; geen trigger op zichzelf."
+    },
+    {
+      "OracleId": "d683d985-9888-4d21-8b5f-69e69ce4a03b",
+      "Name": "Path to Exile",
+      "Fingerprint": "B0667A2F3CC8CBEAB3584222121212E6DAC6E5615EF3E50DF6FE6FEBF0E23B10",
+      "Features": [
+        "ExileRemoval"
+      ],
+      "Notes": "Creature wordt verbannen, sterft hierdoor niet. De controller mag basisland zoeken; bij vijandelijk target is dit geen eigen Domain-ramp. Eigen target is een andere kostbare keuze, niet automatisch voordeel."
+    },
+    {
+      "OracleId": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+      "Name": "Plains",
+      "Fingerprint": "ABAA3BFE8592578DD143C898662C485FEA27397C86F465548970D7848A1869C1",
+      "Features": [],
+      "Notes": "Basislandtype Plains; normaal kleurloze permanent. Meerdere Plains geven niet meerdere verschillende typen."
+    },
+    {
+      "OracleId": "bd39e333-b0b8-4a85-8645-d77f4a3941db",
+      "Name": "Rabanastre, Royal City",
+      "Fingerprint": "6AB1340A43B9BD3F830350E8C44E6B6620018266369E80694B3F23D51980FC3C",
+      "Features": [],
+      "Notes": "Maakt rood/wit en komt getapt; landtype Town, geen Plains of Mountain. Fixing is geen Domain-typewinst."
+    },
+    {
+      "OracleId": "8539f295-5d58-4436-a73a-b9277c4c7795",
+      "Name": "Rampant Growth",
+      "Fingerprint": "CDD32A7B5AB3C4705077B93EE143D94EE4442F10559C3780B81AF082A8BC2125",
+      "Features": [
+        "BasicLandSearch"
+      ],
+      "Notes": "Zoekt eigen basisland naar slagveld getapt. Kan alleen een ontbrekend type aanleveren als een bijpassend basisland nog in de library zit; zelf geen landtype."
+    },
+    {
+      "OracleId": "dd6601c6-810d-4883-89d2-5d31419fb1cc",
+      "Name": "Relm\u0027s Sketching",
+      "Fingerprint": "BC0FBECEBDCAFE455F9DB76098EE25D9FE953F85CAF6FAB07B9E26A1BF8C0E7C",
+      "Features": [
+        "ConditionalCopyToken"
+      ],
+      "Notes": "Maakt eigen kopietoken van target artifact, creature of land. Welke eigenschappen/tokenfunctie ontstaat hangt van het gekozen legale target af; geen gegarandeerd creatuurtoken."
+    },
+    {
+      "OracleId": "9d6fdbd4-ba51-4df1-b383-9b709b36a8d7",
+      "Name": "Retrieve the Esper",
+      "Fingerprint": "4F1E969436FB25BC7E7019282081DC4FE6E2955EF8FEE3AAB19397280ED1A09D",
+      "Features": [
+        "OwnCreatureTokens",
+        "OwnArtifactTokens",
+        "Flashback"
+      ],
+      "Notes": "Maakt \u00E9\u00E9n eigen 3/3 artifact-creatuurtoken. Bonuscounters alleen bij cast uit graveyard; flashback {5}{U} verbant de spell daarna. Token is geen terug te halen creaturekaart."
+    },
+    {
+      "OracleId": "34bd39ed-4058-4c65-ba5f-9ac5cf7c166a",
+      "Name": "Rhox Bodyguard",
+      "Fingerprint": "4B55E2E327E9874B4008BAE741A5AF2054C40A738289DE7658527A892B1111D0",
+      "Features": [
+        "Exalted",
+        "OwnLifeGainThree"
+      ],
+      "Notes": "Exalted voor \u00E9\u00E9n aanvaller; ETB gain 3 life. Geen tokenproductie, draw of sacrifice-outlet."
+    },
+    {
+      "OracleId": "832c6834-2cc7-41d5-b881-37c24c13ab8a",
+      "Name": "Rhox Meditant",
+      "Fingerprint": "8A1993E8D49081740ED25CDCE8DE8BF46FDB8AFF9A8E107587DC145934A26DCB",
+      "Features": [
+        "OwnDraw",
+        "GreenPermanentCondition"
+      ],
+      "Notes": "Draw bij ETB alleen als een eigen groene permanent wordt gecontroleerd. Een Forest is normaal kleurloos; groene creature/enchantment kan wel voldoen."
+    },
+    {
+      "OracleId": "5c05c350-1b11-4dda-9de6-01c7e0f07ffc",
+      "Name": "Rhox War Monk",
+      "Fingerprint": "29C33CC6E78C29FB8E5878581D33E818CE3BC56972D984B18A9706C6A3332407",
+      "Features": [],
+      "Notes": "Lifelink. Geen extra ondersteunde synergiefeature uit lifelink alleen afgeleid."
+    },
+    {
+      "OracleId": "9c4fdd20-0396-40b7-8687-43b1035b6956",
+      "Name": "Rosa, Resolute White Mage",
+      "Fingerprint": "58D2F18381C30C5FD3C2CE213EFE4DC8A82FF4E275E01A330D796A24D6A8756A",
+      "Features": [],
+      "Notes": "Aan begin eigen combat counter en tijdelijke lifelink op target eigen creature. Reach is geen flying; shroud verhindert target."
+    },
+    {
+      "OracleId": "24310f49-2156-4c0d-b3b1-40ca3182474f",
+      "Name": "Sahagin",
+      "Fingerprint": "BE966D176161B6A801141FFF689B491E7E3BA705310DEEA6CBC02E6867958FE7",
+      "Features": [
+        "NoncreatureCastPayoff",
+        "NeedsFourManaSpent"
+      ],
+      "Notes": "Bij cast van een noncreature-spell alleen indien minstens vier mana is besteed: counter en unblockable voor deze creature. Gedrukte MV alleen bewijst bestede mana niet."
+    },
+    {
+      "OracleId": "9b8b5812-73bd-453e-bdff-aad1fafa9226",
+      "Name": "Samurai\u0027s Katana",
+      "Fingerprint": "A81DCC25A12B8DC8033D0A8C673A32885D645C4957E91CF488BD5ADB8D103FEA",
+      "Features": [
+        "JobSelect",
+        "OwnCreatureTokens",
+        "UnblockableSupport"
+      ],
+      "Notes": "Job select maakt eigen Hero-creatuurtoken en hecht daaraan. Geeft trample/haste en \u002B2/\u002B2; later equip kost {5}. Geen automatisch gratis equip op andere creature."
+    },
+    {
+      "OracleId": "2ae77795-6a80-498b-bf69-6fd612f601e4",
+      "Name": "Seaside Citadel",
+      "Fingerprint": "D7CD34C9EB708946508AC6EC22358E9132A012A6CD1FAF7829AF98228761A726",
+      "Features": [],
+      "Notes": "Maakt groen/wit/blauw en komt getapt; heeft geen basislandsubtypen. Drie kleuren mana leveren nul Domain-typen."
+    },
+    {
+      "OracleId": "94ac2990-58a5-43d4-bdac-ec2f6daf0b51",
+      "Name": "Sephiroth\u0027s Intervention",
+      "Fingerprint": "DAA735F1EC78C71AB6A3853B769338135245BF24E5C60355185BBFCB763BF7F4",
+      "Features": [
+        "DestroyRemoval"
+      ],
+      "Notes": "Vernietigt target creature en gain 2 life. Bij een vijandelijk target kan dit Sephiroths sterftrigger ondersteunen; destruction moet werkelijk tot sterven leiden."
+    },
+    {
+      "OracleId": "6af71c5a-2c1b-4120-b3c9-c3c70d94a5c9",
+      "Name": "Sephiroth, Planet\u0027s Heir",
+      "Fingerprint": "078422B67527300E26C6C51557D6D29F9AF592525FC445FC9120A4E7A5157FCB",
+      "Features": [
+        "OpponentDeathPayoff",
+        "ConditionalToughnessRemoval"
+      ],
+      "Notes": "ETB geeft alleen vijandelijke creatures tijdelijk -2/-2. Counter bij sterven van een vijandelijke creature. Geen eigen sacrifice-outlet, geen payoff voor alleen eigen creature-dood; exilen is geen sterven."
+    },
+    {
+      "OracleId": "7312efc2-8a02-47cd-874b-c3338241435e",
+      "Name": "Seymour Flux",
+      "Fingerprint": "03A10F10E208BD80CEFFD161582986A23E882D2ED0BA2BE090CB9B15EC522B46",
+      "Features": [
+        "OwnDraw"
+      ],
+      "Notes": "Aan begin eigen upkeep optioneel \u00E9\u00E9n leven betalen; alleen dan draw en counter. Geen onbeperkte draw zonder kosten/timing."
+    },
+    {
+      "OracleId": "d3f4aa87-a89e-43f8-abc3-712e6bf08889",
+      "Name": "Shambling Cie\u0027th",
+      "Fingerprint": "436BFC71AC60803AFB45E9C6B327E332E3F571167DE0D8598AB1ACC8B5D1B98C",
+      "Features": [
+        "SelfRecursion",
+        "NoncreatureCastPayoff"
+      ],
+      "Notes": "Komt getapt. Vanuit eigen graveyard kan deze creaturekaart bij cast van noncreature-spell voor extra {B} naar hand. Geen andere creature terughalen; kaart moet eerst in graveyard liggen."
+    },
+    {
+      "OracleId": "c51fc4f2-76a6-4337-ab8f-1b3e84f82019",
+      "Name": "Shard Convergence",
+      "Fingerprint": "57778FE15757C2A39113DB7C0478C342A13715D32F58446FAF2A5E4C20C56926",
+      "Features": [
+        "FourTypeSearch"
+      ],
+      "Notes": "Zoekt Plains, Island, Swamp en Mountain-kaarten naar hand; geen Forest. Alleen beschikbare kaarten zoeken en later landspelen nodig. De spell is zelf geen basislandtype."
+    },
+    {
+      "OracleId": "6cfe63ac-3581-461b-8ed3-3e231851e3f8",
+      "Name": "Shinra Reinforcements",
+      "Fingerprint": "8AA855C40B8B6CF281F9502F129D1E977137DDE0544F09EC83EE6F362B2054E2",
+      "Features": [
+        "SelfMill",
+        "OwnLifeGainThree"
+      ],
+      "Notes": "ETB mill drie eigen kaarten en gain 3 life. Kan eigen graveyard vullen, maar bepaalt niet welke drie kaarten worden geraakt en garandeert geen geschikte recursiontarget."
+    },
+    {
+      "OracleId": "45bef776-121b-4489-9c46-f7b4fd4c3c0d",
+      "Name": "Skyward Eye Prophets",
+      "Fingerprint": "B40740620516FAC93CC1DEE4FBD1777CBCDE7FB7712841F4499D6CEDB8D0894D",
+      "Features": [],
+      "Notes": "Tap: topkaart tonen, land naar slagveld of anders naar hand. Dit is geen draw-actie; geen draw-synergie op grond van kaarttoegang alleen."
+    },
+    {
+      "OracleId": "3cc4d6f4-79b2-4210-84de-a0febf81eb67",
+      "Name": "Slash of Light",
+      "Fingerprint": "5A56E909466056884BD0171563968B77A80E8E50AD13C3495BC31FBD9089A3CC",
+      "Features": [
+        "EquipmentCountPayoff",
+        "ConditionalToughnessRemoval"
+      ],
+      "Notes": "Schade aan target creature volgt eigen creatureaantal plus Equipmentaantal. Geen tokenproductie of sacrifice-outlet; damage is niet automatisch dodelijk."
+    },
+    {
+      "OracleId": "27a9e0af-76f0-4910-9f93-2a3617b4e79a",
+      "Name": "Spore Burst",
+      "Fingerprint": "A1E0865644BB8A93726DA0981AA3DBDCCF1CE442BA74C38359FD159B5E601DE6",
+      "Features": [
+        "OwnCreatureTokens",
+        "DomainPayoff"
+      ],
+      "Notes": "Maakt eigen 1/1 Saprolings per verschillend eigen basislandtype op slagveld. Aanwezige landnamen/mana-kleuren bewijzen dit aantal niet tijdens het spel."
+    },
+    {
+      "OracleId": "a8d31e2f-7b2e-4135-8074-9e6ef778bd80",
+      "Name": "Suntail Hawk",
+      "Fingerprint": "D32996BCE275B5C822C641E0A806AB175B5AA458343D157952DBBF7C4EECFC67",
+      "Features": [
+        "Evasion"
+      ],
+      "Notes": "Flying kan een solo-aanvaller helpen; versterking door exalted blijft afhankelijk van precies \u00E9\u00E9n aanvaller."
+    },
+    {
+      "OracleId": "2d1bbeda-2e81-4aaa-9494-094ec3dd6c3b",
+      "Name": "Suplex",
+      "Fingerprint": "11CE31C8F70BB6D457E5221B9FDE90E8C38842547FF10CC84FE2B88CADD5AEF2",
+      "Features": [
+        "ExileRemoval",
+        "DeathToExile",
+        "Modal"
+      ],
+      "Notes": "Modaal: 3 schade aan creature met vervangende exile indien die deze beurt zou sterven, OF artifact exilen. De creaturemodus kan sterftriggers juist verhinderen; geen gewone destroy of eigen sacrifice-outlet."
+    },
+    {
+      "OracleId": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "Name": "Swamp",
+      "Fingerprint": "8E0B641D666CF9F51BD1DA1272203C677EB8E64FE04D83019C5F69F474748270",
+      "Features": [],
+      "Notes": "Basislandtype Swamp; normaal kleurloze permanent. Zwarte mana kunnen maken maakt de kaart niet zwart."
+    },
+    {
+      "OracleId": "c20635d2-20e9-48f7-88f0-6de0f953bb08",
+      "Name": "Sylvan Bounty",
+      "Fingerprint": "FA0EAE5A1A1899C0860DEFE22041E0296EF807DD033AAF37260414DFCE2942B4",
+      "Features": [
+        "BasicLandSearch",
+        "SelfCycling"
+      ],
+      "Notes": "Normale spell geeft target player leven. Alternatieve basic landcycling discards de kaart en zoekt \u00E9\u00E9n basisland naar hand; geen directe landplaatsing of eigen groene permanent uit het gezochte land."
+    },
+    {
+      "OracleId": "1bd3e453-aa21-4ee6-95c2-d6d920ee8e7a",
+      "Name": "Terramorphic Expanse",
+      "Fingerprint": "181799F5328182DD25919D5A2FC4D0F74F601C5A7BAB22C747642D9B3E315507",
+      "Features": [
+        "BasicLandSearch",
+        "SelfLandSacrifice"
+      ],
+      "Notes": "Tap en zichzelf opofferen om basisland naar slagveld getapt te zoeken. Geen ander land opofferen; de Expanse zelf heeft geen basislandtype. Zoekdoel moet nog beschikbaar zijn."
+    },
+    {
+      "OracleId": "df4ef2f8-2591-4be3-b905-4f9ff9c538ea",
+      "Name": "The Crystal\u0027s Chosen",
+      "Fingerprint": "0670FBEFF7715CBAD2F3BFFCAEFE328F094EDA2EAE6B3D6200B6A79EDB67D6EC",
+      "Features": [
+        "OwnCreatureTokens",
+        "TeamBuff"
+      ],
+      "Notes": "Maakt vier eigen Hero-creatuurtokens, daarna \u00E9\u00E9n counter op iedere eigen creature. Ondersteunt brede creature/tokenstrategie; exalted beloont juist \u00E9\u00E9n aanvaller."
+    },
+    {
+      "OracleId": "6d5bb714-1bf4-4f75-9ea8-bdbd18b0425b",
+      "Name": "Treno, Dark City",
+      "Fingerprint": "D367B01FD9B0966C545BD99786AD383B7D52E35E909B17F8F15AA3A5C3E5C939",
+      "Features": [],
+      "Notes": "Maakt blauw/zwart en komt getapt; landtype Town, geen Island/Swamp. Geen Domain-typen uit mana-kleuren afleiden."
+    },
+    {
+      "OracleId": "0dc4bf39-67d6-44e5-8993-dd18b20cfdee",
+      "Name": "Ultima Weapon",
+      "Fingerprint": "CC8492ED2D13B93249FA927B4F6110F34E5423B97E073548AE865D9B568F03C2",
+      "Features": [
+        "DestroyRemoval"
+      ],
+      "Notes": "Equip {7} en grote buff. Vernietigt target vijandelijke creature alleen wanneer de uitgeruste creature aanvalt. Eerst een legaal uitgeruste aanvaller nodig; hoge equipkosten niet negeren."
+    },
+    {
+      "OracleId": "5a8e7e35-e9ea-4808-8aa7-7580a23b9d9d",
+      "Name": "Ultimecia, Temporal Threat",
+      "Fingerprint": "28B0ED5DB02447EE30916DE995983D392EBBE8A2F75339745E9D3E9A3663C3FB",
+      "Features": [
+        "AttackDrawPayoff",
+        "OwnDraw"
+      ],
+      "Notes": "ETB tapt vijandelijke creatures. Draw wanneer een eigen creature combat damage aan speler doet; evasion kan helpen, maar schade/timing blijft vereist. Geen draw op alleen aanvallen."
+    },
+    {
+      "OracleId": "f09811d0-c5da-4061-aaa7-835ccee3b05a",
+      "Name": "Undercity Dire Rat",
+      "Fingerprint": "AEDA95856B0DDD0F8459503FEC4D41D2C5BEA90A86A4F4517B4A6FC6E0D6188D",
+      "Features": [
+        "OwnArtifactTokens",
+        "TreasureOnDeath"
+      ],
+      "Notes": "Pas bij eigen dood \u00E9\u00E9n Treasure-token; geen creatuurtoken. Treasure kan zichzelf voor mana opofferen en zo een eigen artifact-deathtrigger voeden, maar die route vereist eerst de Rat-dood en daarna de Treasure-actie."
+    },
+    {
+      "OracleId": "837182db-1bf3-4a2c-bd01-1af9d9873561",
+      "Name": "Unsummon",
+      "Fingerprint": "75E8FB5EEEF03F7C043087B63A50498AD231325B63133CE501355A8C35446EFA",
+      "Features": [],
+      "Notes": "Creature naar eigenaarshand terugzetten is geen sterven of graveyard-recursion. Target en eigenaar bepalen wie de kaart terugkrijgt."
+    },
+    {
+      "OracleId": "e97870a3-855a-4701-8344-91a90095f70a",
+      "Name": "Vagrant Plowbeasts",
+      "Fingerprint": "60E208A555902A5BD3DF33B3D1869E3B4D739F638CB3FF7C3950056D21772861",
+      "Features": [
+        "PowerFivePayoff"
+      ],
+      "Notes": "Voor {1} target creature met daadwerkelijke power minstens vijf regenereren. Regeneration helpt niet tegen toughness nul, sacrifice of exile; de toestand en legaal target blijven voorwaarden."
+    },
+    {
+      "OracleId": "01d70534-7c26-4a54-9eca-d0ebbefc2159",
+      "Name": "Valeron Outlander",
+      "Fingerprint": "21C32EEE91726F329C64658A2B11B12F8B670E1B57C3FF19604057C37EC30D7F",
+      "Features": [
+        "ProtectionBlack"
+      ],
+      "Notes": "Protection from black; zwarte bronnen kunnen onder andere niet targeten/aanhechten. Geen algemene onblokkeerbaarheid of alle-kleuren-shroud."
+    },
+    {
+      "OracleId": "8046981c-d68c-4fbb-a133-8037996c9d10",
+      "Name": "Wandering Goblins",
+      "Fingerprint": "D2019C92C75A3887E734F46C8498395720DEAB0A296ED58283942345EE0546FD",
+      "Features": [
+        "DomainPayoff"
+      ],
+      "Notes": "Voor {3} tijdelijk \u002BX/\u002B0 per verschillend eigen basislandtype op slagveld. Elke activatie kost mana; geen gratis permanente bonus."
+    },
+    {
+      "OracleId": "a339961e-3555-467f-a4f8-c5eaac7e7ed1",
+      "Name": "Warrior\u0027s Sword",
+      "Fingerprint": "2231FE75FCF6B65151BD1B9EF52D36B2F575581FD18EFB71D2AD1EB21965D9B3",
+      "Features": [
+        "JobSelect",
+        "OwnCreatureTokens"
+      ],
+      "Notes": "Job select maakt eigen Hero-creatuurtoken en hecht dit Equipment eraan. Later equip {5}; bonus \u002B3/\u002B2 en Warrior-type zijn geen vrij beschikbare extra drager."
+    },
+    {
+      "OracleId": "6022608a-6cf2-45bd-adec-63211710a5ed",
+      "Name": "White Auracite",
+      "Fingerprint": "55FEF06AE9F4135F8DEE18075EF8CA8E55C5247667DC62460D531DA9B70BA60E",
+      "Features": [
+        "ExileRemoval"
+      ],
+      "Notes": "ETB verbant target vijandelijke nonland permanent tot dit artifact vertrekt; veroorzaakt geen sterven. Tap maakt wit; geen basislandtype uit dat mana afleiden."
+    },
+    {
+      "OracleId": "af1acf07-39e2-441e-a1e0-1db535535e2e",
+      "Name": "White Mage\u0027s Staff",
+      "Fingerprint": "BC7D60A3DD67D05DEE9D890212246E9E3325D4950914097EF4761ACE9618F412",
+      "Features": [
+        "JobSelect",
+        "OwnCreatureTokens"
+      ],
+      "Notes": "Job select maakt eigen Hero-creatuurtoken en hecht eraan. Geeft \u002B1/\u002B1 en conditionele life gain bij aanvallen, geen draw. Later equip {3}."
+    },
+    {
+      "OracleId": "220bfa3b-0e17-4350-a967-cfcf05b754ef",
+      "Name": "Woolly Thoctar",
+      "Fingerprint": "0279ADDC4506B30999324C87671E96913FC4805959B666F54985AA4FF852FE0F",
+      "Features": [],
+      "Notes": "Vanilla creature met gedrukte power vijf kan power-vijfvoorwaarden ondersteunen wanneer die daadwerkelijke power bij de betreffende gebeurtenis geldt."
+    },
+    {
+      "OracleId": "36b5c793-30f6-4f21-8bf6-c18d1c46d732",
+      "Name": "Xande, Dark Mage",
+      "Fingerprint": "C4EBDF8084C05B2240B0D72230FE932918CFC1E238F2C9AFBFA285BABFD68BC2",
+      "Features": [
+        "Evasion",
+        "GraveyardSpellPayoff"
+      ],
+      "Notes": "Menace. \u002B1/\u002B1 per noncreature, nonland KAART in eigen graveyard: geen landkaart, creaturekaart of verdwenen token. Self-mill/surveil en afgehandelde geschikte spells kunnen helpen; geen gegarandeerd aantal."
+    }
+  ]
+}

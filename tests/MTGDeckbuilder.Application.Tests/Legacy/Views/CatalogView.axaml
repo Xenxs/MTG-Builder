@@ -1,0 +1,97 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+             x:Class="MTGDeckbuilder.Desktop.Views.CatalogView" x:DataType="vm:CatalogViewModel">
+  <StackPanel Spacing="18">
+    <StackPanel Spacing="8">
+      <TextBlock Text="Catalogus" Classes="heading" />
+      <TextBlock Text="Ontdek Arena-printings en voeg de juiste uitgave toe aan je collectie." Classes="muted" TextWrapping="Wrap" />
+      <TextBlock Text="{Binding CatalogSummary}" Foreground="#B8A9FF" TextWrapping="Wrap" />
+    </StackPanel>
+    <Expander Header="Catalogus importeren / bijwerken" IsExpanded="{Binding ShowImport}" HorizontalAlignment="Stretch">
+      <Border Classes="card" Margin="0,10,0,0">
+        <StackPanel Spacing="12">
+          <TextBlock Text="Haalt Scryfall Default Cards op en verwerkt alleen Arena-printings. Je collectieaantallen en decks blijven behouden." Classes="muted" TextWrapping="Wrap" />
+          <WrapPanel Orientation="Horizontal">
+            <Button Name="ImportOnlineButton" Content="Bijwerken via Scryfall" Command="{Binding ImportOnlineCommand}" Classes="primary" Margin="0,0,10,10" />
+            <Button Content="Lokaal bestand kiezen…" Click="ImportFileClicked" IsEnabled="{Binding CanInteract}" Margin="0,0,10,10" />
+            <Button Name="CancelImportButton" Content="Pauzeren" Command="{Binding CancelImportCommand}" Margin="0,0,10,10" />
+            <Button Content="Geselecteerde import hervatten" Command="{Binding ResumeImportCommand}" Margin="0,0,0,10" />
+          </WrapPanel>
+          <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsImporting}" Height="5" />
+          <TextBlock Name="ImportProgressText" Text="{Binding ProgressText}" TextWrapping="Wrap" />
+          <TextBlock Text="Een lokaal bestand vervangt de zichtbare catalogus door zijn Arena-selectie. Bestaande collectie en decks blijven bewaard. Ondersteund: Scryfall JSONL, JSON-array en gzip." Classes="muted" TextWrapping="Wrap" FontSize="12" />
+          <ListBox ItemsSource="{Binding History}" SelectedItem="{Binding SelectedImport}" Height="100">
+            <ListBox.ItemTemplate><DataTemplate x:DataType="app:ImportHistoryItem"><TextBlock Text="{Binding Label}" Margin="5,4" /></DataTemplate></ListBox.ItemTemplate>
+          </ListBox>
+          <SelectableTextBlock Text="{Binding SelectedImport.Details}" TextWrapping="Wrap" FontSize="12" Foreground="#93A0B8" />
+        </StackPanel>
+      </Border>
+    </Expander>
+    <Border Classes="card" IsEnabled="{Binding CanInteract}">
+      <StackPanel Spacing="12">
+        <Grid ColumnDefinitions="2*,12,*" RowDefinitions="Auto,Auto">
+          <TextBlock Text="Kaartnaam" /><TextBlock Grid.Column="2" Text="Kaarttype bevat" />
+          <TextBox Grid.Row="1" Name="CatalogSearchInput" Text="{Binding SearchText}" PlaceholderText="Bijv. Llanowar of A-" Margin="0,5,0,0" MaxLength="200" />
+          <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding TypeFilter}" PlaceholderText="Bijv. Creature" Margin="0,5,0,0" MaxLength="100" />
+        </Grid>
+        <Grid ColumnDefinitions="2*,12,*,12,*">
+          <ComboBox ItemsSource="{Binding Sets}" SelectedItem="{Binding SelectedSet}" HorizontalAlignment="Stretch">
+            <ComboBox.ItemTemplate><DataTemplate x:DataType="app:CatalogSet"><TextBlock Text="{Binding Label}" TextTrimming="CharacterEllipsis" /></DataTemplate></ComboBox.ItemTemplate>
+          </ComboBox>
+          <ComboBox Grid.Column="2" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColor}" PlaceholderText="Alle kleuren" HorizontalAlignment="Stretch">
+            <ComboBox.ItemTemplate><DataTemplate x:DataType="vm:CatalogFilterOption"><TextBlock Text="{Binding Label}" /></DataTemplate></ComboBox.ItemTemplate>
+          </ComboBox>
+          <ComboBox Grid.Column="4" ItemsSource="{Binding Rarities}" SelectedItem="{Binding SelectedRarity}" PlaceholderText="Alle zeldzaamheden" HorizontalAlignment="Stretch">
+            <ComboBox.ItemTemplate><DataTemplate x:DataType="vm:CatalogFilterOption"><TextBlock Text="{Binding Label}" /></DataTemplate></ComboBox.ItemTemplate>
+          </ComboBox>
+        </Grid>
+        <WrapPanel Orientation="Horizontal">
+          <TextBlock Text="Max. manawaarde" VerticalAlignment="Center" Margin="0,0,8,0" />
+          <NumericUpDown Value="{Binding MaxManaValue}" Minimum="0" Maximum="1000" Increment="1" FormatString="0.##" Width="100" Margin="0,0,12,0" />
+          <CheckBox Content="Alleen in bezit" IsChecked="{Binding OwnedOnly}" Margin="0,0,15,0" />
+          <Button Content="Zoeken" Command="{Binding SearchCommand}" Classes="primary" Margin="0,0,10,0" />
+          <Button Content="Filters wissen" Command="{Binding ResetFiltersCommand}" />
+        </WrapPanel>
+      </StackPanel>
+    </Border>
+    <Grid ColumnDefinitions="3*,18,2*" IsEnabled="{Binding CanInteract}">
+      <Border Classes="card" Padding="16">
+        <StackPanel Spacing="12">
+          <TextBlock Text="{Binding PageInfo}" Classes="muted" FontSize="12" />
+          <ListBox Name="CatalogResults" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Height="340">
+            <ListBox.ItemTemplate>
+              <DataTemplate x:DataType="app:CatalogItem">
+                <StackPanel Spacing="5" Margin="4,7">
+                  <TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                  <TextBlock Text="{Binding Details}" FontSize="12" Classes="muted" TextWrapping="Wrap" />
+                </StackPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+          <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="← Vorige" Command="{Binding PreviousPageCommand}" />
+            <Button Content="Volgende →" Command="{Binding NextPageCommand}" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+      <Border Classes="card" Grid.Column="2" Padding="18">
+        <StackPanel Spacing="14">
+          <TextBlock Text="Geselecteerde printing" Classes="section" />
+          <TextBlock Text="Kies een zoekresultaat. Geen resultaten? Werk de catalogus bij of pas de filters aan." IsVisible="{Binding !HasSelection}" Classes="muted" TextWrapping="Wrap" />
+          <StackPanel IsVisible="{Binding HasSelection}" Spacing="12">
+            <TextBlock Text="{Binding SelectedItem.Name}" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" />
+            <TextBlock Text="{Binding SelectedItem.Details}" Classes="muted" TextWrapping="Wrap" />
+            <TextBlock Text="{Binding SelectedItem.PrintingDetails}" Foreground="#B8A9FF" TextWrapping="Wrap" />
+            <SelectableTextBlock Text="{Binding SelectedItem.OracleText}" TextWrapping="Wrap" />
+            <Border Height="1" Background="#354158" />
+            <TextBlock Text="Aantal in mijn collectie" />
+            <NumericUpDown Value="{Binding OwnedQuantity}" Minimum="0" Maximum="9999" Increment="1" FormatString="0" HorizontalAlignment="Left" />
+            <Button Content="Collectieaantal opslaan" Command="{Binding SaveOwnedCommand}" Classes="primary" />
+            <TextBlock Text="Vervangt het aantal voor deze printing. De catalogusimport zelf voegt geen bezit toe." Classes="muted" FontSize="12" TextWrapping="Wrap" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </Grid>
+    <TextBlock Text="Kaartgegevens: Scryfall · Magic: The Gathering © Wizards of the Coast. Dit is een onofficiële fanapp." Classes="muted" FontSize="11" TextWrapping="Wrap" />
+  </StackPanel>
+</UserControl>

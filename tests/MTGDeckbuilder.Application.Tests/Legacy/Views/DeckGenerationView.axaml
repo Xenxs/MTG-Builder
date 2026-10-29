@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.DeckGenerationView" x:DataType="vm:DeckGenerationViewModel">
+ <StackPanel Spacing="16">
+  <StackPanel Spacing="7"><TextBlock Text="Mono-rood deckvoorstel" Classes="heading" /><TextBlock Text="Arena Standard BO1 · 60 kaarten op basis van de beoordeelde kaartpool en een vast aggro-plan." Classes="muted" TextWrapping="Wrap" /></StackPanel>
+  <Border Classes="card"><StackPanel Spacing="10">
+   <TextBlock Text="Eerst je bezit, daarna je plan" Classes="section" />
+   <TextBlock Text="22 Mountains, 20 creatures en 18 overige spreuken. Dit is een ontwikkelheuristiek zonder gameplay- of win-ratebewijs. Bezit wordt niet voor andere decks gereserveerd." Classes="muted" TextWrapping="Wrap" />
+   <CheckBox Name="GenerationPlanning" Content="Planningsmodus: ontbrekende kaarten mogen in het voorstel" IsChecked="{Binding Planning}" />
+   <Button Name="CalculateGeneration" Content="Opnieuw berekenen met actueel bezit" Command="{Binding CalculateCommand}" Classes="primary" HorizontalAlignment="Left" />
+  </StackPanel></Border>
+  <StackPanel IsVisible="{Binding HasResult}" Spacing="16">
+   <Border Classes="card"><StackPanel Spacing="10">
+    <TextBlock Name="GenerationMode" Text="{Binding Result.ModeLabel}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+    <TextBlock Name="GenerationSummary" Text="{Binding Result.Summary}" Classes="section" TextWrapping="Wrap" />
+    <TextBlock Name="GenerationStatus" Text="{Binding Result.Status}" Foreground="#FFCCAA" TextWrapping="Wrap" />
+    <TextBlock Name="GenerationCurve" Text="{Binding Result.Curve}" TextWrapping="Wrap" />
+    <Expander Name="GenerationPlanExpander" Header="Functieverdeling en broncontrole" HorizontalAlignment="Stretch"><StackPanel Spacing="10" Margin="0,10,0,0"><TextBlock Text="{Binding Groups}" TextWrapping="Wrap" /><TextBlock Name="GenerationSource" Text="{Binding Result.Pool.Provenance}" Classes="muted" TextWrapping="Wrap" /></StackPanel></Expander>
+   </StackPanel></Border>
+   <Border Classes="card"><StackPanel Spacing="10">
+    <TextBlock Text="Kaarten, voorwaarden en tekorten" Classes="section" />
+    <ComboBox Name="GenerationCardPicker" ItemsSource="{Binding Lines}" SelectedItem="{Binding SelectedLine}" HorizontalAlignment="Stretch" PlaceholderText="Geen geschikte kaarten"><ComboBox.ItemTemplate><DataTemplate x:DataType="app:GeneratedLine"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate></ComboBox>
+    <Expander Name="GenerationCardExpander" Header="Waarom deze kaart? Lees alle voorwaarden" HorizontalAlignment="Stretch"><TextBlock Name="GenerationCardDetails" Text="{Binding SelectedLine.Details}" TextWrapping="Wrap" Margin="0,10,0,0" /></Expander>
+    <TextBlock Name="GenerationShortages" Text="{Binding Result.Shortages}" TextWrapping="Wrap" />
+    <Expander Name="GenerationListExpander" Header="Volledige lijst bekijken" HorizontalAlignment="Stretch"><ItemsControl ItemsSource="{Binding Lines}" Margin="0,10,0,0"><ItemsControl.ItemTemplate><DataTemplate x:DataType="app:GeneratedLine"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" Margin="0,0,0,5" /></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></Expander>
+   </StackPanel></Border>
+   <Border Classes="card"><StackPanel Spacing="10">
+    <TextBlock Text="Controleer en bewaar als nieuw deck" Classes="section" />
+    <TextBox Name="GenerationName" Text="{Binding DeckName}" PlaceholderText="Naam voor het nieuwe deck" MaxLength="120" />
+    <Button Name="ReviewGeneration" Content="Voorbeeld opnieuw controleren" Command="{Binding ReviewCommand}" IsEnabled="{Binding CanReview}" HorizontalAlignment="Left" />
+    <StackPanel IsVisible="{Binding HasPreview}" Spacing="8">
+     <TextBlock Name="GenerationPreviewName" Text="{Binding Preview.Name}" FontWeight="Bold" TextWrapping="Wrap" />
+     <TextBlock Text="{Binding Preview.Deck.ModeLabel}" Foreground="#C9BFFF" TextWrapping="Wrap" />
+     <TextBlock Text="{Binding Preview.Deck.Summary}" TextWrapping="Wrap" />
+     <Button Name="SaveGeneration" Content="{Binding SaveLabel}" Command="{Binding SaveCommand}" IsEnabled="{Binding CanSave}" Classes="primary" HorizontalAlignment="Left" />
+    </StackPanel>
+    <TextBlock Name="GenerationReceipt" Text="{Binding Receipt}" Foreground="#79C9AF" TextWrapping="Wrap" />
+   </StackPanel></Border>
+  </StackPanel>
+ </StackPanel>
+</UserControl>

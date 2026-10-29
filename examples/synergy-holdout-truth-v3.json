@@ -1,0 +1,170 @@
+[
+  {
+    "Name": "Planar Despair",
+    "OracleId": "1ba36042-8902-4abb-a4ae-a8d26d81a0de",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "Note": "Own five-basic-type scaling; symmetric negative stats, no own team buff."
+  },
+  {
+    "Name": "Jodah's Codex",
+    "OracleId": "1ba5b108-59cb-4af1-88cb-d3ceaaf00784",
+    "ExpectedThemes": [
+      "domain",
+      "draw"
+    ],
+    "Note": "Activated draw; domain reduces generic activation cost, not a basic land type by itself."
+  },
+  {
+    "Name": "Wandering Stream",
+    "OracleId": "1f592b83-7838-4466-8bcb-093ac7346c55",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "Note": "Domain-dependent life gain; minimum three life depends on available types."
+  },
+  {
+    "Name": "Argothian Enchantress",
+    "OracleId": "11f17f85-ca97-4551-838f-7cb32f0e5f10",
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "Note": "Own draw only when casting an enchantment; shroud blocks own targeted equip."
+  },
+  {
+    "Name": "Artifist Acumen",
+    "OracleId": "129b41cf-8327-42f0-b186-1111b42c08ab",
+    "ExpectedThemes": [
+      "draw",
+      "tokens"
+    ],
+    "Note": "Draw and temporary first strike for own team; a token-payoff label does not guarantee tokens."
+  },
+  {
+    "Name": "Arwen's Gift",
+    "OracleId": "13ac12db-d04b-4211-90df-886e1c597e8f",
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "Note": "Scry then draw is own draw, not discard or graveyard setup."
+  },
+  {
+    "Name": "Bronzeplate Boar",
+    "OracleId": "0a09f825-0484-40b4-8adf-1028385db480",
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "Note": "Reconfigure changes creature/equipment status; not an ordinary equip ability."
+  },
+  {
+    "Name": "Field-Tested Frying Pan",
+    "OracleId": "0c9e3e6a-0bab-4619-b135-d2dbe824b1f0",
+    "ExpectedThemes": [
+      "equipment",
+      "tokens"
+    ],
+    "Note": "Own Food artifact and Halfling creature are distinct token types; automatic attach only on entry."
+  },
+  {
+    "Name": "Concealed Weapon",
+    "OracleId": "104565b1-2db8-4c01-ae3d-14087768be45",
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "Note": "Equipment and disguise; face-down characteristics and turning face up are not modeled."
+  },
+  {
+    "Name": "Waveskimmer Aven",
+    "OracleId": "113d6c3c-3492-47aa-81d1-359d852d8d0a",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "Note": "Flying solo attacker with exalted."
+  },
+  {
+    "Name": "Dawnray Archer",
+    "OracleId": "19055292-1a79-413e-8056-7d4aec9839ed",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "Note": "Exalted; activated damage restricted to attacking or blocking creature."
+  },
+  {
+    "Name": "Sigiled Behemoth",
+    "OracleId": "277ff122-2d6e-441e-9ec1-980cdb393982",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "Note": "Exalted creature without inherent evasion."
+  },
+  {
+    "Name": "Apostle of Purifying Light",
+    "OracleId": "0b49dbdc-4f1d-4895-b263-a48c7b7e6b44",
+    "ExpectedThemes": [],
+    "Note": "Exile from any graveyard is interaction, not own graveyard setup or recursion."
+  },
+  {
+    "Name": "Argivian Find",
+    "OracleId": "0b6c74a7-d7d3-4c05-84b1-bcb580bb476f",
+    "ExpectedThemes": [
+      "graveyard"
+    ],
+    "Note": "Own artifact/enchantment card to hand, not creature recursion."
+  },
+  {
+    "Name": "Armored Scrapgorger",
+    "OracleId": "0d3a4db2-df79-4946-8f87-b174cf9c293c",
+    "ExpectedThemes": [],
+    "Note": "Exile from any graveyard is not own graveyard payoff; mana output not a casting cost."
+  },
+  {
+    "Name": "Anowon, the Ruin Sage",
+    "OracleId": "0c201f79-9eca-48c8-88ba-a20fa6918a07",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "Note": "Each player sacrifices non-Vampire; own suitable creature may not exist. Not a repeatable at-will outlet."
+  },
+  {
+    "Name": "Balduvian Atrocity",
+    "OracleId": "0dcd13ab-37f9-4d66-8227-1e72d920f297",
+    "ExpectedThemes": [
+      "graveyard",
+      "sacrifice"
+    ],
+    "Note": "Conditional kicked recursion of mana value at most three; delayed sacrifice of returned creature."
+  },
+  {
+    "Name": "Arcum Dagsson",
+    "OracleId": "0fdfe986-0216-468b-aac8-bbcf588fd894",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "Note": "Target artifact-creature controller sacrifices; can target own, conditional controller and library target."
+  },
+  {
+    "Name": "Artistic Process",
+    "OracleId": "0c061a1b-206a-4fcc-92e5-30c8ed9d65c1",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "One mutually exclusive token mode; damage modes not simultaneous."
+  },
+  {
+    "Name": "Ajani Resolute",
+    "OracleId": "0d60c095-4c6c-4618-8ef3-508f3d454efa",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Conditional loyalty token and eventual emblem team buff; quoted granted abilities need nested scope."
+  },
+  {
+    "Name": "Ajani Fells the Godsire",
+    "OracleId": "0daefecb-7189-44bb-9ca0-96a9572cd240",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "Note": "Chapter II creates own creature; chapter timing and counters not interpreted."
+  }
+]

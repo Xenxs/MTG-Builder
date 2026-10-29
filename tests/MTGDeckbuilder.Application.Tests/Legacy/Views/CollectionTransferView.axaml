@@ -1,0 +1,68 @@
+<UserControl xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:vm="using:MTGDeckbuilder.Desktop.ViewModels" xmlns:app="using:MTGDeckbuilder.Application"
+ x:Class="MTGDeckbuilder.Desktop.Views.CollectionTransferView" x:DataType="vm:CollectionTransferViewModel">
+ <StackPanel Spacing="16">
+  <TextBlock Text="Collectie-import" Classes="heading" />
+  <TextBlock Text="Importeer bezitaantallen uit een collectiebestand. Controleer eerst de wijzigingen; je decks blijven behouden." Classes="muted" TextWrapping="Wrap" />
+  <Border Classes="card">
+   <StackPanel Spacing="12">
+    <TextBlock Text="Bestand voorbereiden" Classes="section" />
+    <TextBlock Text="JSON-collectieformaat v1 · geen Arena-log of decklijst. Aantallen vervangen het bezit per gekoppelde printing; niet genoemde kaarten blijven staan." TextWrapping="Wrap" Classes="muted" />
+    <TextBlock Text="Een bestand maken? Exporteer je huidige collectie en pas de aantallen aan. Formaatbeschrijving en voorbeeldbestand staan in docs/COLLECTION_IMPORT.md en examples/." TextWrapping="Wrap" Classes="muted" />
+    <StackPanel Orientation="Horizontal" Spacing="10" IsEnabled="{Binding CanInteract}">
+     <Button Name="PrepareCollectionFile" Content="Collectiebestand kiezen" Classes="primary" Click="PrepareClicked" />
+     <Button Name="ExportCollectionFile" Content="Mijn collectie exporteren" Click="ExportClicked" />
+    </StackPanel>
+    <TextBlock Text="{Binding Status}" TextWrapping="Wrap" />
+    <ProgressBar IsVisible="{Binding IsWorking}" IsIndeterminate="True" Height="4" />
+    <Button Content="Annuleren" Command="{Binding CancelCommand}" IsVisible="{Binding IsWorking}" HorizontalAlignment="Left" />
+    <Border Background="#412733" CornerRadius="6" Padding="12" IsVisible="{Binding HasError}">
+     <TextBlock Text="{Binding Error}" Foreground="#FFC9D4" TextWrapping="Wrap" />
+    </Border>
+   </StackPanel>
+  </Border>
+  <Border Classes="card" IsVisible="{Binding HasPreview}" IsEnabled="{Binding CanInteract}">
+   <StackPanel Spacing="12">
+    <TextBlock Text="{Binding PreviewHeading}" Classes="section" />
+    <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" />
+    <TextBlock Text="{Binding PageLabel}" Classes="muted" TextWrapping="Wrap" />
+    <ListBox Name="ImportPreviewRows" ItemsSource="{Binding Rows}" SelectedItem="{Binding SelectedRow}" Height="230">
+     <ListBox.ItemTemplate><DataTemplate x:DataType="app:CollectionPreviewRow">
+      <StackPanel Spacing="4" Margin="4,6"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Details}" Classes="muted" FontSize="12" TextWrapping="Wrap" /></StackPanel>
+     </DataTemplate></ListBox.ItemTemplate>
+    </ListBox>
+    <StackPanel Orientation="Horizontal" Spacing="10">
+     <Button Content="Vorige regels" Command="{Binding PreviousPageCommand}" /><Button Content="Volgende regels" Command="{Binding NextPageCommand}" />
+    </StackPanel>
+    <Expander Header="Geselecteerde regel koppelen of overslaan" IsVisible="{Binding IsPrepared}" HorizontalAlignment="Stretch">
+     <StackPanel Spacing="10" Margin="0,12,0,0">
+      <TextBlock Text="Kies een bestaande catalogus- of handmatige printing. Je keuze wijzigt alleen het bezit van dat doel; printings en deckregels worden niet samengevoegd." TextWrapping="Wrap" Classes="muted" />
+      <Button Content="Mogelijke koppelingen tonen" Command="{Binding CandidatesCommand}" HorizontalAlignment="Left" />
+      <Grid ColumnDefinitions="*,Auto"><TextBox Name="ImportTargetSearch" Text="{Binding TargetSearch}" PlaceholderText="Of zoek op naam, set of collectornummer" /><Button Grid.Column="1" Content="Zoeken" Command="{Binding SearchTargetsCommand}" Margin="10,0,0,0" /></Grid>
+      <ComboBox Name="ImportTargetPicker" ItemsSource="{Binding Targets}" SelectedItem="{Binding SelectedTarget}" HorizontalAlignment="Stretch" MaxDropDownHeight="260">
+       <ComboBox.ItemTemplate><DataTemplate x:DataType="app:CollectionTarget"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /></DataTemplate></ComboBox.ItemTemplate>
+      </ComboBox>
+      <StackPanel Orientation="Horizontal" Spacing="10"><Button Name="LinkCollectionRow" Content="Deze printing koppelen" Command="{Binding LinkCommand}" /><Button Content="Regel overslaan" Command="{Binding SkipCommand}" /></StackPanel>
+     </StackPanel>
+    </Expander>
+    <StackPanel Spacing="10" IsVisible="{Binding IsPrepared}">
+     <TextBlock Text="Bij onbekende of dubbele koppelingen kun je nog niet toepassen. Een expliciet aantal 0 maakt het bezit nul; ontbrekende regels doen dat niet." TextWrapping="Wrap" Classes="muted" />
+     <CheckBox Name="ReviewCollectionChanges" Content="Ik heb de koppelingen en aantallen gecontroleerd" IsChecked="{Binding Reviewed}" />
+     <StackPanel Orientation="Horizontal" Spacing="10"><Button Name="ApplyCollectionImport" Content="Wijzigingen toepassen" Classes="primary" Command="{Binding ApplyCommand}" /><Button Content="Voorbereiding verwerpen" Command="{Binding DiscardCommand}" /></StackPanel>
+    </StackPanel>
+   </StackPanel>
+  </Border>
+  <Border Classes="card" IsEnabled="{Binding CanInteract}">
+   <StackPanel Spacing="12">
+    <TextBlock Text="Importhistorie en herstel" Classes="section" />
+    <TextBlock Text="Open een eerdere voorbereiding of herstel een toegepaste import. Herstel wordt volledig geblokkeerd als een betrokken aantal later is gewijzigd." Classes="muted" TextWrapping="Wrap" />
+    <ListBox ItemsSource="{Binding History}" SelectedItem="{Binding SelectedHistory}" Height="160">
+     <ListBox.ItemTemplate><DataTemplate x:DataType="app:CollectionImportHistory"><StackPanel Margin="4,5" Spacing="3"><TextBlock Text="{Binding Label}" TextWrapping="Wrap" /><TextBlock Text="{Binding Details}" Classes="muted" FontSize="12" /></StackPanel></DataTemplate></ListBox.ItemTemplate>
+    </ListBox>
+    <StackPanel Orientation="Horizontal" Spacing="10"><Button Content="Vorige imports" Command="{Binding PreviousHistoryCommand}" /><TextBlock Text="{Binding HistoryPage}" VerticalAlignment="Center" /><Button Content="Volgende imports" Command="{Binding NextHistoryCommand}" /><Button Content="Details openen" Command="{Binding OpenHistoryCommand}" /></StackPanel>
+    <CheckBox Name="ConfirmCollectionUndo" Content="Ik wil de wijzigingen van de geselecteerde import terugdraaien" IsChecked="{Binding ConfirmUndo}" />
+    <Button Name="UndoCollectionImport" Content="Geselecteerde import herstellen" Command="{Binding UndoCommand}" HorizontalAlignment="Left" />
+   </StackPanel>
+  </Border>
+ </StackPanel>
+</UserControl>

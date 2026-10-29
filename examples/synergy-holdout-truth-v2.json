@@ -1,0 +1,198 @@
+[
+  {
+    "OracleId": "1402c792-6e2f-4a85-8a0c-8db3c8ce5f1f",
+    "Name": "Zar Ojanen, Scion of Efrava",
+    "ExpectedThemes": [
+      "domain",
+      "tokens"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Conditional team counters only below own domain toughness threshold."
+  },
+  {
+    "OracleId": "1423b8e6-9165-4a89-a6ed-18085f460bca",
+    "Name": "Power Armor",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Activated own domain scaling on a target creature."
+  },
+  {
+    "OracleId": "1a19fc9e-a822-49ca-ade0-d58054f3caf6",
+    "Name": "Exploding Borders",
+    "ExpectedThemes": [
+      "domain"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Own domain and land search despite target-player damage elsewhere."
+  },
+  {
+    "OracleId": "0cd77ee1-408c-4c51-ac87-24f4fc50083d",
+    "Name": "Academy Wall",
+    "ExpectedThemes": [
+      "draw",
+      "graveyard"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Own optional loot, only instant/sorcery casts, once per turn."
+  },
+  {
+    "OracleId": "0f623e23-81ae-4c35-b68b-e0a2f431cbad",
+    "Name": "Amass the Components",
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Draw then bottom of library, not graveyard discard."
+  },
+  {
+    "OracleId": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+    "Name": "Azami, Lady of Scrolls",
+    "ExpectedThemes": [
+      "draw"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Untapped Wizard cost; Azami can pay as a Wizard herself."
+  },
+  {
+    "OracleId": "041738f9-7465-4a6c-8046-a897d88cbcdd",
+    "Name": "Executioner's Hood",
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Equipment; intimidate is conditional evasion, not unconditional unblockable."
+  },
+  {
+    "OracleId": "048c3b0b-48ef-42f5-a2af-90aa1d133296",
+    "Name": "Atomic Microsizer",
+    "ExpectedThemes": [
+      "equipment"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Equipment and conditional targeted 1/1 unblockable effect."
+  },
+  {
+    "OracleId": "05ac6e5c-b773-45ed-9c74-3cd4b05bc287",
+    "Name": "Deathrender",
+    "ExpectedThemes": [
+      "equipment",
+      "sacrifice"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Equipped-creature death payoff, puts card from hand, not graveyard recursion."
+  },
+  {
+    "OracleId": "0cb41c3f-5e6a-4c63-80b5-c9ab84b4e4bf",
+    "Name": "Order of Sacred Dusk",
+    "ExpectedThemes": [
+      "exalted",
+      "tokens"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Convoke can use creature tokens; not guaranteed mana, vampire exalted restricted."
+  },
+  {
+    "OracleId": "10821e37-8a83-4d8e-a12f-249a10933a22",
+    "Name": "Qasali Pridemage",
+    "ExpectedThemes": [
+      "sacrifice",
+      "exalted"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Self sacrifice, not an outlet for arbitrary creatures."
+  },
+  {
+    "OracleId": "10b8fd4d-1696-4b0d-b791-7bd3de504457",
+    "Name": "Knight of Glory",
+    "ExpectedThemes": [
+      "exalted"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Protection from black does not block nontargeted exalted."
+  },
+  {
+    "OracleId": "092ceffb-1ee4-452c-b15e-5b79267d42a6",
+    "Name": "Angrath, the Flame-Chained",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Temporary control then delayed sacrifice with mana-value limit; ownership/controller changes must not be guessed."
+  },
+  {
+    "OracleId": "0a364b66-95df-480b-a733-e90f6d5c4d2b",
+    "Name": "Altar of Bhaal // Bone Offering",
+    "ExpectedThemes": [
+      "tokens",
+      "graveyard"
+    ],
+    "UnsafeMergedShape": true,
+    "Note": "Adventure effects and costs are separate; unsafe merged mode facts in first v2 output."
+  },
+  {
+    "OracleId": "0b2481d6-97a0-4f92-b7e5-3451863fd7fb",
+    "Name": "Archangel Elspeth",
+    "ExpectedThemes": [
+      "tokens",
+      "graveyard"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Loyalty token ability and separate limited nonland-permanent recursion."
+  },
+  {
+    "OracleId": "062c8e40-dea7-4df7-bcaa-f1d696fe61c3",
+    "Name": "Aetherjacket",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Self-sacrifice artifact creature, not general creature outlet."
+  },
+  {
+    "OracleId": "0897adea-2759-40e8-a05a-c722473e1cf3",
+    "Name": "Aeolipile",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "One-shot self artifact sacrifice."
+  },
+  {
+    "OracleId": "0a1d817d-dce8-4e83-a380-909f7c9eee46",
+    "Name": "Bant Panorama",
+    "ExpectedThemes": [
+      "sacrifice"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Self land sacrifice and restricted basic land search, not domain payoff or all five search types."
+  },
+  {
+    "OracleId": "06bea0b2-1d0f-4d64-a13e-723d08042e83",
+    "Name": "Arbalest Engineers",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Optional mode makes an artifact Powerstone, not a creature; mana restriction matters."
+  },
+  {
+    "OracleId": "087018b6-6355-4534-9a35-9336b4b7fccc",
+    "Name": "Assure // Assemble",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "UnsafeMergedShape": true,
+    "Note": "Split-card effects and costs must not be merged."
+  },
+  {
+    "OracleId": "0a0a051c-59ed-4286-b842-a34da7ef15d5",
+    "Name": "Asinine Antics",
+    "ExpectedThemes": [
+      "tokens"
+    ],
+    "UnsafeMergedShape": false,
+    "Note": "Own enchantment Aura/Role tokens attached to enemy creatures; not own creature or artifact tokens."
+  }
+]

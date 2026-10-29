@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><IsPackable>false</IsPackable><IsTestProject>true</IsTestProject></PropertyGroup>
+  <ItemGroup>
+    <None Include="../../examples/synergy-holdout-cards-v1.json" Link="synergy-holdout-cards-v1.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/synergy-holdout-truth-v1.json" Link="synergy-holdout-truth-v1.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/synergy-holdout-cards-v2.json" Link="synergy-holdout-cards-v2.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/manabox-conflux.csv" Link="manabox-conflux.csv" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/manabox-physical-starters.csv" Link="manabox-physical-starters.csv" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-reference-v1.json" Link="role-reference-v1.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-reference-v2.json" Link="role-reference-v2.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-reference-v3.json" Link="role-reference-v3.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-evaluation-v1.json" Link="role-evaluation-v1.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-evaluation-v2.json" Link="role-evaluation-v2.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/role-evaluation-v2-baseline.json" Link="role-evaluation-v2-baseline.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../examples/mono-red-advice-reference-v1.json" Link="mono-red-advice-reference-v1.json" CopyToOutputDirectory="PreserveNewest" />
+    <ProjectReference Include="../../src/MTGDeckbuilder.Desktop/MTGDeckbuilder.Desktop.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="4.0.1" PrivateAssets="all" />
+    <PackageReference Include="Avalonia.Headless.XUnit" Version="12.1.4" />
+  </ItemGroup>
+</Project>
