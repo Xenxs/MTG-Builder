@@ -301,3 +301,17 @@ schone tweede pc, echte scan, universele kaartkennis of gameplayclaim. Bewijs/gr
 docs/SYNERGY_FULL_CATALOG.md, docs/VALIDATION_PHASE17.md en pakketnacontrole.
 Geen volgende fase starten zonder opdracht. Advies GPT-6.1 Sol / High; geen modelwissel.
 
+## GitHub-repository — 29 oktober 2026
+
+De gebruiker heeft de repositorymigratie opgedragen en expliciet openbare plaatsing
+in https://github.com/Xenxs/MTG-Builder goedgekeurd. Dit is onderhoud, geen start van
+een volgende enginefase. De lokale werkmap blijft bestaan en main volgt origin/main.
+Gebruik voor broncode/tests/docs/assets/kleine voorbeelden de repository. .local,
+artifacts, databases, logs, persoonlijke IDE-instellingen en sleutels niet committen.
+Grote bulk-/gebruikersdata en bestaande distributieproeven blijven uitsluitend lokaal.
+Een schone bronkopie is werkelijk gebouwd/getest: nul buildfouten/waarschuwingen,
+582 geslaagde tests, één expliciete skip voor de ontbrekende all-cards-UI-fixture.
+Verwar die skip niet met de volledige fase-17-proef met 583 geslaagde tests.
+GitHub Actions-resultaten alleen claimen op basis van de werkelijk afgeronde run.
+Zie docs/GITHUB.md. Geen chatinstellingen, appfunctionaliteit of gebruikersdata gewijzigd.
+

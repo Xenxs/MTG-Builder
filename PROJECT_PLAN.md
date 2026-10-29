@@ -1233,4 +1233,25 @@ uitgesloten. README en docs/GITHUB.md beschrijven starten vanaf bron en het onde
 tussen repository en lokale distributie-/bulkproeven. Uitvoering/resultaat worden na
 de daadwerkelijke upload en verificatie vastgelegd; geen succes vooruit claimen.
 
+### Migratie daadwerkelijk uitgevoerd
+
+De 306 bestanden van de v1.4.0-bronbasis staan op main in de openbare repository.
+Importcommit e4d29709ea930f897c71f55856ac3a65e3d2a4f7 heeft exact dezelfde Git-tree
+7d6be4102a02f950b80f4d47103a497b493d2107 als de lokaal voorbereide bestanden.
+Via GitHub-koppeling geplaatst en vervolgens met een gewone openbare Git-fetch terug
+gelezen; de lokale main volgt origin/main. Geen bestaande externe geschiedenis
+overschreven: de doelrepository was leeg. Geen oudere fasecommits gereconstrueerd.
+
+Normale broncontrole én schone export zonder .local/artifacts zijn geslaagd: build
+nul fouten/waarschuwingen; 582 tests geslaagd, één expliciete skip voor de optionele
+all-cards-UI-fixture. Gerenderde collectie bekeken. De 583-testmeting van fase17 betrof
+wel die grote fixture en blijft historische, afzonderlijke validatie. Alle lokale
+databases/distributies/meetartefacten behouden en uitgesloten van de repository.
+
+De bestaande Windows-workflow is werkelijk gestart op GitHub:
+https://github.com/Xenxs/MTG-Builder/actions/runs/40889954568. De eindstatus wordt
+alleen na afronding vastgelegd in het lokale migratiebewijs; een lokale pass wordt
+niet als GitHub-pass gepresenteerd. De laatste onderhoudscommit verandert alleen
+documentatie en start met [skip ci] geen dubbele build voor dezelfde runtimecode.
+
 

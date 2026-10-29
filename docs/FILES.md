@@ -25,6 +25,7 @@ Zie ook [wijzigingen fase 17](CHANGES_PHASE17.md).
 - `docs/DECKS.md`
 - `docs/FILES.md`
 - `docs/FORMAT_VALIDATION.md`
+- `docs/GITHUB.md`
 - `docs/FYSIEKE_KAARTEN_HANDLEIDING.md`
 - `docs/MAGIC_WIZARD_HANDLEIDING.md`
 - `docs/MONO_RED_POOL.md`
